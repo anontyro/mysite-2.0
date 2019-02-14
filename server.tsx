@@ -7,6 +7,7 @@ import {ApolloServer} from 'apollo-server-express';
 import {IncomingMessage, ServerResponse} from 'http';
 import {buildSchema} from 'type-graphql';
 import {RegisterUserResolver} from './server/modules/user/register';
+import {defaultConnection as con} from './connection';
 
 const isDev = process.env.NODE_ENV !== 'production';
 const app = next({dev: isDev});
@@ -17,7 +18,18 @@ const PORT = process.env.PORT || 3000;
 app
   .prepare()
   .then(() => {
-    return createConnection();
+    return createConnection({
+      name: con.name,
+      type: 'mysql',
+      host: con.host,
+      port: con.port,
+      username: con.username,
+      password: con.password,
+      database: con.database,
+      synchronize: true,
+      logging: true,
+      entities: [...con.entities],
+    });
   })
   .then(() => {
     return buildSchema({
