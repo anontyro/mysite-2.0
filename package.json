@@ -1,5 +1,5 @@
 {
-  "name": "with-typescript",
+  "name": "my-site-nextjs-express-graphql",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon -w server -w server.tsx --exec yarn type-check",
