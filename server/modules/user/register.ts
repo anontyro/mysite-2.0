@@ -64,7 +64,6 @@ export class RegisterUserResolver {
     @Arg('password') password: string
   ): Promise<any> {
     const hashedPassword = await bcrypt.hash(password, 12);
-
     const user = await User.create({
       firstName,
       lastName,

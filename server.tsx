@@ -7,7 +7,9 @@ import {ApolloServer} from 'apollo-server-express';
 import {IncomingMessage, ServerResponse} from 'http';
 import {buildSchema} from 'type-graphql';
 import {RegisterUserResolver} from './server/modules/user/register';
+import {LoginResolver} from './server/modules/user/login';
 import {defaultConnection as con} from './connection';
+require('dotenv').config();
 
 const isDev = process.env.NODE_ENV !== 'production';
 const app = next({dev: isDev});
@@ -33,7 +35,7 @@ app
   })
   .then(() => {
     return buildSchema({
-      resolvers: [RegisterUserResolver],
+      resolvers: [RegisterUserResolver, LoginResolver],
     });
   })
   .then(schema => {
