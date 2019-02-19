@@ -1,4 +1,4 @@
-import {Resolver, Query, Mutation, Arg} from 'type-graphql';
+import {Resolver, Query, Mutation, Arg, Authorized} from 'type-graphql';
 import * as bcrypt from 'bcryptjs';
 import User from '../../entity/User';
 import {Like} from 'typeorm';
@@ -10,13 +10,16 @@ export class RegisterUserResolver {
     return 'hello world';
   }
 
+  @Authorized()
   @Query(() => [User])
   async findUser(
     @Arg('email', {nullable: true}) email: string,
     @Arg('firstName', {nullable: true}) firstName: string,
-    @Arg('lastName', {nullable: true}) lastName: string
+    @Arg('lastName', {nullable: true}) lastName: string,
+    @Arg('jwtToken', {nullable: true}) token: string
   ): Promise<User[]> {
     if (email) {
+      console.log(token);
       const userList: User[] = await User.find({
         where: {
           email: Like(`%${email}%`),

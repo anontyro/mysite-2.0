@@ -7,8 +7,9 @@ import {ApolloServer} from 'apollo-server-express';
 import {IncomingMessage, ServerResponse} from 'http';
 import {buildSchema} from 'type-graphql';
 import {RegisterUserResolver} from './server/modules/user/register';
-import {LoginResolver} from './server/modules/user/login';
+import {LoginResolver, LOCAL_SECRET} from './server/modules/user/login';
 import {defaultConnection as con} from './connection';
+import * as jwt from 'jsonwebtoken';
 require('dotenv').config();
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -36,6 +37,19 @@ app
   .then(() => {
     return buildSchema({
       resolvers: [RegisterUserResolver, LoginResolver],
+      authChecker: ({args}) => {
+        if (args.jwtToken) {
+          try {
+            const secret = process.env.JWT_SECRET || LOCAL_SECRET;
+            const verified: any = jwt.verify(args.jwtToken, secret);
+            console.log(verified);
+            return true;
+          } catch (ex) {
+            return false;
+          }
+        }
+        return false;
+      },
     });
   })
   .then(schema => {

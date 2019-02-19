@@ -4,7 +4,7 @@ import User from '../../entity/User';
 import * as jwt from 'jsonwebtoken';
 require('dotenv').config();
 
-const LOCAL_SECRET = '123efg34wsdfv43rwfcse3r4t5htrbfvcf3r43qwfv';
+export const LOCAL_SECRET = '123efg34wsdfv43rwfcse3r4t5htrbfvcf3r43qwfv';
 const TOKEN_EXPIRY_SECONDS = 86400;
 
 @Resolver()

@@ -17,24 +17,40 @@ export default class MyBlog extends BaseEntity {
   body: string;
 
   @Field()
+  @Column('text')
+  tags: string;
+
+  @Field()
   @Column('int')
   author: number;
 
   @Field()
-  @Column('text')
+  @Column()
   coverImage: string;
 
   @Field()
   @Column()
-  publish: Date;
+  thumbNail: string;
 
   @Field()
   @Column()
-  lastModified: Date;
+  permaLink: string;
+
+  @Field()
+  @Column('int')
+  timeRequired: number;
 
   @Field()
   @Column()
-  date: Date;
+  datePublished: Date;
+
+  @Field()
+  @Column()
+  dateLastModified: Date;
+
+  @Field()
+  @Column()
+  dateCreated: Date;
 
   @Field()
   @Column()
