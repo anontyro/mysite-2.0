@@ -1,6 +1,14 @@
 import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from 'typeorm';
 import {ObjectType, Field, ID} from 'type-graphql';
 
+export interface IUser {
+  id: number;
+  firstName: string;
+  lastName: string;
+  isActive: boolean;
+  email: string;
+  password: string;
+}
 @ObjectType()
 @Entity()
 export default class User extends BaseEntity {
