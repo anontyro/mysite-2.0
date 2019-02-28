@@ -1,6 +1,22 @@
 import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from 'typeorm';
 import {ObjectType, Field, ID} from 'type-graphql';
 
+export interface Blog {
+  title: string;
+  body: string;
+  tags?: string;
+  author: number;
+  coverImage: string;
+  thumbNail?: string;
+  permaLink: string;
+  timeRequired?: number;
+  datePublished?: Date;
+  dateLastModified?: Date;
+  dateCreated: Date;
+  draft: boolean;
+  slug: string;
+}
+
 @ObjectType()
 @Entity()
 export default class MyBlog extends BaseEntity {
