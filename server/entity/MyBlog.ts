@@ -32,7 +32,7 @@ export default class MyBlog extends BaseEntity {
   @Column('text')
   body: string;
 
-  @Field()
+  @Field({nullable: true})
   @Column('text', {nullable: true})
   tags: string;
 
@@ -52,15 +52,15 @@ export default class MyBlog extends BaseEntity {
   @Column()
   permaLink: string;
 
-  @Field()
+  @Field({nullable: true})
   @Column('int', {nullable: true})
   timeRequired: number;
 
-  @Field()
+  @Field({nullable: true})
   @Column({nullable: true})
   datePublished: Date;
 
-  @Field()
+  @Field({nullable: true})
   @Column({nullable: true})
   dateLastModified: Date;
 

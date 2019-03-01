@@ -2,7 +2,7 @@
   "name": "my-site-nextjs-express-graphql",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon -w server -w server.tsx --exec yarn type-check",
+    "dev": "nodemon -w server/ -w server.tsx --exec yarn type-check",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc && ts-node dist/server.js",
