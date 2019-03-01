@@ -7,6 +7,7 @@ import {ApolloServer} from 'apollo-server-express';
 import {IncomingMessage, ServerResponse} from 'http';
 import {buildSchema} from 'type-graphql';
 import {RegisterUserResolver} from './server/modules/user/register';
+import {BlogResolver} from './server/modules/blog/blog';
 import {LoginResolver, LOCAL_SECRET} from './server/modules/user/login';
 import {defaultConnection as con} from './connection';
 import * as jwt from 'jsonwebtoken';
@@ -36,7 +37,7 @@ app
   })
   .then(() => {
     return buildSchema({
-      resolvers: [RegisterUserResolver, LoginResolver],
+      resolvers: [RegisterUserResolver, LoginResolver, BlogResolver],
       authChecker: ({args}) => {
         if (args.jwtToken) {
           try {
