@@ -9,6 +9,7 @@ import {buildSchema} from 'type-graphql';
 import {RegisterUserResolver} from './server/modules/user/register';
 import {BlogResolver} from './server/modules/blog/blog';
 import {LoginResolver, LOCAL_SECRET} from './server/modules/user/login';
+import {FileResolver} from './server/modules/file/file';
 import {defaultConnection as con} from './connection';
 import * as jwt from 'jsonwebtoken';
 require('dotenv').config();
@@ -37,7 +38,12 @@ app
   })
   .then(() => {
     return buildSchema({
-      resolvers: [RegisterUserResolver, LoginResolver, BlogResolver],
+      resolvers: [
+        RegisterUserResolver,
+        LoginResolver,
+        BlogResolver,
+        FileResolver,
+      ],
       authChecker: ({args}) => {
         if (args.jwtToken) {
           try {
@@ -59,6 +65,7 @@ app
     apolloServer.applyMiddleware({app: server});
 
     server.use(cors());
+    server.use(express.static('public'));
     server.get('*', (req: IncomingMessage, res: ServerResponse) =>
       handle(req, res)
     );
