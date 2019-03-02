@@ -6,12 +6,9 @@ import {createConnection} from 'typeorm';
 import {ApolloServer} from 'apollo-server-express';
 import {IncomingMessage, ServerResponse} from 'http';
 import {buildSchema} from 'type-graphql';
-import {RegisterUserResolver} from './server/modules/user/register';
-import {BlogResolver} from './server/modules/blog/blog';
-import {LoginResolver, LOCAL_SECRET} from './server/modules/user/login';
-import {FileResolver} from './server/modules/file/file';
+import RESOLVER_LIST from './server/modules/index';
 import {defaultConnection as con} from './connection';
-import * as jwt from 'jsonwebtoken';
+import {validateToken} from './server/utils/authUtil';
 require('dotenv').config();
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -38,29 +35,17 @@ app
   })
   .then(() => {
     return buildSchema({
-      resolvers: [
-        RegisterUserResolver,
-        LoginResolver,
-        BlogResolver,
-        FileResolver,
-      ],
+      resolvers: [...RESOLVER_LIST],
       authChecker: ({args}) => {
         if (args.jwtToken) {
-          try {
-            const secret = process.env.JWT_SECRET || LOCAL_SECRET;
-            const verified: any = jwt.verify(args.jwtToken, secret);
-            console.log(verified);
-            return true;
-          } catch (ex) {
-            return false;
-          }
+          return validateToken(args.jwtToken);
         }
         return false;
       },
     });
   })
   .then(schema => {
-    const apolloServer = new ApolloServer({schema});
+    const apolloServer = new ApolloServer({schema, tracing: true});
 
     apolloServer.applyMiddleware({app: server});
 

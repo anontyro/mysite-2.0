@@ -3627,7 +3627,7 @@ graphql-tools@^4.0.0:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql-upload@^8.0.2:
+graphql-upload@^8.0.2, graphql-upload@^8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/graphql-upload/-/graphql-upload-8.0.4.tgz#ed7cbde883b5cca493de77e39f95cddf40dfd514"
   integrity sha512-jsTfVYXJ5mU6BXiiJ20CUCAcf41ICCQJ2ltwQFUuaFKiY4JhlG99uZZp5S3hbpQ/oA1kS7hz4pRtsnxPCa7Yfg==
@@ -4886,7 +4886,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   dependencies:
     minimist "0.0.8"
 
-moment@^2.22.1:
+moment@^2.22.1, moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==

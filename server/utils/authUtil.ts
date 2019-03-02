@@ -1,6 +1,5 @@
 import * as jwt from 'jsonwebtoken';
 import {IUser} from '../entity/User';
-
 require('dotenv').config();
 
 export interface AuthArgs {
