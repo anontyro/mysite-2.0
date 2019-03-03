@@ -50,7 +50,7 @@ app
     apolloServer.applyMiddleware({app: server});
 
     server.use(cors());
-    server.use(express.static('public'));
+    server.use(express.static('static'));
     server.get('*', (req: IncomingMessage, res: ServerResponse) =>
       handle(req, res)
     );
