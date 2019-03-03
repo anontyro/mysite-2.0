@@ -30,5 +30,8 @@
   "include": [
     "*.tsx",
     "./server/*",
+  ],
+  "exclude": [
+    "./apollo/*"
   ]
 }

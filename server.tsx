@@ -9,6 +9,7 @@ import {buildSchema} from 'type-graphql';
 import RESOLVER_LIST from './server/modules/index';
 import {defaultConnection as con} from './connection';
 import {validateToken} from './server/utils/authUtil';
+import {STATIC_DIR} from './server/data/serverConsts';
 require('dotenv').config();
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -45,12 +46,16 @@ app
     });
   })
   .then(schema => {
-    const apolloServer = new ApolloServer({schema, tracing: true});
+    const apolloServer = new ApolloServer({
+      schema,
+      tracing: true,
+      cacheControl: true,
+    });
 
     apolloServer.applyMiddleware({app: server});
 
     server.use(cors());
-    server.use(express.static('static'));
+    server.use(express.static(STATIC_DIR));
     server.get('*', (req: IncomingMessage, res: ServerResponse) =>
       handle(req, res)
     );

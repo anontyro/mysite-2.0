@@ -24,5 +24,5 @@ class MyApp extends App {
     );
   }
 }
-
-export default withRedux(makeStore)(MyApp);
+const enhancedApp = withRedux(makeStore)(MyApp);
+export default enhancedApp;
