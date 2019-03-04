@@ -1,0 +1,131 @@
+{
+  "version": "1.0.0",
+  "title": "My Resume",
+  "personal": {
+    "firstName": "Alexander",
+    "lastName": "Wilkinson",
+    "website": "https://alexwilkinson.co",
+    "mobileNumber": "+85",
+    "email": "alexwilkinson@gmail.com",
+    "github": "https://github.com/anontyro"
+  },
+  "availability": false,
+  "nationality": "British",
+  "location": {
+    "current": "Singapore",
+    "looking": []
+  },
+  "about": [
+    {
+      "name": "about me",
+      "type": "about blurb",
+      "body": "In 2016 I decided to make a formal change to pursue a career in software development, taking a post-grad course on Java. I have been working in software development for close to two years and have advanced as a full stack developer picking up new technologies and delivering solid software solutions."
+    }
+  ],
+  "experience": [],
+  "projects": [],
+  "education": [],
+  "technologies": [
+    {
+      "name": "Javascript",
+      "info": "",
+      "type": "language",
+      "image": "",
+      "variants": [
+        {
+          "name": "NodeJS",
+          "info": "",
+          "image": "",
+          "frameworks": [
+            {
+              "name": "Express",
+              "info": "",
+              "startedUsing": "2017-09-01",
+              "image": ""
+            }
+          ]
+        },
+        {
+          "name": "ECMAScript",
+          "info": "",
+          "image": "",
+          "frameworks": [
+            {
+              "name": "React",
+              "info": "",
+              "startedUsing": "2018-09-01",
+              "image": ""
+            },
+            {
+              "name": "Angular 2+",
+              "info": "",
+              "startedUsing": "2017-05-01",
+              "image": ""
+            },
+            {
+              "name": "Angular 1.6",
+              "info": "",
+              "startedUsing": "2016-10-01",
+              "image": ""
+            },
+            {
+              "name": "Vue JS",
+              "info": "",
+              "startedUsing": "2017-04-01",
+              "image": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "C#",
+      "info": "",
+      "type": "language",
+      "image": "",
+      "frameworks": [
+        {
+          "name": ".NET CORE",
+          "info": "",
+          "startedUsing": "2016-07-01",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Java",
+      "info": "",
+      "type": "language",
+      "image": "",
+      "frameworks": [
+        {
+          "name": "Spring Boot",
+          "info": "",
+          "startedUsing": "2016-03-01",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Python",
+      "info": "",
+      "type": "language",
+      "image": "",
+      "frameworks": [
+        {
+          "name": "Django",
+          "info": "",
+          "startedUsing": "2016-10-01",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "name": "Rust",
+      "info": "",
+      "type": "language",
+      "image": "",
+      "frameworks": []
+    }
+  ]
+}
