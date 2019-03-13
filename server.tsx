@@ -13,7 +13,9 @@ import {STATIC_DIR} from './server/data/serverConsts';
 require('dotenv').config();
 
 const isDev = process.env.NODE_ENV !== 'production';
-const app = next({dev: isDev, conf: {distDir: 'dist'}});
+
+const nextConfig = isDev ? {dev: isDev} : {dev: isDev, conf: {distDir: 'dist'}};
+const app = next(nextConfig);
 const handle = app.getRequestHandler();
 const server = express();
 const PORT = process.env.PORT || 3000;
@@ -50,8 +52,8 @@ app
       schema,
       tracing: true,
       cacheControl: true,
-      introspection: true,
-      playground: true,
+      introspection: true, // enable playground in production
+      playground: true, // enable playground in production
     });
 
     apolloServer.applyMiddleware({app: server});

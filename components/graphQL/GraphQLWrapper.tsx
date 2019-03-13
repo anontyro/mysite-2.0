@@ -7,10 +7,11 @@ interface GraphQlQueryProps {
   variables?: {};
 }
 
-export const GRAPHQL_URL_DEV = 'localhost:3000/graphql';
-export const GRAPHQL_URL_PROD = 'https://alexwilkinson.co';
+export const GRAPHQL_URL_DEV = 'https://nightly.alexwilkinson.co/graphql';
+export const GRAPHQL_URL_PROD = 'https://alexwilkinson.co/graphql';
+export const GRAPHQL_BGG_EX = 'https://bgg-api.alexwilkinson.co/graphql';
 
-const uri = 'https://bgg-api.alexwilkinson.co/graphql';
+const uri = GRAPHQL_URL_DEV;
 const link = new HttpLink({uri, fetch});
 
 const graphQLQuery = ({

@@ -11,6 +11,17 @@ export const BLOG_LIST_QUERY = gql`
   }
 `;
 
+// export const BLOG_LIST_QUERY = gql`
+//   {
+//     blogList {
+//       id
+//       title
+//       datePublished
+//       draft
+//     }
+//   }
+// `;
+
 export const BGG_TEST = gql`
   {
     hotItems {

@@ -5,14 +5,14 @@ import graphQLQuery, {graphQLFetch} from '../components/graphQL/GraphQLWrapper';
 import {BLOG_LIST_QUERY, BGG_TEST} from '../graphQL/queries/blogQuery';
 
 const IndexPage: React.FunctionComponent = () => {
-  const blogData = graphQLQuery({query: BGG_TEST}).subscribe({
+  const blogData = graphQLQuery({
+    query: BLOG_LIST_QUERY,
+    variables: {jwtToken: ''},
+  }).subscribe({
     next: data => console.log(data),
     error: error => console.log('An error occured', error),
     complete: () => console.log('completed'),
   });
-  // const data = graphQLFetch({query: BGG_TEST})
-  //   .then(data => console.log(data))
-  //   .catch(err => console.log('error!!', err));
 
   return (
     <Layout title="Home | Next.js + TypeScript Example">
