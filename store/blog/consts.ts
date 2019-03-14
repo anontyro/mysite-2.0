@@ -1,6 +1,15 @@
 export const GET_BLOG_LIST = 'GET_BLOG_LIST';
 export type GET_BLOG_LIST = typeof GET_BLOG_LIST;
 
+export const FETCH_BLOG_LIST = 'FETCH_BLOG_LIST';
+export type FETCH_BLOG_LIST = typeof FETCH_BLOG_LIST;
+
+export const FETCHING_BLOG_LIST = 'FETCHING_BLOG_LIST';
+export type FETCHING_BLOG_LIST = typeof FETCHING_BLOG_LIST;
+
+export const FETCHED_BLOG_LIST = 'FETCHED_BLOG_LIST';
+export type FETCHED_BLOG_LIST = typeof FETCHED_BLOG_LIST;
+
 export const GET_BLOG_POST = 'GET_BLOG_POST';
 export type GET_BLOG_POST = typeof GET_BLOG_POST;
 

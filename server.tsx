@@ -16,6 +16,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 const nextConfig = isDev ? {dev: isDev} : {dev: isDev, conf: {distDir: 'dist'}};
 const app = next(nextConfig);
+
 const handle = app.getRequestHandler();
 const server = express();
 const PORT = process.env.PORT || 3000;

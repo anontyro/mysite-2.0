@@ -26,6 +26,7 @@
     "graphql-upload": "^8.0.4",
     "isomorphic-unfetch": "^3.0.0",
     "jsonwebtoken": "^8.4.0",
+    "lodash.get": "^4.4.2",
     "moment": "^2.24.0",
     "mysql": "^2.16.0",
     "next": "7.0.2",
@@ -36,13 +37,13 @@
     "react-dom": "16.8.1",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "reflect-metadata": "^0.1.13",
     "sinon": "^7.2.4",
     "tslint": "^5.12.1",
     "type-graphql": "^0.16.0",
-    "typeorm": "^0.2.13",
-    "redux-devtools-extension": "^2.13.8"
+    "typeorm": "^0.2.13"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
