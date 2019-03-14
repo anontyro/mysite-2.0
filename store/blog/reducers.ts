@@ -27,7 +27,6 @@ export function blog(
         ...action.payload.blogList,
       };
     case constants.FETCHING_BLOG_LIST:
-      console.log('fetching blog list now');
       return {
         ...state,
         fetching: true,
@@ -35,7 +34,7 @@ export function blog(
     case constants.FETCHED_BLOG_LIST:
       return {
         ...state,
-        ...action.payload.blogList,
+        ...action.payload,
         fetching: false,
       };
     case constants.GET_BLOG_POST:

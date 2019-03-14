@@ -64,7 +64,6 @@ export const fetchBlogList = () => {
       variables: {jwtToken: ''},
     }).subscribe({
       next: data => {
-        console.log(data);
         const blogList: Blog[] = get(data, 'data.blogList', []);
         const blog: BlogState = {
           blogList,

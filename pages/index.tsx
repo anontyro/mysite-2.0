@@ -26,7 +26,14 @@ export class IndexPage extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <h1>Index</h1>
-        {this.props.fetching ? <p>LOADING...</p> : <p>FINISHED</p>}
+        {this.props.fetching ? (
+          <p>LOADING...</p>
+        ) : (
+          <p>
+            FINISHED{' '}
+            {this.props.blogList[0] ? this.props.blogList[0].title : null}
+          </p>
+        )}
       </React.Fragment>
     );
   }
