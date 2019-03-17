@@ -1,12 +1,17 @@
-import UserActions from './actions';
 import * as constants from './consts';
+import {UserActions} from './actions';
 
-export interface UserState {
+export interface UserLogin {
   email: string;
-  token: string;
-  id: number;
-  firstName: string;
-  isActive: boolean;
+  password: string;
+}
+export interface UserState {
+  email?: string;
+  token?: string;
+  id?: number;
+  firstName?: string;
+  isActive?: boolean;
+  fetchingData?: boolean;
 }
 
 export const userInitialState: UserState = {
@@ -15,6 +20,7 @@ export const userInitialState: UserState = {
   id: 0,
   firstName: '',
   isActive: false,
+  fetchingData: false,
 };
 
 export function user(
@@ -30,6 +36,16 @@ export function user(
     case constants.REMOVE_USER:
       return {
         ...userInitialState,
+      };
+    case constants.LOGGING_IN_USER:
+      return {
+        ...state,
+        fetchingData: true,
+      };
+    case constants.COMPLETED_USER_LOGIN:
+      return {
+        ...action.payload,
+        fetchingData: false,
       };
   }
 

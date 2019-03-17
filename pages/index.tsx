@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Layout from '../components/Layout';
 import {Dispatch} from 'redux';
 import graphQLQuery, {graphQLFetch} from '../components/graphQL/GraphQLWrapper';
-import {BLOG_LIST_QUERY, BGG_TEST} from '../graphQL/queries/blogQuery';
+import {BLOG_LIST_QUERY} from '../graphQL/queries/blogQuery';
 import * as actions from '../store/blog/actions';
 import {Blog} from '../server/entity/MyBlog';
 
@@ -38,28 +38,6 @@ export class IndexPage extends React.Component<Props, State> {
     );
   }
 }
-
-// const IndexPage: React.FunctionComponent = ({}) => {
-//   // const blogData = graphQLQuery({
-//   //   query: BLOG_LIST_QUERY,
-//   //   variables: {jwtToken: ''},
-//   // }).subscribe({
-//   //   next: data => console.log(data),
-//   //   error: error => console.log('An error occured', error),
-//   //   complete: () => console.log('completed'),
-//   // });
-
-//   return (
-//     <Layout title="Home | Next.js + TypeScript Example">
-//       <h1>Hello Next.js 👋</h1>
-//       <p>
-//         <Link href="/about">
-//           <a>About</a>
-//         </Link>
-//       </p>
-//     </Layout>
-//   );
-// };
 
 const mapStateToProps = ({blog}: any) => ({
   blogList: blog.blogList,

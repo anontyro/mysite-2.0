@@ -55,7 +55,6 @@ export const fetchedBlogList = (blog: BlogState): FetchedBlogList => {
 };
 
 export const fetchBlogList = () => {
-  console.log('starthing fetch');
   return (dispatch: any) => {
     dispatch(fetchingBlogList());
 
