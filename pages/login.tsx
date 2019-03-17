@@ -6,9 +6,57 @@ import * as actions from '../store/user/actions';
 interface Props {
   loginUser: (userLogin: UserLogin) => void;
   userSession: UserState;
+  logout: () => void;
 }
 
-function Login({loginUser, userSession}: Props) {
+interface FormProps {
+  onLogin: (event: any) => void;
+  onEmailChange: (event: any) => void;
+  onPasswordChange: (event: any) => void;
+}
+
+const LoginForm = ({onLogin, onEmailChange, onPasswordChange}: FormProps) => (
+  <form onSubmit={onLogin}>
+    <input placeholder="email" onChange={onEmailChange} />
+    <input placeholder="password" onChange={onPasswordChange} type="password" />
+    <input type="submit" value="Login" />
+  </form>
+);
+
+interface LoginPageProps {
+  onLogin: (event: any) => void;
+  onEmailChange: (event: any) => void;
+  onPasswordChange: (event: any) => void;
+}
+
+const LoginPage = ({
+  onLogin,
+  onEmailChange,
+  onPasswordChange,
+}: LoginPageProps) => (
+  <React.Fragment>
+    <h3>Login</h3>
+    <LoginForm
+      onLogin={onLogin}
+      onEmailChange={onEmailChange}
+      onPasswordChange={onPasswordChange}
+    />
+  </React.Fragment>
+);
+
+interface LogoutProps {
+  userSession: UserState;
+  onLogout: (event) => void;
+}
+
+const LogoutPage = ({userSession, onLogout}: LogoutProps) => (
+  <React.Fragment>
+    <h3>{`${userSession.email} Page`}</h3>
+    <button onClick={onLogout}>Logout</button>
+  </React.Fragment>
+);
+
+function Login({loginUser, userSession, logout}: Props) {
   const [userLogin, setUserLogin] = useState({email: '', password: ''});
 
   const onLogin = event => {
@@ -33,24 +81,26 @@ function Login({loginUser, userSession}: Props) {
     });
   };
 
-  return (
-    <React.Fragment>
-      <h3>Login</h3>
-      {userSession.fetchingData ? (
-        <h3>LOADING...</h3>
-      ) : (
-        <form onSubmit={onLogin}>
-          <input placeholder="email" onChange={onEmailChange} />
-          <input
-            placeholder="password"
-            onChange={onPasswordChange}
-            type="password"
-          />
-          <input type="submit" value="Login" />
-        </form>
-      )}
-    </React.Fragment>
-  );
+  const onLogout = event => {
+    event.preventDefault();
+    logout();
+  };
+
+  if (userSession.fetchingData) {
+    return <h3>LOADING...</h3>;
+  }
+
+  if (userSession.token.length !== 0) {
+    return <LogoutPage onLogout={onLogout} userSession={userSession} />;
+  } else {
+    return (
+      <LoginPage
+        onLogin={onLogin}
+        onEmailChange={onEmailChange}
+        onPasswordChange={onPasswordChange}
+      />
+    );
+  }
 }
 
 const mapStateToProps = ({user}: any) => ({
@@ -59,6 +109,7 @@ const mapStateToProps = ({user}: any) => ({
 
 const mapDispatchToProps = (dispatch: any): any => ({
   loginUser: (userLogin: UserLogin) => dispatch(actions.loginUser(userLogin)),
+  logout: () => dispatch(actions.removeUser()),
 });
 
 export default connect(
