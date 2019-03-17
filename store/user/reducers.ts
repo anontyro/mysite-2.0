@@ -11,6 +11,8 @@ export interface UserState {
   id?: number;
   firstName?: string;
   isActive?: boolean;
+  loginDate?: Date;
+  loginExpiryDate?: Date;
   fetchingData?: boolean;
 }
 
@@ -21,6 +23,8 @@ export const userInitialState: UserState = {
   firstName: '',
   isActive: false,
   fetchingData: false,
+  loginDate: null,
+  loginExpiryDate: null,
 };
 
 export function user(
