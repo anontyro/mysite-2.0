@@ -54,13 +54,13 @@ export const fetchedBlogList = (blog: BlogState): FetchedBlogList => {
   };
 };
 
-export const fetchBlogList = () => {
+export const fetchBlogList = (token = '') => {
   return (dispatch: any) => {
     dispatch(fetchingBlogList());
 
     return graphQLQuery({
       query: BLOG_LIST_QUERY,
-      variables: {jwtToken: ''},
+      variables: {jwtToken: token},
     }).subscribe({
       next: data => {
         const blogList: Blog[] = get(data, 'data.blogList', []);

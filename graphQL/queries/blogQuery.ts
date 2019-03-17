@@ -7,6 +7,7 @@ export const BLOG_LIST_QUERY = gql`
       title
       datePublished
       draft
+      body
     }
   }
 `;

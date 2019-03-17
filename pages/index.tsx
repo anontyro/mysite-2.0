@@ -7,11 +7,13 @@ import graphQLQuery, {graphQLFetch} from '../components/graphQL/GraphQLWrapper';
 import {BLOG_LIST_QUERY} from '../graphQL/queries/blogQuery';
 import * as actions from '../store/blog/actions';
 import {Blog} from '../server/entity/MyBlog';
+import {UserState} from '../store/user/reducers';
 
 interface Props {
-  getBlogList: () => void;
+  getBlogList: (token?) => void;
   blogList: Blog[];
   fetching: boolean;
+  userSession: UserState;
 }
 
 interface State {}
@@ -19,7 +21,8 @@ interface State {}
 export class IndexPage extends React.Component<Props, State> {
   componentDidMount() {
     console.log('component mounted');
-    this.props.getBlogList();
+    const {token} = this.props.userSession;
+    this.props.getBlogList(token);
   }
 
   public render() {
@@ -39,13 +42,14 @@ export class IndexPage extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = ({blog}: any) => ({
+const mapStateToProps = ({blog, user}: any) => ({
+  userSession: user,
   blogList: blog.blogList,
   fetching: blog.fetching,
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
-  getBlogList: (): any => dispatch(actions.fetchBlogList()),
+  getBlogList: (token): any => dispatch(actions.fetchBlogList(token)),
 });
 
 export default connect(
