@@ -11,7 +11,7 @@ FROM node:10-alpine
 ENV NODE_ENV=production
 ARG JWT_SECRET
 ENV JWT_SECRET={$JWT_SECRET}
-RUN if [ "x$JWT_SECRET" = "x" ] ; then echo no JWT_SECRET provided ; else echo JWT_SECRET is set to: $JWT_SECRET
+RUN if [ "x$JWT_SECRET" = "x" ] ; then echo no JWT_SECRET provided ; else echo JWT_SECRET is set to: $JWT_SECRET; fi
 WORKDIR /home/node/app
 
 COPY ./package* ./
