@@ -14,7 +14,7 @@ export interface IToken {
   exp: number;
 }
 
-const LOCAL_SECRET = 'aweq23423erfv3245grbfved324tredfvb';
+const LOCAL_SECRET = '123efg34wsdfv43rwfcse3r4t5htrbfvcf3r43qwfv';
 const SECRET = process.env.JWT_SECRET || LOCAL_SECRET;
 const TOKEN_EXPIRY_SECONDS = 86400;
 
