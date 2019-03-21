@@ -27,7 +27,7 @@ export class IndexPage extends React.Component<Props, State> {
 
   public render() {
     return (
-      <React.Fragment>
+      <Layout title={'home'}>
         <h1>Index</h1>
         {this.props.fetching ? (
           <p>LOADING...</p>
@@ -37,7 +37,7 @@ export class IndexPage extends React.Component<Props, State> {
             {this.props.blogList[0] ? this.props.blogList[0].title : null}
           </p>
         )}
-      </React.Fragment>
+      </Layout>
     );
   }
 }

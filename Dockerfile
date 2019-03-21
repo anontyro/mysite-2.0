@@ -9,6 +9,8 @@ RUN npm install && npm run docker:build
 # RUN IMAGE
 FROM node:10-alpine
 ENV NODE_ENV=production
+
+# SET JWT_TOKEN SECRET
 ARG JWT_SECRET
 ENV JWT_SECRET={$JWT_SECRET}
 RUN if [ "x$JWT_SECRET" = "x" ] ; then echo no JWT_SECRET provided ; else echo JWT_SECRET is set to: $JWT_SECRET; fi
