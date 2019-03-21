@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {withRouter, SingletonRouter} from 'next/router';
 import {connect} from 'react-redux';
 import * as actions from '../store/blog/actions';
@@ -10,7 +10,7 @@ import Loader from '../components/Loader';
 import Layout from '../components/Layout';
 
 interface Props {
-  getBlogList: (token?) => void;
+  getBlogList: (token?: String, force?: Boolean) => void;
   blogList: Blog[];
   fetching: boolean;
   userSession: UserState;
@@ -27,6 +27,11 @@ const BlogPage = ({
   fetching,
 }: Props) => {
   const {post} = router.query;
+  const {token} = userSession;
+
+  useEffect(() => {
+    getBlogList(token);
+  }, []);
 
   if (fetching) {
     return (
@@ -46,7 +51,7 @@ const BlogPage = ({
 
   return (
     <Layout title={BLOG_TITLE}>
-      <BlogList />
+      <BlogList blogList={blogList} />
     </Layout>
   );
 };
@@ -58,7 +63,8 @@ const mapStateToProps = ({user, blog}: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
-  getBlogList: (token): any => dispatch(actions.fetchBlogList(token)),
+  getBlogList: (token, force = false): any =>
+    dispatch(actions.fetchBlogList(token, force)),
 });
 
 export default withRouter(

@@ -54,8 +54,12 @@ export const fetchedBlogList = (blog: BlogState): FetchedBlogList => {
   };
 };
 
-export const fetchBlogList = (token = '') => {
-  return (dispatch: any) => {
+export const fetchBlogList = (token = '', force = false) => {
+  return (dispatch: any, getState: any) => {
+    const state = getState();
+    if (state.blog.blogList.length > 0 && !force) {
+      return;
+    }
     dispatch(fetchingBlogList());
 
     return graphQLQuery({
