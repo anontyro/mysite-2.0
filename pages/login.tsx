@@ -5,7 +5,7 @@ import {UserLogin, UserState} from '../store/user/reducers';
 import * as actions from '../store/user/actions';
 import LoginPage from '../components/auth/Login';
 import LogoutPage from '../components/auth/Logout';
-import Layout from '../components/Layout';
+import Layout from '../components/_Layout/Layout';
 import Loader from '../components/Loader';
 interface Props {
   loginUser: (userLogin: UserLogin) => void;

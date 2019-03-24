@@ -7,7 +7,7 @@ import {UserState} from '../store/user/reducers';
 import BlogList from '../components/blog/BlogList';
 import BlogPost from '../components/blog/BlogPost';
 import Loader from '../components/Loader';
-import Layout from '../components/Layout';
+import Layout from '../components/_Layout/Layout';
 
 interface Props {
   getBlogList: (token?: String, force?: Boolean) => void;
@@ -17,7 +17,7 @@ interface Props {
   router: SingletonRouter;
 }
 
-const BLOG_TITLE = '';
+const BLOG_TITLE = 'My blog';
 
 const BlogPage = ({
   userSession,
