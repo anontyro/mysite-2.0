@@ -1,36 +1,36 @@
-import * as React from 'react';
-import {connect} from 'react-redux';
-import Link from 'next/link';
-import Head from 'next/head';
-import {UserState} from '../../store/user/reducers';
+import * as React from "react";
+import { connect } from "react-redux";
+import Link from "next/link";
+import Head from "next/head";
+import { UserState } from "../../store/user/reducers";
 
 type Props = {
   userSession: UserState;
 };
 
-const Layout: React.FunctionComponent<Props> = ({userSession}) => (
+const Layout: React.FunctionComponent<Props> = ({ userSession }) => (
   <React.Fragment>
     <header>
-      <div className={'nav-main-right'}>
-        <div className={'brand'}>alex wilkinson</div>
-        <nav className={'nav-main'}>
+      <div className={"nav-main-right"}>
+        <div className={"brand"}>Alex Wilkinson</div>
+        <nav className={"nav-main"}>
           <Link href="/">
-            <a className={'nav-link'}>Home</a>
-          </Link>{' '}
+            <a className={"nav-link"}>Home</a>
+          </Link>{" "}
           <Link href="/blog">
-            <a className={'nav-link'}>Blog</a>
-          </Link>{' '}
+            <a className={"nav-link"}>Blog</a>
+          </Link>{" "}
           <Link href="/about">
-            <a className={'nav-link'}>About</a>
-          </Link>{' '}
+            <a className={"nav-link"}>About</a>
+          </Link>{" "}
         </nav>
       </div>
       <nav className={`nav-right`}>
         <Link href="/login">
           {userSession.email.length > 0 ? (
-            <a className={'nav-link'}>Logout</a>
+            <a className={"nav-link"}>Logout</a>
           ) : (
-            <a className={'nav-link'}>Login</a>
+            <a className={"nav-link"}>Login</a>
           )}
         </Link>
       </nav>
@@ -46,6 +46,9 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => (
       .brand {
         flex-grow: 0;
         padding-right: 15px;
+        font-size: 30px;
+        font-family: "Pacifico", cursive;
+        line-height: 31px;
       }
       ,
       nav {
@@ -56,6 +59,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => (
       ,
       .nav-main {
         flex-grow: 0;
+        padding-top: 5px;
       }
       ,
       .nav-right {
@@ -66,7 +70,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => (
         font-size: 22px;
         text-decoration: none;
         flex-grow: 0;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
       ,
       .nav-link:hover {
@@ -76,8 +80,8 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => (
   </React.Fragment>
 );
 
-const mapStateToProps = ({user}: any) => ({
-  userSession: user,
+const mapStateToProps = ({ user }: any) => ({
+  userSession: user
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({});

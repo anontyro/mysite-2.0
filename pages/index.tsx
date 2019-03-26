@@ -1,14 +1,16 @@
-import * as React from 'react';
-import Link from 'next/link';
-import {connect} from 'react-redux';
-import Layout from '../components/_Layout/Layout';
-import {Dispatch} from 'redux';
-import graphQLQuery, {graphQLFetch} from '../components/graphQL/GraphQLWrapper';
-import {BLOG_LIST_QUERY} from '../graphQL/queries/blogQuery';
-import * as actions from '../store/blog/actions';
-import {Blog} from '../server/entity/MyBlog';
-import {UserState} from '../store/user/reducers';
-import Header from '../components/_Layout/Header';
+import * as React from "react";
+import Link from "next/link";
+import { connect } from "react-redux";
+import Layout from "../components/_Layout/Layout";
+import { Dispatch } from "redux";
+import graphQLQuery, {
+  graphQLFetch
+} from "../components/graphQL/GraphQLWrapper";
+import { BLOG_LIST_QUERY } from "../graphQL/queries/blogQuery";
+import * as actions from "../store/blog/actions";
+import { Blog } from "../server/entity/MyBlog";
+import { UserState } from "../store/user/reducers";
+import Header from "../components/_Layout/Header";
 
 interface Props {
   getBlogList: (token?) => void;
@@ -21,8 +23,8 @@ interface State {}
 
 export class IndexPage extends React.Component<Props, State> {
   componentDidMount() {
-    console.log('component mounted');
-    const {token} = this.props.userSession;
+    console.log("component mounted");
+    const { token } = this.props.userSession;
     this.props.getBlogList(token);
   }
 
@@ -30,27 +32,19 @@ export class IndexPage extends React.Component<Props, State> {
     return (
       <Layout displayImg showFooter={false}>
         <h1>Index</h1>
-        {this.props.fetching ? (
-          <p>LOADING...</p>
-        ) : (
-          <p>
-            FINISHED{' '}
-            {this.props.blogList[0] ? this.props.blogList[0].title : null}
-          </p>
-        )}
       </Layout>
     );
   }
 }
 
-const mapStateToProps = ({blog, user}: any) => ({
+const mapStateToProps = ({ blog, user }: any) => ({
   userSession: user,
   blogList: blog.blogList,
-  fetching: blog.fetching,
+  fetching: blog.fetching
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
-  getBlogList: (token): any => dispatch(actions.fetchBlogList(token)),
+  getBlogList: (token): any => dispatch(actions.fetchBlogList(token))
 });
 
 export default connect(
