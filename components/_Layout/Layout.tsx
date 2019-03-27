@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Layout: React.FunctionComponent<Props> = ({
-  title = 'alexwilkinson.co',
+  title,
   displayImg = false,
   children,
   showFooter = true,

@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Header: React.FunctionComponent<Props> = ({
-  title = 'alexwilkinson.co',
+  title,
   displayImg = false,
 }) => (
   <React.Fragment>
