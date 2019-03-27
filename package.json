@@ -13,6 +13,9 @@
     "test:watch": "chokidar \"./**/*.test.*\" -c \"npm run test\" --initial"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@zeit/next-typescript": "^1.1.1",
     "apollo-boost": "^0.3.1",
     "apollo-link": "^1.2.8",

@@ -11,3 +11,4 @@ environment/
 dist
 ormconfig.json
 connection.ts
+fontawesome.css
