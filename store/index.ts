@@ -6,10 +6,12 @@ import {BlogState, blog, blogInitialState} from './blog/reducers';
 import thunk from 'redux-thunk';
 import throttle from 'lodash.throttle';
 import {saveState, loadState} from '../utils/localStorage';
+import {ResumeState, resume, resumeInitialState} from './resume/reducers';
 
 export interface AppState {
   user: UserState;
   blog: BlogState;
+  resume: ResumeState;
 }
 
 /*
@@ -34,11 +36,13 @@ const getPersistState = () => {
 export const initalState = {
   user: getPersistState(),
   blog: blogInitialState,
+  resume: resumeInitialState,
 };
 
 const rootReducer = combineReducers({
   user,
   blog,
+  resume,
 });
 
 const composeEnhancers = composeWithDevTools({

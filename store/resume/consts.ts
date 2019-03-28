@@ -1,0 +1,5 @@
+export const FETCHING_RESUME = 'FETCHING_RESUME';
+export type FETCHING_RESUME = typeof FETCHING_RESUME;
+
+export const FETCHED_RESUME = 'FETCHED_RESUME';
+export type FETCHED_RESUME = typeof FETCHED_RESUME;
