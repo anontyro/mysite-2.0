@@ -39,7 +39,7 @@ export class IndexPage extends React.Component<Props, State> {
 
   public render() {
     return (
-      <Layout displayImg showFooter={false}>
+      <Layout displayImg showFooter>
         <h1>
           Hi! I'm <Hl>Alex</Hl> a full stack developer with some design flair
         </h1>

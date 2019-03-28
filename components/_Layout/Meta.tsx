@@ -34,14 +34,17 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         rel="stylesheet"
       />
     </Head>
+
     <style jsx global>{`
       html {
         height: 100%;
         width: 100%;
-      },
-    `}</style>
-    <style jsx global>{`
+      }
       body {
+        height: 100%;
+        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
         background-color: ${bgColor};
         color: lightslategrey;
         ${displayImg ? bgImage : null}
@@ -50,14 +53,10 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         line-height: 1.42857143;
         color: #999a9c;
       }
-    `}</style>
-    <style jsx global>{`
       h1 {
         font-size: 36px;
         font-weight: 500;
       }
-    `}</style>
-    <style jsx global>{`
       h3 {
         font-size: 24px;
         font-weight: 500;

@@ -1,10 +1,6 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
-import Link from 'next/link';
-import Head from 'next/head';
-import Meta from './Meta';
-import Navbar from './Navbar';
 import Header from './Header';
+import Footer from './Footer';
 
 type Props = {
   title?: string;
@@ -19,14 +15,16 @@ const Layout: React.FunctionComponent<Props> = ({
   showFooter = true,
 }) => (
   <React.Fragment>
-    <Header title={title} displayImg={displayImg} />
-    {children}
-    {showFooter && (
-      <footer>
-        <hr />
-        <span>I'm here to stay (Footer)</span>
-      </footer>
-    )}
+    <div className={'pageContainer'}>
+      <Header title={title} displayImg={displayImg} />
+      {children}
+    </div>
+    <style jsx>{`
+      .pageContainer {
+        flex: 1 0 auto;
+      }
+    `}</style>
+    {showFooter && <Footer />}
   </React.Fragment>
 );
 
