@@ -127,7 +127,6 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
       <style jsx>{`
         header {
           display: flex;
-          width: 100%;
           justify-content: space-between;
           margin: 50px 20px;
         }
@@ -178,7 +177,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
           color: #60b0ff;
           cursor: pointer;
         }
-        @media only screen and (max-width: 700px) {
+        @media only screen and (max-width: 800px) {
           nav.full-shown {
             display: none;
           }

@@ -50,6 +50,20 @@ export class IndexPage extends React.Component<Props, State> {
           currently really exploring the JavaScript everywhere paradigm
           exploring NodeJs, Electron & VueJS.
         </h3>
+        <style jsx>{`
+          h1 {
+            width: 40%;
+          }
+          h3 {
+            width: 50%;
+          }
+          @media only screen and (max-width: 900px) {
+            h1,
+            h3 {
+              width: 100%;
+            }
+          }
+        `}</style>
       </Layout>
     );
   }
