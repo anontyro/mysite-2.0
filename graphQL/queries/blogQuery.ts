@@ -5,9 +5,15 @@ export const BLOG_LIST_QUERY = gql`
     blogList(jwtToken: $jwtToken) {
       id
       title
-      datePublished
-      draft
       body
+      tags
+      datePublished
+      dateLastModified
+      dateCreated
+      draft
+      slug
+      coverImage
+      thumbNail
     }
   }
 `;

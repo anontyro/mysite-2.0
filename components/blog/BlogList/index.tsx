@@ -1,48 +1,31 @@
-import React from "react";
-import { withRouter, SingletonRouter } from "next/router";
-import { connect } from "react-redux";
-import { Blog } from "../../../server/entity/MyBlog";
-import { createBlurb } from "../../../utils/stringUtil";
-
-interface BlogProps {
-  post: Blog;
-}
-
-const BlogPost = ({ post }: BlogProps) => {
-  return (
-    <React.Fragment>
-      <div className="postContainer">
-        <div className="postTitle">
-          <h3>{post.title}</h3>
-          <div className="postMeta">
-            <p>{post.datePublished}</p>
-            <p>{post.author}</p>
-          </div>
-        </div>
-        <div className="postImage" />
-        <div className="postBody">
-          <p>{createBlurb(post.body)}</p>
-        </div>
-      </div>
-      <style jsx>{`
-        .postContainer {
-        }
-      `}</style>
-    </React.Fragment>
-  );
-};
+import React from 'react';
+import {Blog} from '../../../server/entity/MyBlog';
+import BlogPost from './components/BlogPost';
+import BlogAdminHeader from './components/BlogAdminHeader';
+import IsLoggedIn from '../../util/IsLoggedIn';
 
 interface Props {
   blogList: Blog[];
 }
 
-const BlogList = ({ blogList }: Props) => {
+const BlogList = ({blogList}: Props) => {
   return (
     <React.Fragment>
-      <h1>{`Blog List contains: ${blogList.length} items`}</h1>
-      {blogList.map(post => (
-        <BlogPost post={post} />
-      ))}
+      <IsLoggedIn>
+        <BlogAdminHeader blogList={blogList} />
+      </IsLoggedIn>
+      <div className="blogList">
+        {blogList.map(post => (
+          <BlogPost post={post} key={post.id} />
+        ))}
+      </div>
+      <style jsx>{`
+        .blogList {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+      `}</style>
     </React.Fragment>
   );
 };

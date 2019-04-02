@@ -2,6 +2,7 @@ import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from 'typeorm';
 import {ObjectType, Field, ID} from 'type-graphql';
 
 export interface Blog {
+  id?: number;
   title: string;
   body: string;
   tags?: string;
