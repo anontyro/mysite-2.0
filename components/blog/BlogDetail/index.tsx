@@ -8,7 +8,7 @@ interface Props {
   slug: string | string[];
 }
 
-const BlogPost = ({blogItem, slug}: Props) => {
+const BlogDetail = ({blogItem, slug}: Props) => {
   return (
     <React.Fragment>
       <h1>{`Blog Page for: ${slug}`}</h1>
@@ -16,4 +16,4 @@ const BlogPost = ({blogItem, slug}: Props) => {
   );
 };
 
-export default BlogPost;
+export default BlogDetail;
