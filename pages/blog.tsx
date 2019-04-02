@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react';
-import {withRouter, SingletonRouter} from 'next/router';
-import {connect} from 'react-redux';
-import * as actions from '../store/blog/actions';
-import {Blog} from '../server/entity/MyBlog';
-import {UserState} from '../store/user/reducers';
-import BlogList from '../components/blog/BlogList';
-import BlogPost from '../components/blog/BlogPost';
-import Loader from '../components/Loader';
-import Layout from '../components/_Layout/Layout';
+import React, { useEffect } from "react";
+import { withRouter, SingletonRouter } from "next/router";
+import { connect } from "react-redux";
+import * as actions from "../store/blog/actions";
+import { Blog } from "../server/entity/MyBlog";
+import { UserState } from "../store/user/reducers";
+import BlogList from "../components/blog/BlogList";
+import BlogPost from "../components/blog/BlogPost";
+import Loader from "../components/Loader";
+import Layout from "../components/_Layout/Layout";
 
 interface Props {
   getBlogList: (token?: String, force?: Boolean) => void;
@@ -17,17 +17,17 @@ interface Props {
   router: SingletonRouter;
 }
 
-const BLOG_TITLE = 'My blog';
+const BLOG_TITLE = "My blog";
 
 const BlogPage = ({
   userSession,
   router,
   getBlogList,
   blogList,
-  fetching,
+  fetching
 }: Props) => {
-  const {post} = router.query;
-  const {token} = userSession;
+  const { post } = router.query;
+  const { token } = userSession;
 
   useEffect(() => {
     getBlogList(token);
@@ -56,15 +56,15 @@ const BlogPage = ({
   );
 };
 
-const mapStateToProps = ({user, blog}: any) => ({
+const mapStateToProps = ({ user, blog }: any) => ({
   userSession: user,
   blogList: blog.blogList,
-  fetching: blog.fetching,
+  fetching: blog.fetching
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
   getBlogList: (token, force = false): any =>
-    dispatch(actions.fetchBlogList(token, force)),
+    dispatch(actions.fetchBlogList(token, force))
 });
 
 export default withRouter(
