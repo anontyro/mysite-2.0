@@ -1,17 +1,15 @@
 import React from 'react';
-import {withRouter, SingletonRouter} from 'next/router';
-import {connect} from 'react-redux';
 import {Blog} from '../../../server/entity/MyBlog';
 
 interface Props {
-  blogItem?: Blog;
-  slug: string | string[];
+  blogItem: Blog;
 }
 
-const BlogDetail = ({blogItem, slug}: Props) => {
+const BlogDetail = ({blogItem}: Props) => {
   return (
     <React.Fragment>
-      <h1>{`Blog Page for: ${slug}`}</h1>
+      <h1>{`Blog Page for: ${blogItem.title}`}</h1>
+      <p>{blogItem.body}</p>
     </React.Fragment>
   );
 };

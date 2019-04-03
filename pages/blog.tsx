@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import {withRouter, SingletonRouter} from 'next/router';
 import {connect} from 'react-redux';
+import dynamic from 'next/dynamic';
 import * as actions from '../store/blog/actions';
 import {Blog} from '../server/entity/MyBlog';
 import {UserState} from '../store/user/reducers';
-import BlogList from '../components/blog/BlogList';
-import Loader from '../components/Loader';
 import Layout from '../components/_Layout/Layout';
-import BlogDetail from '../components/blog/BlogDetail';
+import IsLoading from '../components/util/IsLoading';
+import BlogMainBody from '../components/blog/components/BlogMainBody';
 
 interface Props {
   getBlogList: (token?: String, force?: Boolean) => void;
@@ -33,25 +33,11 @@ const BlogPage = ({
     getBlogList(token);
   }, []);
 
-  if (fetching) {
-    return (
-      <Layout title={BLOG_TITLE}>
-        <Loader />
-      </Layout>
-    );
-  }
-
-  if (post) {
-    return (
-      <Layout title={BLOG_TITLE}>
-        <BlogDetail slug={post} />
-      </Layout>
-    );
-  }
-
   return (
     <Layout title={BLOG_TITLE}>
-      <BlogList blogList={blogList} />
+      <IsLoading isLoading={fetching}>
+        <BlogMainBody blogList={blogList} slug={post} />
+      </IsLoading>
     </Layout>
   );
 };
