@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
-import Link from 'next/link';
-import Head from 'next/head';
 import Meta from './Meta';
-import Navbar from './Navbar';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic((() => import('./Navbar')) as any, {
+  ssr: false,
+});
 
 type Props = {
   title?: string;

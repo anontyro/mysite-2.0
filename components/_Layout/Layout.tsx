@@ -1,6 +1,10 @@
 import * as React from 'react';
 import Header from './Header';
-import Footer from './Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic((() => import('./Footer')) as any, {
+  ssr: false,
+});
 
 type Props = {
   title?: string;
@@ -22,6 +26,7 @@ const Layout: React.FunctionComponent<Props> = ({
     <style jsx>{`
       .pageContainer {
         flex: 1 0 auto;
+        min-height: calc(100vh - 200px);
       }
     `}</style>
     {showFooter && <Footer />}
