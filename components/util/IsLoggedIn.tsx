@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {connect} from 'react-redux';
 import {UserState} from '../../store/user/reducers';
 
 interface Props {
-  children: () => {};
+  children: ReactNode;
   userSession: UserState;
 }
 
