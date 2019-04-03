@@ -3,10 +3,10 @@ import {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import {UserLogin, UserState} from '../store/user/reducers';
 import * as actions from '../store/user/actions';
-import LoginPage from '../components/auth/Login';
-import LogoutPage from '../components/auth/Logout';
 import Layout from '../components/_Layout/Layout';
-import Loader from '../components/Loader';
+import IsLoading from '../components/util/IsLoading';
+import PageComponent from '../components/auth/Login/components/PageComponent';
+
 interface Props {
   loginUser: (userLogin: UserLogin) => void;
   userSession: UserState;
@@ -20,7 +20,7 @@ function Login({loginUser, userSession, logout}: Props) {
 
   const onLogin = event => {
     event.preventDefault();
-    console.log(userLogin);
+    console.log(userLogin.email);
     loginUser(userLogin);
   };
 
@@ -45,31 +45,19 @@ function Login({loginUser, userSession, logout}: Props) {
     logout();
   };
 
-  if (userSession.fetchingData) {
-    return (
-      <Layout title={LOGIN_PAGE}>
-        <Loader />
-      </Layout>
-    );
-  }
-
-  if (userSession.token.length !== 0) {
-    return (
-      <Layout title={LOGIN_PAGE}>
-        <LogoutPage onLogout={onLogout} userSession={userSession} />
-      </Layout>
-    );
-  } else {
-    return (
-      <Layout title={LOGIN_PAGE}>
-        <LoginPage
+  return (
+    <Layout title={LOGIN_PAGE}>
+      <IsLoading isLoading={userSession.fetchingData}>
+        <PageComponent
+          userSession={userSession}
+          onLogout={onLogout}
           onLogin={onLogin}
           onEmailChange={onEmailChange}
           onPasswordChange={onPasswordChange}
         />
-      </Layout>
-    );
-  }
+      </IsLoading>
+    </Layout>
+  );
 }
 
 const mapStateToProps = ({user}: any) => ({
