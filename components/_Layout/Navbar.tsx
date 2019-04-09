@@ -6,6 +6,7 @@ import Head from 'next/head';
 import {UserState} from '../../store/user/reducers';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {brandDesign} from '../../data/typo';
 
 type Props = {
   userSession: UserState;
@@ -59,10 +60,7 @@ const MobileNavOverlay = ({isOverlayHidden, onNavigate}: OverlayProps) => {
           color: #4196ea;
         }
         .brand {
-          font-size: 30px;
-          font-family: 'Pacifico', cursive;
-          line-height: 31px;
-          color: #60b0ff;
+          ${brandDesign}
           text-align: left;
           margin: auto;
           margin-top: 7px;
@@ -134,9 +132,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
         .brand {
           flex-grow: 0;
           padding-right: 15px;
-          font-size: 30px;
-          font-family: 'Pacifico', cursive;
-          line-height: 31px;
+          ${brandDesign}
         }
         ,
         .brand:hover {
