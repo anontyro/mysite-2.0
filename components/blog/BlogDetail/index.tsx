@@ -1,5 +1,7 @@
 import React from 'react';
 import {Blog} from '../../../server/entity/MyBlog';
+import BlogHeader from './components/BlogHeader';
+import BlogDetailBody from './components/BlogDetailBody';
 
 interface Props {
   blogItem: Blog;
@@ -8,8 +10,8 @@ interface Props {
 const BlogDetail = ({blogItem}: Props) => {
   return (
     <React.Fragment>
-      <h1>{`Blog Page for: ${blogItem.title}`}</h1>
-      <p>{blogItem.body}</p>
+      <BlogHeader blogItem={blogItem} />
+      <BlogDetailBody text={blogItem.body} />
     </React.Fragment>
   );
 };
