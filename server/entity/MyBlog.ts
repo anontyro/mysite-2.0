@@ -6,7 +6,7 @@ export interface Blog {
   title: string;
   body: string;
   tags?: string;
-  author: number;
+  author?: number;
   coverImage: string;
   thumbNail?: string;
   permaLink: string;

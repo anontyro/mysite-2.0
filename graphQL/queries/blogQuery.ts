@@ -10,6 +10,7 @@ export const BLOG_LIST_QUERY = gql`
       datePublished
       dateLastModified
       dateCreated
+      author
       draft
       slug
       coverImage
