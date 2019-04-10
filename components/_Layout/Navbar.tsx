@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {connect} from 'react-redux';
 import Link from 'next/link';
-import Head from 'next/head';
 import {UserState} from '../../store/user/reducers';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 import {brandDesign} from '../../data/typo';
+import {PAGE_LAYERS} from '../../data/consts';
 
 type Props = {
   userSession: UserState;
@@ -29,7 +29,9 @@ const MobileNavOverlay = ({isOverlayHidden, onNavigate}: OverlayProps) => {
             <a className={'nav-link'}>Home</a>
           </Link>{' '}
           <Link href="/blog">
-            <a className={'nav-link'}>Blog</a>
+            <a className={'nav-link'} onClick={onNav}>
+              Blog
+            </a>
           </Link>{' '}
           <Link href="/portfolio">
             <a className={'nav-link'}>Portfolio</a>
@@ -74,6 +76,7 @@ const MobileNavOverlay = ({isOverlayHidden, onNavigate}: OverlayProps) => {
           bottom: 0;
           right: 0;
           padding: 50px;
+          z-index: ${PAGE_LAYERS.OVERLAY};
         }
       `}</style>
     </React.Fragment>
@@ -167,7 +170,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
           display: none;
           font-size: 30px;
           margin-right: 30px;
-          z-index: 1000;
+          z-index: ${PAGE_LAYERS.TOP_VIEW};
         }
         .mobile-menu:hover {
           color: #60b0ff;
