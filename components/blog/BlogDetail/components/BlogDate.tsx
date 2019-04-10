@@ -1,5 +1,5 @@
 import React from 'react';
-import * as moment from 'moment';
+import {standardDate} from '../../../../utils/dateTimeUtil';
 
 interface Props {
   datePublished: Date;
@@ -10,8 +10,6 @@ export const BY_LINE_STYLE = `
   font-size: 1.4rem;
   text-shadow: 1px 1px 0px black;
 `;
-
-const standardDate = (date: Date) => moment(date).format('MMM Do YYYY');
 
 const BlogDate = ({dateCreated, datePublished}: Props) => {
   if (datePublished) {

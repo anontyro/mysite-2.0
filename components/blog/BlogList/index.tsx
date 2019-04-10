@@ -1,6 +1,6 @@
 import React from 'react';
 import {Blog} from '../../../server/entity/MyBlog';
-import BlogPost from './components/BlogPost';
+import BlogPost from './components/BlogPost/BlogPost';
 import BlogAdminHeader from './components/BlogAdminHeader';
 import IsLoggedIn from '../../util/IsLoggedIn';
 

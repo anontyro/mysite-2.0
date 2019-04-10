@@ -2,22 +2,22 @@ import React from 'react';
 import {Blog} from '../../../../server/entity/MyBlog';
 import {brandBlueColor, brandFont} from '../../../../data/typo';
 import BlogDate, {BY_LINE_STYLE} from './BlogDate';
+import {DEFAUlT_IMG} from '../../../../data/consts';
+import {setAuthor} from '../../../../utils/blogUtil';
 
 interface Props {
   blogItem: Blog;
 }
 
 const BlogHeader = ({blogItem}: Props) => {
-  const defaultImg = 'default.png';
   const {title, coverImage, datePublished, dateCreated} = blogItem;
-  const author = blogItem.author === 3 ? 'Alex' : 'Guest';
   return (
     <React.Fragment>
       <div className="blogHeader">
         <div className="blogTitle">
           <h1>{title}</h1>
           <div className="blogByLine">
-            <span>{`By: ${author}`}</span>
+            <span>{`By: ${setAuthor(blogItem.author)}`}</span>
             <BlogDate dateCreated={dateCreated} datePublished={datePublished} />
           </div>
         </div>
@@ -29,7 +29,7 @@ const BlogHeader = ({blogItem}: Props) => {
           position: relative;
           background-image: url(/static/images/blog/${coverImage
               ? coverImage
-              : defaultImg});
+              : DEFAUlT_IMG});
           background-size: cover;
           background-repeat: no-repeat;
         }
