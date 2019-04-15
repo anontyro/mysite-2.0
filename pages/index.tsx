@@ -1,25 +1,11 @@
 import * as React from 'react';
-import Link from 'next/link';
 import {connect} from 'react-redux';
 import Layout from '../components/_Layout/Layout';
-import {Dispatch} from 'redux';
-import graphQLQuery, {graphQLFetch} from '../components/graphQL/GraphQLWrapper';
-import {BLOG_LIST_QUERY} from '../graphQL/queries/blogQuery';
 import * as actions from '../store/blog/actions';
 import {Blog} from '../server/entity/MyBlog';
 import {UserState} from '../store/user/reducers';
 import Header from '../components/_Layout/Header';
-
-const Hl = ({children}) => (
-  <React.Fragment>
-    <span>{children}</span>
-    <style jsx>{`
-      span {
-        color: #4196ea;
-      }
-    `}</style>
-  </React.Fragment>
-);
+import Hl from '../components/util/Hl';
 
 interface Props {
   getBlogList: (token?) => void;
