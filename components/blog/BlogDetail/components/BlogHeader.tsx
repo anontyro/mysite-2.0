@@ -28,7 +28,7 @@ const BlogHeader = ({blogItem}: Props) => {
           height: 40vw;
           position: relative;
           background-image: url(/static/images/blog/${coverImage}),
-            url(/static/images/blog/default.png);
+            url(/static/images/blog/${DEFAUlT_IMG});
           background-size: cover;
           background-repeat: no-repeat;
         }

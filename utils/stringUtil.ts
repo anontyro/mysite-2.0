@@ -1,4 +1,4 @@
-export const MAX_BLURB_LEN = 350;
+export const MAX_BLURB_LEN = 250;
 
 export const createBlurb = (text: string, maxLen: number = MAX_BLURB_LEN) => {
   if (text.length <= maxLen) {
