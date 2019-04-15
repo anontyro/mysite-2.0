@@ -2,6 +2,7 @@ import React from 'react';
 import {Blog} from '../../../../../server/entity/MyBlog';
 import BlogPostHeader from './components/BlogPostHeader';
 import BlogPostBody from './components/BlogPostBody';
+import {DEFAUlT_IMG} from '../../../../../data/consts';
 
 interface Props {
   post: Blog;
@@ -19,7 +20,31 @@ const BlogPost = ({post}: Props) => {
         .postContainer {
           width: 45%;
           margin: 10px;
-          height: 350px;
+          height: 450px;
+        }
+        .postImage {
+          width: 100%;
+          height: 20vw;
+          position: relative;
+          background-image: url(/static/images/blog/${post.coverImage}),
+            url(/static/images/blog/${DEFAUlT_IMG});
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+
+        @media only screen and (max-width: 800px) {
+          .postContainer {
+            width: 100%;
+            height: unset;
+          }
+          .postImage {
+            height: 30vw;
+          }
+        }
+        @media only screen and (max-width: 500px) {
+          .postImage {
+            height: 40vw;
+          }
         }
       `}</style>
     </React.Fragment>

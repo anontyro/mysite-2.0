@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import Link from 'next/link';
 import {Blog} from '../../../../../../server/entity/MyBlog';
 import {createBlurb} from '../../../../../../utils/stringUtil';
+import DefaultLink from '../../../../../common/buttons/DefaultLink';
 
 interface Props {
   post: Blog;
@@ -12,11 +13,16 @@ const BlogPostBody = ({post}: Props) => {
     <React.Fragment>
       <div className="postBody">
         <p>{createBlurb(post.body)}</p>
-        <Link href={`/blog?post=${post.slug}`}>
-          <a>Continue reading</a>
-        </Link>
+        <DefaultLink
+          link={`/blog?post=${post.slug}`}
+          label={'Continue reading'}
+        />
       </div>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        p {
+          height: 80px;
+        }
+      `}</style>
     </React.Fragment>
   );
 };
