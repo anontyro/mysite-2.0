@@ -2,7 +2,7 @@ import * as React from 'react';
 import Meta from './Meta';
 import dynamic from 'next/dynamic';
 
-const Navbar = dynamic((() => import('./Navbar')) as any, {
+const Navbar = dynamic((() => import('./navbar/Navbar')) as any, {
   ssr: false,
 });
 
