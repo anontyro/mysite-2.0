@@ -1,5 +1,4 @@
 import React, {ReactNode} from 'react';
-import Link from 'next/link';
 import {Blog} from '../../../../../../server/entity/MyBlog';
 import {createBlurb} from '../../../../../../utils/stringUtil';
 import DefaultLink from '../../../../../common/buttons/DefaultLink';

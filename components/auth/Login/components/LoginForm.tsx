@@ -7,11 +7,41 @@ interface FormProps {
 }
 
 const LoginForm = ({onLogin, onEmailChange, onPasswordChange}: FormProps) => (
-  <form onSubmit={onLogin}>
-    <input placeholder="email" onChange={onEmailChange} />
-    <input placeholder="password" onChange={onPasswordChange} type="password" />
-    <input type="submit" value="Login" />
-  </form>
+  <React.Fragment>
+    <form onSubmit={onLogin}>
+      <input
+        className="formInput"
+        placeholder="email"
+        onChange={onEmailChange}
+      />
+      <input
+        className="formInput"
+        placeholder="password"
+        onChange={onPasswordChange}
+        type="password"
+      />
+      <input className="loginBtn" type="submit" value="Login" />
+    </form>
+    <style jsx>{`
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      form * {
+        margin: 0.5rem;
+      }
+      .formInput {
+        font-size: 1.5rem;
+      }
+      .loginBtn {
+        font-size: 1.5rem;
+        background-color: #0e96f0;
+        border: aliceblue;
+        color: white;
+        padding: 5px 0;
+      }
+    `}</style>
+  </React.Fragment>
 );
 
 export default LoginForm;
