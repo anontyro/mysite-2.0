@@ -1,10 +1,11 @@
 import React from 'react';
 import css from 'styled-jsx/css';
 import BaseLink from './BaseLink';
+import {secondaryBlueColor} from '../../../data/typo';
 
 const defaultStyle = css`
   a {
-    background-color: #4196ea;
+    background-color: ${secondaryBlueColor};
     display: inline-block;
     padding: 10px 20px;
     color: white;

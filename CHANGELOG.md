@@ -4,6 +4,8 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+- [login-page] working on designing the login page
+
 ## Version 1.0.0
 
 ## Version 1.0.0-rc
