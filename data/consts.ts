@@ -5,14 +5,15 @@ export const DEFAUlT_IMG = 'default.png';
 export const ROUTES = {
   ADMIN: '/admin?section=home',
   HOME: '/',
+  LOGIN: '/login',
 };
 
 export const ADMIN_SECTIONS = {
-  HOME: '?section=home',
-  BLOG_HOME: '?section=blog',
-  BLOG_ADD: '?section=blog-add',
-  BLOG_EDIT: '?section=blog-edit',
-  USER: '?section=user',
+  HOME: 'home',
+  BLOG_HOME: 'blog',
+  BLOG_ADD: 'blog-add',
+  BLOG_EDIT: 'blog-edit',
+  USER: 'user',
 };
 
 export const PAGE_LAYERS = {
