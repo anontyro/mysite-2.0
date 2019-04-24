@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {withRouter, SingletonRouter} from 'next/router';
 import Layout from '../components/_Layout/Layout';
 import * as actions from '../store/user/actions';
 import IsLoggedIn from '../components/util/IsLoggedIn';
@@ -9,17 +10,21 @@ import LogoutPage from '../components/auth/Logout';
 interface Props {
   userSession: UserState;
   logout: () => void;
+  router: SingletonRouter;
 }
 
-const AdminPage = ({logout, userSession}: Props) => {
+const TITLE = 'Admin';
+
+const AdminPage = ({logout, userSession, router}: Props) => {
+  const {section} = router.query;
   const onLogout = (event: any) => {
     event.preventDefault();
     logout();
   };
 
   return (
-    <Layout title="Admin">
-      <h1>Admin</h1>
+    <Layout title={TITLE}>
+      <h1>{`Admin Section: ${section}`}</h1>
       <IsLoggedIn>
         <LogoutPage onLogout={onLogout} userSession={userSession} />
       </IsLoggedIn>
@@ -36,7 +41,9 @@ const mapDispatchToProps = (dispatch: any): any => ({
   logout: () => dispatch(actions.logoutUser()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AdminPage);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(AdminPage)
+);

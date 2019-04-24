@@ -5,7 +5,7 @@ import get from 'lodash.get';
 import * as moment from 'moment';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
 import {LOGIN_QUERY} from '../../graphQL/queries/authQuery';
-import {LOGIN_EXPIRY_SECONDS} from '../../data/consts';
+import {LOGIN_EXPIRY_SECONDS, ROUTES} from '../../data/consts';
 export interface SetUser {
   payload: UserState;
   type: constants.SET_USER;
@@ -78,7 +78,7 @@ export const loginUser = (userLogin: UserLogin) => {
           isActive: true,
         };
         dispatch(completedLogin(user));
-        Router.push('/admin');
+        Router.push(ROUTES.ADMIN);
       },
       error: error => {
         console.error(
