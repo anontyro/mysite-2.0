@@ -2,8 +2,6 @@ import React, {ReactNode} from 'react';
 import {connect} from 'react-redux';
 import {UserState} from '../../store/user/reducers';
 
-const Empty = () => <h1>test</h1>;
-
 interface Props {
   children: ReactNode;
   noneLoggedInView?: any;
