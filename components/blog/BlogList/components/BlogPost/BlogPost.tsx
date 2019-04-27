@@ -3,6 +3,7 @@ import {Blog} from '../../../../../server/entity/MyBlog';
 import BlogPostHeader from './components/BlogPostHeader';
 import BlogPostBody from './components/BlogPostBody';
 import {DEFAUlT_IMG} from '../../../../../data/consts';
+import DefaultLink from '../../../../common/buttons/DefaultLink';
 
 interface Props {
   post: Blog;
@@ -14,7 +15,12 @@ const BlogPost = ({post}: Props) => {
       <div className="postContainer">
         <BlogPostHeader post={post} />
         <div className="postImage" />
-        <BlogPostBody post={post} />
+        <BlogPostBody post={post}>
+          <DefaultLink
+            link={`/blog?post=${post.slug}`}
+            label={'Continue reading'}
+          />
+        </BlogPostBody>
       </div>
       <style jsx>{`
         .postContainer {
