@@ -4,6 +4,7 @@ import BlogPostHeader from '../BlogPost/components/BlogPostHeader';
 import BlogPostBody from '../BlogPost/components/BlogPostBody';
 import DefaultLink from '../../../../common/buttons/DefaultLink';
 import {DEFAUlT_IMG} from '../../../../../data/consts';
+import PostControls from './components/PostControls';
 
 interface Props {
   post: Blog;
@@ -17,10 +18,7 @@ const BlogPostAdmin = ({post}: Props) => {
         <div className={'postContent'}>
           <div className={'postImage'} />
           <BlogPostBody post={post}>
-            <div className={'postControls'}>
-              <DefaultLink link={`/blog?post=${post.slug}`} label={'Edit'} />
-              <DefaultLink link={`/blog?post=${post.slug}`} label={'Publish'} />
-            </div>
+            <PostControls post={post} />
           </BlogPostBody>
         </div>
       </div>
@@ -33,14 +31,10 @@ const BlogPostAdmin = ({post}: Props) => {
         .postContent {
           display: flex;
         }
-        .postControls {
-          display: flex;
-          justify-content: flex-end;
-        }
         .postImage {
           margin-right: 25px;
           width: 25%;
-          height: 20vw;
+          height: 160px;
           position: relative;
           background-image: url(/static/images/blog/${post.coverImage}),
             url(/static/images/blog/${DEFAUlT_IMG});
