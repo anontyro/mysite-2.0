@@ -5,3 +5,23 @@ export const LOGIN_QUERY = gql`
     Login(email: $email, password: $password)
   }
 `;
+
+export const REGISTER_MUTATION = gql`
+  mutation Register(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+  ) {
+    register(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+    ) {
+      firstName
+      email
+      isActive
+    }
+  }
+`;
