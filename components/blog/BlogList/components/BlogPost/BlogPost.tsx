@@ -30,12 +30,18 @@ const BlogPost = ({post}: Props) => {
         }
         .postImage {
           width: 100%;
-          height: 20vw;
+          height: 200px;
           position: relative;
           background-image: url(/static/images/blog/${post.coverImage}),
             url(/static/images/blog/${DEFAUlT_IMG});
           background-size: cover;
           background-repeat: no-repeat;
+        }
+
+        @media only screen and (max-width: 1000px) {
+          .postImage {
+            height: 20vw;
+          }
         }
 
         @media only screen and (max-width: 800px) {
