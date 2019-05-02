@@ -1,7 +1,10 @@
 import * as constants from './consts';
 import {BlogState, blog} from './reducers';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
-import {BLOG_LIST_QUERY} from '../../graphQL/queries/blogQuery';
+import {
+  BLOG_LIST_QUERY,
+  BLOG_PUBLISH_MUTATION,
+} from '../../graphQL/queries/blogQuery';
 import get from 'lodash.get';
 import {Blog} from '../../server/entity/MyBlog';
 
@@ -75,6 +78,30 @@ export const fetchBlogList = (token = '', force = false) => {
       },
       error: error => {
         console.error(`An error occured`, error);
+      },
+      complete: () => console.log('complete'),
+    });
+  };
+};
+
+export const releaseBlogPost = (token: string, id: number) => {
+  return (dispatch: any) => {
+    return graphQLQuery({
+      query: BLOG_PUBLISH_MUTATION,
+      variables: {
+        jwtToken: token,
+        id,
+      },
+    }).subscribe({
+      next: data => {
+        console.log(`Released ${id} blog success`, data);
+        dispatch(fetchBlogList(token, true));
+      },
+      error: error => {
+        console.error(
+          `An error occured when trying to release ${id} blog`,
+          error
+        );
       },
       complete: () => console.log('complete'),
     });

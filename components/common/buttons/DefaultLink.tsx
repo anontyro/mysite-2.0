@@ -30,10 +30,11 @@ const defaultStyle = css`
 interface Props {
   link: string;
   label: string;
+  onClick?: (event: any) => any;
 }
 
-const DefaultLink = ({link, label}: Props) => (
-  <BaseLink link={{link, label}} style={defaultStyle} />
+const DefaultLink = ({link, label, onClick = undefined}: Props) => (
+  <BaseLink link={{link, label, onClick}} style={defaultStyle} />
 );
 
 export default DefaultLink;
