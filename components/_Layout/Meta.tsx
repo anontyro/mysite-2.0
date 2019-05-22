@@ -33,6 +33,7 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         href="https://fonts.googleapis.com/css?family=Pacifico"
         rel="stylesheet"
       />
+      <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
     </Head>
 
     <style jsx global>{`
