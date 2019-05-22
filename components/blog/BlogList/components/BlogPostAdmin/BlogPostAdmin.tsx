@@ -1,47 +1,46 @@
 import React from 'react';
 import {Blog} from '../../../../../server/entity/MyBlog';
-import BlogPostHeader from './components/BlogPostHeader';
-import BlogPostBody from './components/BlogPostBody';
-import {DEFAUlT_IMG} from '../../../../../data/consts';
+import BlogPostHeader from '../BlogPost/components/BlogPostHeader';
+import BlogPostBody from '../BlogPost/components/BlogPostBody';
 import DefaultLink from '../../../../common/buttons/DefaultLink';
+import {DEFAUlT_IMG} from '../../../../../data/consts';
+import PostControls from './components/PostControls';
 
 interface Props {
   post: Blog;
 }
 
-const BlogPost = ({post}: Props) => {
+const BlogPostAdmin = ({post}: Props) => {
   return (
     <React.Fragment>
       <div className="postContainer">
         <BlogPostHeader post={post} />
-        <div className="postImage" />
-        <BlogPostBody post={post}>
-          <DefaultLink
-            link={`/blog?post=${post.slug}`}
-            label={'Continue reading'}
-          />
-        </BlogPostBody>
+        <div className={'postContent'}>
+          <div className={'postImage'} />
+          <BlogPostBody post={post}>
+            <PostControls post={post} />
+          </BlogPostBody>
+        </div>
       </div>
       <style jsx>{`
         .postContainer {
-          width: 45%;
+          width: 100%;
           margin: 10px;
-          height: 450px;
+          height: 250px;
+        }
+        .postContent {
+          display: flex;
         }
         .postImage {
-          width: 100%;
-          height: 200px;
+          margin-right: 25px;
+          width: 25%;
+          height: 160px;
           position: relative;
           background-image: url(/static/images/blog/${post.coverImage}),
             url(/static/images/blog/${DEFAUlT_IMG});
           background-size: cover;
           background-repeat: no-repeat;
-        }
-
-        @media only screen and (max-width: 1000px) {
-          .postImage {
-            height: 20vw;
-          }
+          flex-shrink: 0;
         }
 
         @media only screen and (max-width: 800px) {
@@ -63,4 +62,4 @@ const BlogPost = ({post}: Props) => {
   );
 };
 
-export default BlogPost;
+export default BlogPostAdmin;

@@ -9,15 +9,17 @@ const Navbar = dynamic((() => import('./navbar/Navbar')) as any, {
 type Props = {
   title?: string;
   displayImg?: boolean;
+  showNavBar?: boolean;
 };
 
 const Header: React.FunctionComponent<Props> = ({
   title,
   displayImg = false,
+  showNavBar = true,
 }) => (
   <React.Fragment>
     <Meta title={title} displayImg={displayImg} />
-    <Navbar />
+    {showNavBar && <Navbar />}
   </React.Fragment>
 );
 

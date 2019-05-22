@@ -19,7 +19,7 @@ const defaultStyle = css`
 export interface LinkObject {
   link: string;
   label: string;
-  onClick?: () => void;
+  onClick?: (event: any) => void;
 }
 
 interface Props {

@@ -10,6 +10,7 @@ type Props = {
   title?: string;
   displayImg?: boolean;
   showFooter?: boolean;
+  showNavBar?: boolean;
 };
 
 const Layout: React.FunctionComponent<Props> = ({
@@ -17,10 +18,11 @@ const Layout: React.FunctionComponent<Props> = ({
   displayImg = false,
   children,
   showFooter = true,
+  showNavBar = true,
 }) => (
   <React.Fragment>
     <div className={'pageContainer'}>
-      <Header title={title} displayImg={displayImg} />
+      <Header showNavBar={showNavBar} title={title} displayImg={displayImg} />
       {children}
     </div>
     <style jsx>{`

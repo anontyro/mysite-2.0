@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {withRouter, SingletonRouter} from 'next/router';
 import {connect} from 'react-redux';
-import dynamic from 'next/dynamic';
 import * as actions from '../store/blog/actions';
 import {Blog} from '../server/entity/MyBlog';
 import {UserState} from '../store/user/reducers';

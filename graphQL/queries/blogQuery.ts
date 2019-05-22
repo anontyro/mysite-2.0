@@ -18,3 +18,69 @@ export const BLOG_LIST_QUERY = gql`
     }
   }
 `;
+
+export const BLOG_PUBLISH_MUTATION = gql`
+  mutation PublishBlog($jwtToken: String!, $id: Float!) {
+    publishBlog(jwtToken: $jwtToken, id: $id) {
+      id
+      title
+      draft
+    }
+  }
+`;
+
+export const BLOG_CREATE_MUTATION = gql`
+  mutation CreateBlog(
+    $jwtToken: String!
+    $title: String!
+    $body: String!
+    $draft: Boolean
+    $coverImage: String
+    $datePublished: String
+    $tags: tags
+  ) {
+    createBlog(
+      jwtToken: $jwtToken
+      title: $title
+      body: $body
+      draft: $draft
+      coverImage: $coverImage
+      datePublished: $datePublished
+      tags: $tags
+    ) {
+      title
+      body
+      author
+      slug
+    }
+  }
+`;
+
+export const BLOG_UPDATE_MUTATION = gql`
+  mutation UpdateBlog(
+    $jwtToken: String!
+    $id: Float!
+    $title: String
+    $body: String
+    $draft: Boolean
+    $coverImage: String
+    $datePublished: String
+    $tags: tags
+  ) {
+    updateBlog(
+      jwtToken: $jwtToken
+      id: $id
+      title: $title
+      body: $body
+      draft: $draft
+      coverImage: $coverImage
+      datePublished: $datePublished
+      tags: $tags
+    ) {
+      title
+      body
+      author
+      slug
+    }
+  }
+`;

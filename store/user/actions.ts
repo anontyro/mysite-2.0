@@ -1,10 +1,11 @@
 import * as constants from './consts';
+import Router from 'next/router';
 import {UserState, UserLogin} from './reducers';
 import get from 'lodash.get';
 import * as moment from 'moment';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
 import {LOGIN_QUERY} from '../../graphQL/queries/authQuery';
-import {LOGIN_EXPIRY_SECONDS} from '../../data/consts';
+import {LOGIN_EXPIRY_SECONDS, ROUTES} from '../../data/consts';
 export interface SetUser {
   payload: UserState;
   type: constants.SET_USER;
@@ -50,6 +51,13 @@ export const completedLogin = (user: UserState): CompletedLogin => {
   };
 };
 
+export const logoutUser = () => {
+  return (dispatch: any) => {
+    Router.push('/');
+    dispatch(removeUser());
+  };
+};
+
 export const loginUser = (userLogin: UserLogin) => {
   return (dispatch: any) => {
     dispatch(startingLogin());
@@ -70,6 +78,7 @@ export const loginUser = (userLogin: UserLogin) => {
           isActive: true,
         };
         dispatch(completedLogin(user));
+        Router.push(ROUTES.ADMIN);
       },
       error: error => {
         console.error(

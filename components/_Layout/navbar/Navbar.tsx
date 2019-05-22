@@ -23,7 +23,7 @@ interface AdminProps {
 
 const AdminDisplay = ({isLoggedIn = false}: AdminProps) => {
   if (isLoggedIn) {
-    return <NavLink label={'Admin'} link={'/admin'} />;
+    return <NavLink label={'Admin'} link={'/admin?section=home'} />;
   }
   return <NavLink label={'Login'} link={'/login'} />;
 };

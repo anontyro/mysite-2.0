@@ -37,23 +37,4 @@ export const graphQLFetch = ({
   });
 };
 
-// const GraphQLWrapper = ({query, variables, children}: GraphQlQueryProps) => (
-//   <Query query={query} variables={variables}>
-//     {({loading, error, data}) => {
-//       if (loading) {
-//         <h3>Loading...</h3>;
-//       }
-//       if (error) {
-//         <h3>Error :(</h3>;
-//       }
-//       if (data) {
-//         console.log(data);
-//         return <div>{children}</div>;
-//       } else {
-//         return <div>no data</div>;
-//       }
-//     }}
-//   </Query>
-// );
-
 export default graphQLQuery;

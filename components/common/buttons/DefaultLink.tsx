@@ -1,10 +1,11 @@
 import React from 'react';
 import css from 'styled-jsx/css';
 import BaseLink from './BaseLink';
+import {secondaryBlueColor} from '../../../data/typo';
 
 const defaultStyle = css`
   a {
-    background-color: #4196ea;
+    background-color: ${secondaryBlueColor};
     display: inline-block;
     padding: 10px 20px;
     color: white;
@@ -29,10 +30,11 @@ const defaultStyle = css`
 interface Props {
   link: string;
   label: string;
+  onClick?: (event: any) => any;
 }
 
-const DefaultLink = ({link, label}: Props) => (
-  <BaseLink link={{link, label}} style={defaultStyle} />
+const DefaultLink = ({link, label, onClick = undefined}: Props) => (
+  <BaseLink link={{link, label, onClick}} style={defaultStyle} />
 );
 
 export default DefaultLink;
