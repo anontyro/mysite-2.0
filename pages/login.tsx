@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {connect} from 'react-redux';
 import {UserLogin, UserState} from '../store/user/reducers';
 import * as actions from '../store/user/actions';
