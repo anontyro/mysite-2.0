@@ -6,6 +6,7 @@ export const ROUTES = {
   ADMIN: '/admin?section=home',
   HOME: '/',
   LOGIN: '/login',
+  TEST: '/test',
 };
 
 export const ADMIN_SECTIONS = {
