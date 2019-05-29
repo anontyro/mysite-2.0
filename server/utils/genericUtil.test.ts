@@ -1,5 +1,5 @@
 import Test from 'ava';
-import {slugify, REGEX_LIST} from './genericUtil';
+import {slugify, REGEX_LIST, randomIntFromInterval} from './genericUtil';
 
 Test('slugify will return a string with no spaces', t => {
   const title = 'a new title';
@@ -25,4 +25,24 @@ Test('slugify will remove all none alphabetical and numeric characters', t => {
 
   t.falsy(whiteSpaceMatch);
   t.falsy(extraHyphen);
+});
+
+Test('randomInFromInterval will return random numbers within the range', t => {
+  let num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
+
+  num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
+
+  num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
+
+  num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
+
+  num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
+
+  num = randomIntFromInterval(1, 2);
+  t.true(num === 1 || num === 2);
 });
