@@ -37,6 +37,7 @@
     "next": "7.0.2",
     "next-apollo": "^2.0.9",
     "next-redux-wrapper": "^3.0.0-alpha.2",
+    "punkapi-lib": "^2.5.0",
     "react": "16.8.1",
     "react-apollo": "^2.5.1",
     "react-dom": "16.8.1",
