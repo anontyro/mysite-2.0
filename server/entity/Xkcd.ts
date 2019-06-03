@@ -1,5 +1,4 @@
 import {ObjectType, Field} from 'type-graphql';
-import {Entity} from 'typeorm';
 
 export interface IXkcd {
   month: string;
@@ -16,7 +15,6 @@ export interface IXkcd {
 }
 
 @ObjectType()
-@Entity()
 export default class Xkcd {
   @Field({nullable: true})
   month: string;
