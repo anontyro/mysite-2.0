@@ -1,9 +1,10 @@
 import {Resolver, Query, Arg} from 'type-graphql';
 import fetch from 'node-fetch';
 import GhostBlog, {IGhostBlog, IGhostPost} from '../../entity/GhostBlog';
+require('dotenv').config();
 
 const CONTENT_KEY = process.env.GHOST_CONTENT_KEY;
-const URL = `${process.env.GHOST_API_URL}/ghost/api/v2/content/`;
+const URL = `https://blog.alexwilkinson.co/ghost/api/v2/content/`;
 const ENDPOINTS = {
   POSTS: 'posts/',
   POST_BY_SLUG: 'posts/slug/',
@@ -68,5 +69,18 @@ export class GhostBlogResolver {
     const json: IPosts = await response.json();
 
     return json;
+  }
+
+  @Query(() => String)
+  async GhostPostsUrl(
+    @Arg('page', {nullable: true}) page: number,
+    @Arg('limit', {nullable: true}) limit: number
+  ): Promise<String> {
+    const includeParams = !!page || !!limit;
+    const params = includeParams
+      ? [{key: 'page', value: page}, {key: 'limit', value: limit}]
+      : [];
+    const url = getPostList(...params);
+    return url;
   }
 }
