@@ -19,10 +19,13 @@ ARG GHOST_CONTENT_KEY
 ENV GHOST_CONTENT_KEY=$GHOST_CONTENT_KEY
 ARG GHOST_ADMIN_KEY
 ENV GHOST_ADMIN_KEY=$GHOST_ADMIN_KEY
+ARG GIT_API_KEY
+ENV GIT_API_KEY=$GIT_API_KEY
 RUN if [ "x$JWT_SECRET" = "x" ] ; then echo no JWT_SECRET provided ; else echo JWT_SECRET is set to: $JWT_SECRET; fi
 RUN if [ "x$GHOST_API_URL" = "x" ] ; then echo no GHOST_API_URL provided ; else echo GHOST_API_URL is set to: $GHOST_API_URL; fi
 RUN if [ "x$GHOST_CONTENT_KEY" = "x" ] ; then echo no GHOST_CONTENT_KEY provided ; else echo GHOST_CONTENT_KEY is set to: $GHOST_CONTENT_KEY; fi
 RUN if [ "x$GHOST_ADMIN_KEY" = "x" ] ; then echo no GHOST_ADMIN_KEY provided ; else echo GHOST_ADMIN_KEY is set to: $GHOST_ADMIN_KEY; fi
+RUN if [ "x$GIT_API_KEY" = "x" ] ; then echo no GIT_API_KEY provided ; else echo GIT_API_KEY is set to: $GIT_API_KEY; fi
 WORKDIR /home/node/app
 
 COPY ./package* ./
