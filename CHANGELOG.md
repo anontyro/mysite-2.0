@@ -12,6 +12,14 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Version 1.0.0-rc
 
+## Nightly 0.0.3
+
+Updated frontend more, but will need restructuring as using GhostJS for blog and will bring in GitHub API for porfolio.
+
+- BrewDog API endpoints
+- XKCD API endpoints for random comic
+- GhostJS endpoints added for content
+
 ## Nightly 0.0.2
 
 Updated inital build to have the basic frontend in place and building

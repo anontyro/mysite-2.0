@@ -30,3 +30,15 @@ docker build --tag=my-site-2.0-2 --build-arg JWT_SECRET=XXX .
 
 If none is supplied in the build script the failback default will be used.
 This will prevent errors in the final bundle but it is not very secure so it is adviced to always supply a secret to docker
+
+## ENV File
+
+```env
+NODE_ENV=dev
+PORT=3000
+JWT_SECRET=XXXX
+
+GHOST_API_URL=https://blog.site.com
+GHOST_CONTENT_KEY=XXXX
+GHOST_ADMIN_KEY=XXX
+```
