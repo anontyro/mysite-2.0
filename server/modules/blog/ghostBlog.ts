@@ -1,10 +1,9 @@
 import {Resolver, Query, Arg} from 'type-graphql';
 import fetch from 'node-fetch';
 import GhostBlog, {IGhostBlog, IGhostPost} from '../../entity/GhostBlog';
-require('dotenv').config();
 
 const CONTENT_KEY = process.env.GHOST_CONTENT_KEY;
-const URL = `https://blog.alexwilkinson.co/ghost/api/v2/content/`;
+const URL = `${process.env.GHOST_API_URL}/ghost/api/v2/content/`;
 const ENDPOINTS = {
   POSTS: 'posts/',
   POST_BY_SLUG: 'posts/slug/',
