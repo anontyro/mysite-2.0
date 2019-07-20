@@ -10,7 +10,7 @@ export class BrewDogResolver {
     @Arg('args', () => BeerArgs, {
       nullable: true,
       description:
-        'Argument array for any values to query by such as beer_name, food_pairing',
+        'Argument array for any values to query by such as beer_name, food full list on: https://punkapi.com/documentation/v2',
     })
     args: BeerArgs
   ): Promise<[IBrewDog]> {

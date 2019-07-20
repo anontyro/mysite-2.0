@@ -1,4 +1,5 @@
 import {BlogResolver} from './blog/blog';
+import {GhostBlogResolver} from './blog/ghostBlog';
 import {FileResolver} from './file/file';
 import {LoginResolver} from './user/login';
 import {RegisterUserResolver} from './user/register';
@@ -14,6 +15,7 @@ const RESOLVER_LIST = [
   UploadResolver,
   XkcdResolver,
   BrewDogResolver,
+  GhostBlogResolver,
 ];
 
 export default RESOLVER_LIST;
