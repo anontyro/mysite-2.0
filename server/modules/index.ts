@@ -6,6 +6,7 @@ import {RegisterUserResolver} from './user/register';
 import {UploadResolver} from './file/upload';
 import {XkcdResolver} from './external/xkcd';
 import {BrewDogResolver} from './external/brewDog';
+import {GithubResolver} from './external/gitHub';
 
 const RESOLVER_LIST = [
   BlogResolver,
@@ -16,6 +17,7 @@ const RESOLVER_LIST = [
   XkcdResolver,
   BrewDogResolver,
   GhostBlogResolver,
+  GithubResolver,
 ];
 
 export default RESOLVER_LIST;

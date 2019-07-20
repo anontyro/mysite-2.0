@@ -69,17 +69,4 @@ export class GhostBlogResolver {
 
     return json;
   }
-
-  @Query(() => String)
-  async GhostPostsUrl(
-    @Arg('page', {nullable: true}) page: number,
-    @Arg('limit', {nullable: true}) limit: number
-  ): Promise<String> {
-    const includeParams = !!page || !!limit;
-    const params = includeParams
-      ? [{key: 'page', value: page}, {key: 'limit', value: limit}]
-      : [];
-    const url = getPostList(...params);
-    return url;
-  }
 }
