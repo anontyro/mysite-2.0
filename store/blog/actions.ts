@@ -1,5 +1,5 @@
 import * as constants from './consts';
-import {BlogState, blog} from './reducers';
+import {BlogState} from './reducers';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
 import {
   BLOG_LIST_QUERY,

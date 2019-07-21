@@ -7,11 +7,17 @@ import thunk from 'redux-thunk';
 import throttle from 'lodash.throttle';
 import {saveState, loadState} from '../utils/localStorage';
 import {ResumeState, resume, resumeInitialState} from './resume/reducers';
+import {
+  PortfolioState,
+  portfolio,
+  portfolioInitialState,
+} from './portfolio/reducers';
 
 export interface AppState {
   user: UserState;
   blog: BlogState;
   resume: ResumeState;
+  portfolio: PortfolioState;
 }
 
 /*
@@ -37,12 +43,14 @@ export const initalState = {
   user: getPersistState(),
   blog: blogInitialState,
   resume: resumeInitialState,
+  portfolio: portfolioInitialState,
 };
 
 const rootReducer = combineReducers({
   user,
   blog,
   resume,
+  portfolio,
 });
 
 const composeEnhancers = composeWithDevTools({

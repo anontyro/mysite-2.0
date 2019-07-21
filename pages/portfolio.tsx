@@ -1,10 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Layout from '../components/_Layout/Layout';
+import * as portfolioActions from '../store/portfolio/actions';
 
-interface Props {}
+interface Props {
+  getPortfolioList: (refresh?) => void;
+}
 
-const PortfolioPage = ({}: Props) => {
+const PortfolioPage = ({getPortfolioList}: Props) => {
+  getPortfolioList();
   return (
     <Layout title="Portfolio">
       <React.Fragment>
@@ -16,7 +20,10 @@ const PortfolioPage = ({}: Props) => {
 
 const mapStateToProps = ({}) => ({});
 
-const mapDispatchToProps = (dispatch: any) => ({});
+const mapDispatchToProps = (dispatch: any) => ({
+  getPortfolioList: (refresh: boolean = false) =>
+    dispatch(portfolioActions.fetchPortfolioList(refresh)),
+});
 
 export default connect(
   mapStateToProps,

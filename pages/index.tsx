@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import Layout from '../components/_Layout/Layout';
-import * as actions from '../store/blog/actions';
+import * as blogActions from '../store/blog/actions';
+import * as portfolioActions from '../store/portfolio/actions';
+
 import {Blog} from '../server/entity/MyBlog';
 import {UserState} from '../store/user/reducers';
-import Header from '../components/_Layout/Header';
 import Hl from '../components/util/Hl';
 
 interface Props {
   getBlogList: (token?) => void;
+  getPortfolioList: (refresh?) => void;
   blogList: Blog[];
   fetching: boolean;
   userSession: UserState;
@@ -21,6 +23,7 @@ export class IndexPage extends React.Component<Props, State> {
     console.log('component mounted');
     const {token} = this.props.userSession;
     this.props.getBlogList(token);
+    this.props.getPortfolioList();
   }
 
   public render() {
@@ -62,7 +65,9 @@ const mapStateToProps = ({blog, user}: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
-  getBlogList: (token): any => dispatch(actions.fetchBlogList(token)),
+  getBlogList: (token): any => dispatch(blogActions.fetchBlogList(token)),
+  getPortfolioList: (refresh: boolean = false) =>
+    dispatch(portfolioActions.fetchPortfolioList(refresh)),
 });
 
 export default connect(
