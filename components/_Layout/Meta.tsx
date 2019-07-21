@@ -33,7 +33,7 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         href="https://fonts.googleapis.com/css?family=Pacifico"
         rel="stylesheet"
       />
-      <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link>
+      <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css" />
     </Head>
 
     <style jsx global>{`
@@ -57,10 +57,12 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
       h1 {
         font-size: 36px;
         font-weight: 500;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
       h3 {
         font-size: 24px;
         font-weight: 500;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
     `}</style>
   </React.Fragment>
