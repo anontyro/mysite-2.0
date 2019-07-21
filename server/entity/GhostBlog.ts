@@ -32,18 +32,20 @@ export interface IGhostPost {
   excerpt?: string;
 }
 
+export interface IGhostBlogMeta {
+  pagination: {
+    page?: number;
+    limits?: number;
+    pages?: number;
+    total?: number;
+    next?: number;
+    prev?: number;
+  };
+}
+
 export interface IGhostBlog {
   posts: IGhostPost[];
-  meta: {
-    pagination: {
-      page?: number;
-      limits?: number;
-      pages?: number;
-      total?: number;
-      next?: number;
-      prev?: number;
-    };
-  };
+  meta: IGhostBlogMeta;
 }
 
 @ObjectType()

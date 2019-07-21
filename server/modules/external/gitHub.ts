@@ -36,7 +36,7 @@ query {
 @Resolver()
 export class GithubResolver {
   @Query(() => [GitPinnedRepos])
-  async GithubPinnedRepos(): Promise<any> {
+  async githubPinnedRepos(): Promise<any> {
     const options = {
       method: 'POST',
       headers: {

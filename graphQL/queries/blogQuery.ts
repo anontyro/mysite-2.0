@@ -1,5 +1,59 @@
 import gql from 'graphql-tag';
 
+export const GHOST_BLOG_LIST_QUERY = gql`
+  query GhostPosts($page: number!, $limit: number!) {
+    ghostPosts(page: $page, limit: $limit) {
+      posts {
+        id
+        title
+        slug
+        html
+        feature_image
+        created_at
+        updated_at
+        published_at
+        excerpt
+      }
+      meta {
+        pagination {
+          page
+          next
+          prev
+          limit
+          total
+        }
+      }
+    }
+  }
+`;
+
+export const GHOST_BLOG_ITEM_QUERY = gql`
+  query GhostPost($slug: String) {
+    ghostPost(slug: $slug) {
+      posts {
+        id
+        title
+        slug
+        html
+        feature_image
+        created_at
+        updated_at
+        published_at
+        excerpt
+      }
+      meta {
+        pagination {
+          page
+          next
+          prev
+          limit
+          total
+        }
+      }
+    }
+  }
+`;
+
 export const BLOG_LIST_QUERY = gql`
   query BlogList($jwtToken: String!) {
     blogList(jwtToken: $jwtToken) {

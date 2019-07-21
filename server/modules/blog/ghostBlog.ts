@@ -24,7 +24,7 @@ const addParams = (url: string, ...params: Param[]) => {
   let val = '?';
   params.forEach((param: Param) => {
     const {key, value} = param;
-    const shouldAddParam = key && value && key.length > 0 && value.length > 0;
+    const shouldAddParam = !!(key && value && key.length > 0);
     if (shouldAddParam) {
       output = `${output}${val}${key}=${value}`;
       val = '&';
@@ -48,22 +48,20 @@ const getPostBySlug = (slug: string, ...params: Param[]) => {
 @Resolver()
 export class GhostBlogResolver {
   @Query(() => GhostBlog)
-  async GhostPosts(
+  async ghostPosts(
     @Arg('page', {nullable: true}) page: number,
-    @Arg('limit', {nullable: true}) limit: number
+    @Arg('limit', {nullable: true}) limit: number = 50
   ): Promise<IGhostBlog> {
-    const includeParams = !!page || !!limit;
-    const params = includeParams
-      ? [{key: 'page', value: page}, {key: 'limit', value: limit}]
-      : [];
+    const params = [{key: 'page', value: page}, {key: 'limit', value: limit}];
     const url = getPostList(...params);
     const response = await fetch(url);
     const json: IGhostBlog = await response.json();
     return json;
   }
   @Query(() => GhostBlog)
-  async GhostPost(@Arg('slug') slug: string): Promise<IPosts> {
+  async ghostPost(@Arg('slug') slug: string): Promise<IPosts> {
     const url = getPostBySlug(slug);
+    console.log(url);
     const response = await fetch(url);
     const json: IPosts = await response.json();
 

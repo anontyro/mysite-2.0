@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const GITHUB_PORTFOLIO_QUERY = gql`
   query {
-    GithubPinnedRepos {
+    githubPinnedRepos {
       name
       url
       descriptionHTML
