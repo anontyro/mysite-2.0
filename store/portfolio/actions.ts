@@ -44,7 +44,7 @@ export const fetchPortfolioList = (refresh: boolean = false) => {
       next: data => {
         const portfolioList: GithubPortfolio[] = get(
           data,
-          'data.GithubPinnedRepos',
+          'data.githubPinnedRepos',
           []
         );
         const portfolio: PortfolioState = {
