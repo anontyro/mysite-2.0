@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GHOST_BLOG_LIST_QUERY = gql`
-  query GhostPosts($page: number!, $limit: number!) {
+  query GhostPosts($page: Float!, $limit: Float!) {
     ghostPosts(page: $page, limit: $limit) {
       posts {
         id

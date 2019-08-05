@@ -55,11 +55,6 @@ export function blog(
         ...state,
         ...action.payload.currentPost,
       };
-    case constants.CREATE_BLOG_POST:
-      return {
-        ...state,
-        ...action.payload,
-      };
     // case constants.RELEASE_BLOG_POST:
     // case constants.UPDATE_BLOG_POST:
     // case constants.REMOVE_BLOG_POST:
@@ -67,3 +62,7 @@ export function blog(
 
   return state;
 }
+
+export const getBlogList = (blogState: BlogState) => {
+  return [...blogState.ghostBlogList.posts];
+};

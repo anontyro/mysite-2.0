@@ -2,7 +2,7 @@ import {ObjectType, Field} from 'type-graphql';
 
 export interface IGhostPost {
   id: string;
-  uuid: string;
+  uuid?: string;
   title: string;
   slug: string;
   html: string;

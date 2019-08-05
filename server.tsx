@@ -60,7 +60,7 @@ app
     apolloServer.applyMiddleware({app: server});
 
     server.use(cors());
-    server.use(express.static(STATIC_DIR));
+    server.use(express.static(__dirname + STATIC_DIR));
     server.get('*', (req: IncomingMessage, res: ServerResponse) =>
       handle(req, res)
     );

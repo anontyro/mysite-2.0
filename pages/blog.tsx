@@ -7,9 +7,10 @@ import {UserState} from '../store/user/reducers';
 import Layout from '../components/_Layout/Layout';
 import IsLoading from '../components/util/IsLoading';
 import BlogMainBody from '../components/blog/components/BlogMainBody';
+import {getBlogList} from '../store/blog/reducers';
 
 interface Props {
-  getBlogList: (token?: String, force?: Boolean) => void;
+  getBlogList: (force?: Boolean) => void;
   blogList: Blog[];
   fetching: boolean;
   userSession: UserState;
@@ -29,27 +30,28 @@ const BlogPage = ({
   const {token} = userSession;
 
   useEffect(() => {
-    getBlogList(token);
+    getBlogList();
   }, []);
 
   return (
     <Layout title={BLOG_TITLE}>
       <IsLoading isLoading={fetching}>
-        <BlogMainBody blogList={blogList} slug={post} />
+        {/* <BlogMainBody blogList={blogList} slug={post} /> */}
+        <h3>You currently have {blogList.length} items</h3>
       </IsLoading>
+      <a onClick={() => getBlogList()}>Get Next</a>
     </Layout>
   );
 };
 
 const mapStateToProps = ({user, blog}: any) => ({
   userSession: user,
-  blogList: blog.blogList,
+  blogList: getBlogList(blog),
   fetching: blog.fetching,
 });
 
 const mapDispatchToProps = (dispatch: any): any => ({
-  getBlogList: (token, force = false): any =>
-    dispatch(actions.fetchBlogList(token, force)),
+  getBlogList: (force = false): any => dispatch(actions.fetchBlogList(force)),
 });
 
 export default withRouter(
