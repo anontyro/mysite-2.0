@@ -8,10 +8,11 @@ import Layout from '../components/_Layout/Layout';
 import IsLoading from '../components/util/IsLoading';
 import BlogMainBody from '../components/blog/components/BlogMainBody';
 import {getBlogList} from '../store/blog/reducers';
+import {IGhostBlog, IGhostPost} from '../server/entity/GhostBlog';
 
 interface Props {
   getBlogList: (force?: Boolean) => void;
-  blogList: Blog[];
+  blogList: IGhostPost[];
   fetching: boolean;
   userSession: UserState;
   router: SingletonRouter;
@@ -19,16 +20,9 @@ interface Props {
 
 const BLOG_TITLE = 'My blog';
 
-const BlogPage = ({
-  userSession,
-  router,
-  getBlogList,
-  blogList,
-  fetching,
-}: Props) => {
+const BlogPage = ({router, getBlogList, blogList, fetching}: Props) => {
   const {post} = router.query;
-  const {token} = userSession;
-
+  console.log(blogList);
   useEffect(() => {
     getBlogList();
   }, []);
@@ -36,8 +30,7 @@ const BlogPage = ({
   return (
     <Layout title={BLOG_TITLE}>
       <IsLoading isLoading={fetching}>
-        {/* <BlogMainBody blogList={blogList} slug={post} /> */}
-        <h3>You currently have {blogList.length} items</h3>
+        <BlogMainBody blogList={blogList} slug={post} />
       </IsLoading>
       <a onClick={() => getBlogList()}>Get Next</a>
     </Layout>

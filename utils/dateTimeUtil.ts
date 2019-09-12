@@ -7,4 +7,9 @@ const formatDate = (format: string) => (date: Date) =>
 
 const standard = formatDate(DATE_STANDARD_FORMAT);
 
-export const standardDate = (date: Date) => standard(date);
+export const standardDate = (date: Date) => {
+  if (!date) {
+    return null;
+  }
+  return standard(date);
+};

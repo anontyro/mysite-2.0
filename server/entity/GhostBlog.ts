@@ -12,9 +12,9 @@ export interface IGhostPost {
   page: boolean;
   meta_title?: string;
   meta_description?: string;
-  created_at: Date;
-  updated_at: Date;
-  published_at: Date;
+  created_at: any;
+  updated_at: any;
+  published_at: any;
   custom_excerpt: string;
   codeinjection_head?: string;
   codeinjection_foot?: string;

@@ -55,7 +55,8 @@ export class GhostBlogResolver {
     const params = [{key: 'page', value: page}, {key: 'limit', value: limit}];
     const url = getPostList(...params);
     const response = await fetch(url);
-    const json: IGhostBlog = await response.json();
+    const json: any = await response.json();
+    console.log(json.posts[0].created_at);
     return json;
   }
   @Query(() => GhostBlog)

@@ -1,17 +1,17 @@
 import React from 'react';
-import {Blog} from '../../../server/entity/MyBlog';
 import BlogHeader from './components/BlogHeader';
 import BlogDetailBody from './components/BlogDetailBody';
+import {IGhostPost} from '../../../server/entity/GhostBlog';
 
 interface Props {
-  blogItem: Blog;
+  blogItem: IGhostPost;
 }
 
 const BlogDetail = ({blogItem}: Props) => {
   return (
     <React.Fragment>
-      <BlogHeader blogItem={blogItem} />
-      <BlogDetailBody text={blogItem.body} />
+      {/* <BlogHeader blogItem={blogItem} />
+      <BlogDetailBody text={blogItem.body} /> */}
     </React.Fragment>
   );
 };
