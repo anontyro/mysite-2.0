@@ -54,7 +54,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
           </nav>
         </div>
         <nav className={`nav-right full-shown`}>
-          <AdminDisplay isLoggedIn={isUserLoggedIn} />
+          {/* <AdminDisplay isLoggedIn={isUserLoggedIn} /> */}
         </nav>
         <div onClick={onClickMobileNav} className={'mobile-menu'}>
           <FontAwesomeIcon icon={isOverlayHidden ? faBars : faTimes} />
