@@ -52,7 +52,11 @@ export class GhostBlogResolver {
     @Arg('page', {nullable: true}) page: number,
     @Arg('limit', {nullable: true}) limit: number = 50
   ): Promise<IGhostBlog> {
-    const params = [{key: 'page', value: page}, {key: 'limit', value: limit}];
+    const params = [
+      {key: 'page', value: page},
+      {key: 'limit', value: limit},
+      {key: 'include', value: 'tags,authors'},
+    ];
     const url = getPostList(...params);
     const response = await fetch(url);
     const json: any = await response.json();

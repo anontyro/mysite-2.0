@@ -48,6 +48,22 @@ export interface IGhostBlog {
   meta: IGhostBlogMeta;
 }
 
+export interface Author {
+  id: number;
+  name: string;
+  slug: string;
+  profile_image: string;
+  cover_image: string;
+  bio: string;
+  website: string;
+  location: string;
+  facebook: string;
+  twitter: string;
+  meta_title: string;
+  meta_description: string;
+  url: string;
+}
+
 @ObjectType()
 class GhostPost {
   @Field({nullable: true})
@@ -81,13 +97,13 @@ class GhostPost {
   meta_description: string;
 
   @Field({nullable: true})
-  created_at: Date;
+  created_at: string;
 
   @Field({nullable: true})
-  updated_at: Date;
+  updated_at: string;
 
   @Field({nullable: true})
-  published_at: Date;
+  published_at: string;
 
   @Field({nullable: true})
   custom_excerpt: string;
