@@ -34,7 +34,7 @@ RUN npm install && \
   npm cache clean --force
 
 COPY --from=builder /home/node/app/dist ./dist
-
+COPY ./static ./static
 # EXPOSE PORT AND START APP
 
 EXPOSE 3000
