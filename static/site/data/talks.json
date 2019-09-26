@@ -2,8 +2,8 @@
   "version": "1.0.0",
   "talks": [{
       "title": "SingaporeJS - talk.js + chat.js",
-      "presentation_date": "Wednesday, 15 May 2019",
-      "archive_url": "https://www.engineers.sg/video/singaporejs-talk-js-chat-js-may-part-2--3359",
+      "presentationDate": "Wednesday, 15 May 2019",
+      "archiveUrl": "https://www.engineers.sg/video/singaporejs-talk-js-chat-js-may-part-2--3359",
       "video": {
         "url": "https://youtu.be/nYbIB7uR0ig",
         "type": "youtube"
@@ -14,12 +14,12 @@
       ],
       "location": "Singapore",
       "event": "talk.js",
-      "record_credit": "egineers.sg"
+      "recordCredit": "egineers.sg"
     },
     {
       "title": "Svelte: streamlined, lightweight web apps",
-      "presentation_date": "Wednesday, 11 September 2019",
-      "archive_url": "https://www.engineers.sg/video/svelte-streamlined-lightweight-web-apps-talk-js--3648",
+      "presentationDate": "Wednesday, 11 September 2019",
+      "archiveUrl": "https://www.engineers.sg/video/svelte-streamlined-lightweight-web-apps-talk-js--3648",
       "video": {
         "url": "https://youtu.be/SGDbI2HC2s8",
         "type": "youtube"
@@ -30,7 +30,7 @@
       ],
       "location": "Singapore",
       "event": "talk.js",
-      "record_credit": "egineers.sg"
+      "recordCredit": "egineers.sg"
     }
   ]
 }

@@ -3,6 +3,7 @@ import {PortfolioState, GithubPortfolio} from './reducers';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
 import {GITHUB_PORTFOLIO_QUERY} from '../../graphQL/queries/githubQuery';
 import get from 'lodash.get';
+import fetch from 'node-fetch';
 
 export interface FetchingPortfolioList {
   type: constants.FETCHING_PORTFOLIO_LIST;
@@ -29,7 +30,7 @@ export const fetchedPortfolioList = (
 };
 
 export const fetchPortfolioList = (refresh: boolean = false) => {
-  return (dispatch: any, getState: any) => {
+  return async (dispatch: any, getState: any) => {
     const state = getState();
     const willUseCachedData =
       state.portfolio.portfolioList.length > 0 && !refresh;
@@ -37,6 +38,10 @@ export const fetchPortfolioList = (refresh: boolean = false) => {
       return;
     }
     dispatch(fetchingPortfolioList());
+
+    const myTalks = await fetch('/static/site/data/talks.json').then(data =>
+      data.json()
+    );
 
     return graphQLQuery({
       query: GITHUB_PORTFOLIO_QUERY,
@@ -49,6 +54,7 @@ export const fetchPortfolioList = (refresh: boolean = false) => {
         );
         const portfolio: PortfolioState = {
           portfolioList,
+          myTalks: myTalks.talks,
         };
         dispatch(fetchedPortfolioList(portfolio));
       },

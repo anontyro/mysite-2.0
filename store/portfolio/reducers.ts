@@ -15,13 +15,29 @@ export interface GithubPortfolio {
   url: string;
 }
 
+export interface Talk {
+  title: string;
+  presentationDate: string;
+  archiveUrl: string;
+  video: {
+    url?: string;
+    type?: string;
+  };
+  tags: string[];
+  location: string;
+  event: string;
+  recordCredit: string;
+}
+
 export interface PortfolioState {
-  portfolioList: GithubPortfolio[];
+  portfolioList?: GithubPortfolio[];
+  myTalks?: Talk[];
   fetching?: boolean;
 }
 
 export const portfolioInitialState: PortfolioState = {
   portfolioList: [],
+  myTalks: [],
   fetching: false,
 };
 
