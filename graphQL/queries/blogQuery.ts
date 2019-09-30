@@ -28,7 +28,7 @@ export const GHOST_BLOG_LIST_QUERY = gql`
 `;
 
 export const GHOST_BLOG_ITEM_QUERY = gql`
-  query GhostPost($slug: String) {
+  query GhostPost($slug: String!) {
     ghostPost(slug: $slug) {
       posts {
         id

@@ -13,6 +13,9 @@ export type FETCHED_BLOG_LIST = typeof FETCHED_BLOG_LIST;
 export const GET_BLOG_POST = 'GET_BLOG_POST';
 export type GET_BLOG_POST = typeof GET_BLOG_POST;
 
+export const FETCHED_BLOG_POST = 'FETCHED_BLOG_POST';
+export type FETCHED_BLOG_POST = typeof FETCHED_BLOG_POST;
+
 export const CREATE_BLOG_POST = 'CREATE_BLOG_POST';
 export type CREATE_BLOG_POST = typeof CREATE_BLOG_POST;
 

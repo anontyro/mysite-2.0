@@ -1,6 +1,10 @@
 import * as constants from './consts';
 import {Blog} from '../../server/entity/MyBlog';
-import {IGhostBlogMeta, IGhostPost} from '../../server/entity/GhostBlog';
+import {
+  IGhostBlogMeta,
+  IGhostPost,
+  GhostPost,
+} from '../../server/entity/GhostBlog';
 import {BlogActions} from './actions';
 
 interface GhostBlog {
@@ -11,7 +15,7 @@ interface GhostBlog {
 export interface BlogState {
   blogList?: Blog[];
   ghostBlogList?: GhostBlog;
-  currentPost?: Blog;
+  currentPost?: GhostPost;
   newPost?: Blog;
   fetching?: boolean;
 }
@@ -53,7 +57,13 @@ export function blog(
     case constants.GET_BLOG_POST:
       return {
         ...state,
-        ...action.payload.currentPost,
+        fetching: true,
+      };
+    case constants.FETCHED_BLOG_POST:
+      return {
+        ...state,
+        ...action.payload,
+        fetching: false,
       };
     // case constants.RELEASE_BLOG_POST:
     // case constants.UPDATE_BLOG_POST:
@@ -65,4 +75,13 @@ export function blog(
 
 export const getBlogList = (blogState: BlogState) => {
   return [...blogState.ghostBlogList.posts];
+};
+
+export const doesBlogHaveNextPage = (blogState: BlogState): boolean => {
+  const nextPage = blogState.ghostBlogList.meta.pagination.next;
+  const currentPage = blogState.ghostBlogList.meta.pagination.page;
+  if (nextPage && nextPage > currentPage) {
+    return true;
+  }
+  return false;
 };

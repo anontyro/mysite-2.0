@@ -65,7 +65,7 @@ export interface Author {
 }
 
 @ObjectType()
-class GhostPost {
+export class GhostPost {
   @Field({nullable: true})
   id: string;
 

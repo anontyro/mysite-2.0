@@ -10,10 +10,10 @@ interface BlogProps {
 }
 
 const BlogMainBody = ({blogList = null, slug = null}: BlogProps) => {
-  // const post = blogItems.find((item: IGhostPost) => item.slug === slug);
-  // if (slug && post) {
-  //   return <BlogDetail blogItem={post} />;
-  // }
+  const post = blogList.find((item: IGhostPost) => item.slug === slug);
+  if (slug && post) {
+    return <BlogDetail blogItem={post} />;
+  }
   return <BlogList blogList={blogList} />;
 };
 
