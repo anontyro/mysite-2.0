@@ -10,12 +10,19 @@ import {PAGE_LAYERS} from '../../../data/consts';
 import BaseLink from '../../common/buttons/BaseLink';
 import MobileNavOverlay from './components/MobileNavOverlay';
 
+interface NavLinkProps {
+  link?: string;
+  label: string;
+  onClick?: () => void;
+  style?: any;
+}
+
 export const NavLink = ({
   link,
   label,
   onClick = () => {},
   style = undefined,
-}) => <BaseLink link={{link, label, onClick}} style={style} />;
+}: NavLinkProps) => <BaseLink link={{link, label, onClick}} style={style} />;
 
 interface AdminProps {
   isLoggedIn: boolean;
@@ -47,7 +54,12 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
             <a className={'brand'}>Alex Wilkinson</a>
           </Link>
           <nav className={'nav-main full-shown'}>
-            <NavLink link={'/blog'} label={'Blog'} />
+            <NavLink
+              onClick={() =>
+                (window.location.href = 'https://blog.alexwilkinson.co')
+              }
+              label={'Blog'}
+            />
             <NavLink link={'/portfolio'} label={'Portfolio'} />
             <NavLink link={'/resume'} label={'Resume'} />
             <NavLink link={'/about'} label={'About'} />

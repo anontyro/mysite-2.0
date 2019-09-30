@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const defaultStyle = css`
   a {
+    cursor: pointer;
     color: #526d87;
     font-size: 22px;
     text-decoration: none;
