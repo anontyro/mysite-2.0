@@ -3,13 +3,14 @@ import {ResumeActions} from './actions';
 import {faLessThanEqual} from '@fortawesome/free-solid-svg-icons';
 
 export interface PersonalInfo {
-  email: string;
   firstName: string;
-  gitHub: string;
   lastName: string;
-  mobileNumber: string;
   website: string;
+  mobileNumber: string;
+  email: string;
   nationality: string;
+  gitHub: string;
+  expStartDate: string;
 }
 
 export interface ResumeState {
@@ -18,7 +19,10 @@ export interface ResumeState {
   technologies: any[];
   projects: any[];
   personal: PersonalInfo;
-  location: {};
+  location: {
+    current: string;
+    looking: string[];
+  };
   experience: any[];
   education: any[];
   availability: boolean;
@@ -32,7 +36,10 @@ export const resumeInitialState: ResumeState = {
   technologies: [],
   projects: [],
   personal: null,
-  location: {},
+  location: {
+    current: null,
+    looking: [],
+  },
   experience: [],
   education: [],
   availability: false,

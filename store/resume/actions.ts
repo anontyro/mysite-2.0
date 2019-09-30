@@ -28,7 +28,7 @@ export const fetchResume = () => {
     const resume = await fetch('/static/site/data/resume.json').then(data =>
       data.json()
     );
-
+    console.log(resume);
     dispatch(fetchedResume(resume));
   };
 };
