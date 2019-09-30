@@ -11,21 +11,41 @@ const currentYear = () => {
   return new Date().getFullYear();
 };
 
+const externalLink = (url: string) => {
+  window.open(url, '_blank');
+};
+
 const Footer = ({}) => {
   return (
     <React.Fragment>
       <footer>
         <div className="socials">
-          <div className="socialIcon">
+          <div
+            onClick={() =>
+              externalLink('https://www.facebook.com/AWILKINSON.SG')
+            }
+            className="socialIcon"
+          >
             <FontAwesomeIcon icon={faFacebookSquare} />
           </div>
-          <div className="socialIcon">
+          <div
+            onClick={() =>
+              externalLink('https://www.linkedin.com/in/wilkinsonalexander')
+            }
+            className="socialIcon"
+          >
             <FontAwesomeIcon icon={faLinkedin} />
           </div>
-          <div className="socialIcon">
+          <div
+            onClick={() => externalLink('https://github.com/anontyro')}
+            className="socialIcon"
+          >
             <FontAwesomeIcon icon={faGithubSquare} />
           </div>
-          <div className="socialIcon">
+          <div
+            onClick={() => externalLink('https://twitter.com/alexwilkinson')}
+            className="socialIcon"
+          >
             <FontAwesomeIcon icon={faTwitterSquare} />
           </div>
         </div>
@@ -45,8 +65,12 @@ const Footer = ({}) => {
           justify-content: center;
         }
         .socialIcon {
+          cursor: pointer;
           font-size: 42px;
           margin: 0 2px;
+        }
+        .socialIcon:hover {
+          color: #4196ea;
         }
       `}</style>
     </React.Fragment>
