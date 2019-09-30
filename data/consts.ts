@@ -2,6 +2,13 @@ export const LOGIN_EXPIRY_SECONDS = 86400;
 
 export const DEFAUlT_IMG = 'default.png';
 
+export const GHOST_BLOG_URL = 'https://blog.alexwilkinson.co';
+
+export const ENV_LIST = {
+  DEV: 'dev',
+  PROD: 'production',
+};
+
 export const ROUTES = {
   ADMIN: '/admin?section=home',
   HOME: '/',

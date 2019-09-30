@@ -18,7 +18,7 @@ const defaultStyle = css`
 `;
 
 export interface LinkObject {
-  link: string;
+  link?: string;
   label: string;
   onClick?: (event: any) => void;
 }
@@ -28,13 +28,15 @@ interface Props {
   style?: string;
 }
 
-const BaseLink = ({link, style = defaultStyle}: Props) => (
-  <React.Fragment>
-    <Link href={link.link}>
-      <a onClick={link.onClick}>{link.label}</a>
-    </Link>
-    <style jsx>{style}</style>
-  </React.Fragment>
-);
+const BaseLink = ({link, style = defaultStyle}: Props) => {
+  return (
+    <React.Fragment>
+      <Link href={link.link ? link.link : ''}>
+        <a onClick={link.onClick}>{link.label}</a>
+      </Link>
+      <style jsx>{style}</style>
+    </React.Fragment>
+  );
+};
 
 export default BaseLink;

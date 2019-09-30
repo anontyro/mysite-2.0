@@ -6,7 +6,7 @@ import {UserState} from '../../../store/user/reducers';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 import {brandDesign} from '../../../data/typo';
-import {PAGE_LAYERS} from '../../../data/consts';
+import {PAGE_LAYERS, GHOST_BLOG_URL} from '../../../data/consts';
 import BaseLink from '../../common/buttons/BaseLink';
 import MobileNavOverlay from './components/MobileNavOverlay';
 
@@ -55,9 +55,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
           </Link>
           <nav className={'nav-main full-shown'}>
             <NavLink
-              onClick={() =>
-                (window.location.href = 'https://blog.alexwilkinson.co')
-              }
+              onClick={() => (window.location.href = GHOST_BLOG_URL)}
               label={'Blog'}
             />
             <NavLink link={'/portfolio'} label={'Portfolio'} />

@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 import {withRouter, SingletonRouter} from 'next/router';
 import {connect} from 'react-redux';
 import * as actions from '../store/blog/actions';
-import {Blog} from '../server/entity/MyBlog';
 import {UserState} from '../store/user/reducers';
 import Layout from '../components/_Layout/Layout';
 import IsLoading from '../components/util/IsLoading';
 import BlogMainBody from '../components/blog/components/BlogMainBody';
 import {getBlogList, doesBlogHaveNextPage} from '../store/blog/reducers';
-import {IGhostBlog, IGhostPost} from '../server/entity/GhostBlog';
+import {IGhostPost} from '../server/entity/GhostBlog';
+import {GHOST_BLOG_URL, ENV_LIST} from '../data/consts';
 
 const NextBlogButton = ({getBlogList, hasNextPage}) => {
   if (!hasNextPage) {
@@ -67,6 +67,11 @@ const BlogPage = ({
   fetching,
   hasNextPage,
 }: Props) => {
+  const env = process.env.NODE_ENV;
+  if (env === ENV_LIST.PROD) {
+    window.location.href = GHOST_BLOG_URL;
+    return null;
+  }
   const {post} = router.query;
   console.log(blogList);
   useEffect(() => {
