@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 export const DATE_STANDARD_FORMAT = 'MMM Do YYYY';
 

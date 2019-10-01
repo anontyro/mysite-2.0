@@ -23,16 +23,22 @@ interface AwesomeProps {
 const AwesomeIconInfo = ({icon, text}: AwesomeProps) => (
   <React.Fragment>
     <div className="main-container">
-      <FontAwesomeIcon icon={icon} />
+      <div className="awesome-icon">
+        <FontAwesomeIcon icon={icon} />
+      </div>
       <span className="label">{text}</span>
     </div>
     <style jsx>{`
       .main-container {
+        display: flex;
         font-size: 17px;
-        line-height: 1;
         margin: 10px 0px 10px 0px;
       }
+      .awesome-icon {
+        width: 16px;
+      }
       .label {
+        line-height: 1;
         margin-left: 10px;
       }
     `}</style>

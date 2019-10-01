@@ -1,6 +1,6 @@
-import * as express from 'express';
-import * as next from 'next';
-import * as cors from 'cors';
+import express from 'express';
+import next from 'next';
+import cors from 'cors';
 import 'reflect-metadata';
 import {createConnection} from 'typeorm';
 import {ApolloServer} from 'apollo-server-express';
@@ -48,7 +48,7 @@ app
       },
     });
   })
-  .then(schema => {
+  .then((schema: any) => {
     const apolloServer = new ApolloServer({
       schema,
       tracing: true,
@@ -64,14 +64,11 @@ app
     server.get('*', (req: IncomingMessage, res: ServerResponse) =>
       handle(req, res)
     );
-    server.listen(PORT, (err: any) => {
-      if (err) {
-        throw err;
-      }
-      console.log(`Server started on port: ${PORT}`);
+    server.listen(PORT, () => {
+      console.log(`Server started on port: ${PORT} is Dev: ${isDev}`);
     });
   })
-  .catch(ex => {
+  .catch((ex: any) => {
     console.error(ex);
     process.exit(1);
   });

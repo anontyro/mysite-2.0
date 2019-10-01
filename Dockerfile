@@ -1,5 +1,5 @@
 # SETUP
-FROM node:10-alpine AS builder
+FROM node:12-alpine AS builder
 
 WORKDIR /home/node/app
 COPY . .
@@ -32,6 +32,7 @@ COPY ./package* ./
 RUN npm install && \
   npm run build \
   npm cache clean --force
+RUN mkdir pages
 
 COPY --from=builder /home/node/app/dist ./dist
 COPY ./static ./static

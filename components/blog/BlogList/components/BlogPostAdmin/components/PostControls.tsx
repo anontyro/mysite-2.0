@@ -60,10 +60,7 @@ const mapStateToProps = ({user, blog}: MapState) => ({
   userSession: user,
 });
 
-const mapDispatchToProps = (dispatch: any): any => ({
-  releasePost: (token: string, id: number): any =>
-    dispatch(actions.releaseBlogPost(token, id)),
-});
+const mapDispatchToProps = (dispatch: any): any => ({});
 
 export default connect(
   mapStateToProps,

@@ -1,7 +1,7 @@
 import {Resolver, Query, Arg, Authorized, Mutation} from 'type-graphql';
 import MyBlog, {Blog} from '../../entity/MyBlog';
 import {Like, LessThanOrEqual} from 'typeorm';
-import * as moment from 'moment';
+import moment from 'moment';
 import {slugify} from '../../utils/genericUtil';
 import {IToken, validateToken} from '../../utils/authUtil';
 import {DEFAUlT_IMG} from '../../data/serverConsts';

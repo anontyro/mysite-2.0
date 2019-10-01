@@ -4,7 +4,7 @@ import BlogPostHeader from '../BlogPost/components/BlogPostHeader';
 import BlogPostBody from '../BlogPost/components/BlogPostBody';
 import DefaultLink from '../../../../common/buttons/DefaultLink';
 import {DEFAUlT_IMG} from '../../../../../data/consts';
-import PostControls from './components/PostControls';
+// import PostControls from './components/PostControls';
 
 interface Props {
   post: Blog;
@@ -18,7 +18,7 @@ const BlogPostAdmin = ({post}: Props) => {
         <div className={'postContent'}>
           <div className={'postImage'} />
           <BlogPostBody post={post}>
-            <PostControls post={post} />
+            {/* <PostControls post={post} /> */}
           </BlogPostBody>
         </div>
       </div>

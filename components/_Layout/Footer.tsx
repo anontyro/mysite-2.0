@@ -67,6 +67,7 @@ const Footer = ({}) => {
         .socialIcon {
           cursor: pointer;
           font-size: 42px;
+          width: 36px;
           margin: 0 2px;
         }
         .socialIcon:hover {

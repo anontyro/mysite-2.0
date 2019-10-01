@@ -2,7 +2,7 @@ import * as constants from './consts';
 import Router from 'next/router';
 import {UserState, UserLogin} from './reducers';
 import get from 'lodash.get';
-import * as moment from 'moment';
+import moment from 'moment';
 import graphQLQuery from '../../components/graphQL/GraphQLWrapper';
 import {LOGIN_QUERY} from '../../graphQL/queries/authQuery';
 import {LOGIN_EXPIRY_SECONDS, ROUTES} from '../../data/consts';

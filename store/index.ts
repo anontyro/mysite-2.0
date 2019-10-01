@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import * as moment from 'moment';
+import moment from 'moment';
 import {UserState, user, userInitialState} from './user/reducers';
 import {BlogState, blog, blogInitialState} from './blog/reducers';
 import thunk from 'redux-thunk';

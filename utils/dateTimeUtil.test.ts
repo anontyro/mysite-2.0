@@ -1,5 +1,5 @@
 import anyTest, {TestInterface} from 'ava';
-import * as moment from 'moment';
+import moment from 'moment';
 import {standardDate, DATE_STANDARD_FORMAT} from './dateTimeUtil';
 
 const test = anyTest as TestInterface<{}>;

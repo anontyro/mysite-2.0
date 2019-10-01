@@ -17,7 +17,7 @@ I wanted to experiment with NextJS to see how it would work compared to the norm
 ## How to use it?
 
 - To install: `npm install` `yarn install`
-- To Run Dev server with HMR: `npm run dev`
+- To Run Dev server with HMR: `npm run dev:server`
 - To Run Tests with HMR: `npm run test:watch`
 
 ## Using Docker With args

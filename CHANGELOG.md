@@ -12,6 +12,17 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Version 1.0.0-rc
 
+## Nightly 0.1.0
+
+Big package update updating everything, now using next 9 and require extra clean up to remove old settings for next 7. Working on getting the first release ready to be launched at the end of the week
+
+- Updated package.json file to now support the updates, requires more clean up however.
+- Updated Dockerfile to now use Alpine-12
+- Simplifying the frontend:
+  - Removed Login
+  - Blog now redirects to blog.alexwilkinson.co
+  - other fixes
+
 ## Nightly 0.0.3
 
 Updated frontend more, but will need restructuring as using GhostJS for blog and will bring in GitHub API for porfolio.
