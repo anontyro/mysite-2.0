@@ -182,6 +182,17 @@ const ResumePage = ({getResume, resume}: Props) => {
           .resume-main {
             flex-grow: 1;
           }
+
+          @media only screen and (max-width: 600px) {
+            .resume-page-container {
+              flex-direction: row;
+              flex-wrap: wrap;
+            }
+            .resume-meta {
+              width: 100%;
+              margin: auto;
+            }
+          }
         `}</style>
       </IsLoading>
     </Layout>
