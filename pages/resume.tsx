@@ -13,6 +13,7 @@ import {
 import Layout from '../components/_Layout/Layout';
 import * as actions from '../store/resume/actions';
 import {ResumeState} from '../store/resume/reducers';
+import Hl from '../components/util/Hl';
 import IsLoading from '../components/util/IsLoading';
 
 interface AwesomeProps {
@@ -101,11 +102,38 @@ const ResumePage = ({getResume, resume}: Props) => {
           </div>
           <div className="resume-main">
             <h3>
-              Hi I'm Alex I've been working as a developer since 2016 and I have
-              covered many interesting technologies such as C#, Angular, VueJS,
-              Python both in work and during my free time. I enjoy learning and
-              reading up on new exciting technologies and making even more
-              awesome applications.
+              Hi I'm <Hl>Alex</Hl> I've been working as a developer since{' '}
+              <Hl>2016</Hl> and I have covered many interesting technologies
+              such as <Hl>React</Hl>, Angular, VueJS, Python, <Hl>C#</Hl>, Rust
+              both in work and during my free time. I enjoy learning and reading
+              up on new exciting technologies and making even more awesome
+              applications.
+            </h3>
+            <h3>
+              <span className="project-header">
+                <Hl>Some Projects:</Hl>
+              </span>
+              <br />
+              <Hl>Video Streaming</Hl> Working on the frontend site at{' '}
+              <a href="https://hooq.tv">HOOQ</a> using
+              <Hl>ReactJS</Hl> and Redux along with working with{' '}
+              <Hl>VideoJS</Hl> and using <Hl>Koa</Hl> for the backend.
+              Authentication is handled with JWT 2.0 along with Cookies.
+              <span className="project-break" />
+              <br />
+              <br />
+              <Hl>RESTful API</Hl> on a Microsoft stack written in{' '}
+              <Hl>ASP.NET Core 2</Hl> using JWTs for security talking to a
+              Angular and VueJS frontend with full CRUD functionality along with
+              intergration into other platform APIs to deliver extra
+              functaionality such as emails, sms authentication and QRCodes.
+              <br />
+              <br />
+              <Hl>Dynamic graphic</Hl> web apps written in the{' '}
+              <Hl>Angular 4 </Hl>
+              framework working with <Hl>Google Charts</Hl> API to deliver fully
+              dynamic and interactive charts that allow for much more indepth
+              data analysis.
             </h3>
           </div>
         </div>
