@@ -21,6 +21,7 @@ export interface Talk {
   archiveUrl: string;
   video: {
     url?: string;
+    videoId: string;
     type?: string;
   };
   tags: string[];

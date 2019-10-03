@@ -64,6 +64,7 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         font-size: 24px;
         font-weight: 500;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.1;
       }
     `}</style>
   </React.Fragment>

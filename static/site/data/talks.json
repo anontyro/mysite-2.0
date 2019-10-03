@@ -1,11 +1,12 @@
 {
   "version": "1.0.0",
   "talks": [{
-      "title": "SingaporeJS - talk.js + chat.js",
-      "presentationDate": "Wednesday, 15 May 2019",
+      "title": "Full Stack GraphQL",
+      "presentationDate": "Wednesday, May 15 2019",
       "archiveUrl": "https://www.engineers.sg/video/singaporejs-talk-js-chat-js-may-part-2--3359",
       "video": {
         "url": "https://youtu.be/nYbIB7uR0ig",
+        "videoId": "nYbIB7uR0ig",
         "type": "youtube"
       },
       "tags": [
@@ -14,14 +15,15 @@
       ],
       "location": "Singapore",
       "event": "talk.js",
-      "recordCredit": "egineers.sg"
+      "recordCredit": "engineers.sg"
     },
     {
       "title": "Svelte: streamlined, lightweight web apps",
-      "presentationDate": "Wednesday, 11 September 2019",
+      "presentationDate": "Wednesday, September 11 2019",
       "archiveUrl": "https://www.engineers.sg/video/svelte-streamlined-lightweight-web-apps-talk-js--3648",
       "video": {
         "url": "https://youtu.be/SGDbI2HC2s8",
+        "videoId": "SGDbI2HC2s8",
         "type": "youtube"
       },
       "tags": [
@@ -30,7 +32,7 @@
       ],
       "location": "Singapore",
       "event": "talk.js",
-      "recordCredit": "egineers.sg"
+      "recordCredit": "engineers.sg"
     }
   ]
 }
