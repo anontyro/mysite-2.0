@@ -29,6 +29,7 @@ const Layout: React.FunctionComponent<Props> = ({
       .pageContainer {
         flex: 1 0 auto;
         min-height: calc(100vh - 200px);
+        overflow-x: hidden;
       }
     `}</style>
     {showFooter && <Footer />}

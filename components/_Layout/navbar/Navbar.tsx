@@ -74,7 +74,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
         header {
           display: flex;
           justify-content: space-between;
-          margin: 50px 20px;
+          margin: 50px 0;
         }
         .brand {
           flex-grow: 0;
@@ -87,10 +87,13 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
         nav {
           display: flex;
           justify-content: space-between;
-          flex-wrap: wrap;
+          overflow-x: auto;
+          overflow-y: hidden;
+          margin-top: 5px;
         }
         .nav-container {
           display: flex;
+          flex-direction: row;
         }
         .nav-main {
           flex-grow: 0;
@@ -106,18 +109,12 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
           cursor: pointer;
         }
 
-        @media only screen and (max-width: 800px) {
-          .nav-container {
-            display: block;
-          }
-        }
-
         @media only screen and (max-width: 600px) {
-          nav.full-shown {
-            display: none;
+          nav {
+            width: 90%;
           }
-          .mobile-menu {
-            display: inherit;
+          .nav-container {
+            flex-direction: column;
           }
         }
       `}</style>
