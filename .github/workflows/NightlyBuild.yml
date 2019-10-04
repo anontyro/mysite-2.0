@@ -1,0 +1,16 @@
+name: New Nightly Build
+
+on: 
+  push:
+    tags: nightly-*
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --build-arg JWT_SECRET=${{secrets.JWT_SECRET}} --build-arg GIT_API_KEY=${{secrets.GIT_API_KEY}}--build-arg GHOST_ADMIN_KEY=${{secrets.GHOST_ADMIN_KEY}} --build-arg GHOST_CONTENT_KEY=${{secrets.GHOST_CONTENT_KEY}} -build-arg GHOST_API_URL=https://blog.alexwilkinson.co --tag my-site-nightly:$(date +%s)
