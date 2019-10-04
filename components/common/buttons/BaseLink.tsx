@@ -15,6 +15,10 @@ const defaultStyle = css`
   a:hover {
     color: #4196ea;
   }
+  .selected {
+    cursor: default;
+    color: #4196ea;
+  }
 `;
 
 export interface LinkObject {
@@ -25,14 +29,17 @@ export interface LinkObject {
 
 interface Props {
   link: LinkObject;
+  isSelected?: boolean;
   style?: string;
 }
 
-const BaseLink = ({link, style = defaultStyle}: Props) => {
+const BaseLink = ({link, isSelected, style = defaultStyle}: Props) => {
   return (
     <React.Fragment>
       <Link href={link.link ? link.link : ''}>
-        <a onClick={link.onClick}>{link.label}</a>
+        <a className={isSelected ? 'selected' : ''} onClick={link.onClick}>
+          {link.label}
+        </a>
       </Link>
       <style jsx>{style}</style>
     </React.Fragment>

@@ -1,20 +1,17 @@
 import * as React from 'react';
-import {useState} from 'react';
 import {connect} from 'react-redux';
 import Link from 'next/link';
-import {UserState} from '../../../store/user/reducers';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {withRouter, SingletonRouter} from 'next/router';
 import {brandDesign} from '../../../data/typo';
-import {PAGE_LAYERS, GHOST_BLOG_URL} from '../../../data/consts';
+import {PAGE_LAYERS, GHOST_BLOG_URL, ROUTES} from '../../../data/consts';
 import BaseLink from '../../common/buttons/BaseLink';
-import MobileNavOverlay from './components/MobileNavOverlay';
 
 interface NavLinkProps {
   link?: string;
   label: string;
   onClick?: () => void;
   style?: any;
+  isSelected?: boolean;
 }
 
 export const NavLink = ({
@@ -22,59 +19,60 @@ export const NavLink = ({
   label,
   onClick = () => {},
   style = undefined,
-}: NavLinkProps) => <BaseLink link={{link, label, onClick}} style={style} />;
+  isSelected = false,
+}: NavLinkProps) => (
+  <BaseLink
+    link={{link, label, onClick}}
+    style={style}
+    isSelected={isSelected}
+  />
+);
 
-interface AdminProps {
-  isLoggedIn: boolean;
+const isSelected = (route: string, currentRoute: string) =>
+  route === currentRoute;
+
+interface Props {
+  router: SingletonRouter;
 }
 
-const AdminDisplay = ({isLoggedIn = false}: AdminProps) => {
-  if (isLoggedIn) {
-    return <NavLink label={'Admin'} link={'/admin?section=home'} />;
-  }
-  return <NavLink label={'Login'} link={'/login'} />;
-};
-
-type Props = {
-  userSession: UserState;
-};
-
-const Layout: React.FunctionComponent<Props> = ({userSession}) => {
-  const [isOverlayHidden, setIsOverlayHidden] = useState(true);
-  const isUserLoggedIn = userSession.email.length > 0;
-  const onClickMobileNav = () => {
-    setIsOverlayHidden(!isOverlayHidden);
-  };
-
+const Layout: React.FunctionComponent<Props> = ({router}) => {
+  const page = router.route;
   return (
     <React.Fragment>
       <header>
         <div className={'nav-container'}>
-          <Link href="/">
+          <Link href={ROUTES.HOME}>
             <a className={'brand'}>Alex Wilkinson</a>
           </Link>
           <nav className={'nav-main full-shown'}>
             <NavLink
+              isSelected={isSelected(ROUTES.BLOG, page)}
               onClick={() => (window.location.href = GHOST_BLOG_URL)}
               label={'Blog'}
             />
-            <NavLink link={'/portfolio'} label={'Portfolio'} />
-            <NavLink link={'/resume'} label={'Resume'} />
-            <NavLink link={'/about'} label={'About'} />
+            <NavLink
+              link={ROUTES.PORTFOLIO}
+              label={'Portfolio'}
+              isSelected={isSelected(ROUTES.PORTFOLIO, page)}
+            />
+            <NavLink
+              link={ROUTES.RESUME}
+              label={'Resume'}
+              isSelected={isSelected(ROUTES.RESUME, page)}
+            />
+            <NavLink
+              link={ROUTES.ABOUT}
+              label={'About'}
+              isSelected={isSelected(ROUTES.ABOUT, page)}
+            />
           </nav>
-        </div>
-        <nav className={`nav-right full-shown`}>
-          {/* <AdminDisplay isLoggedIn={isUserLoggedIn} /> */}
-        </nav>
-        <div onClick={onClickMobileNav} className={'mobile-menu'}>
-          <FontAwesomeIcon icon={isOverlayHidden ? faBars : faTimes} />
         </div>
       </header>
       <style jsx>{`
         header {
           display: flex;
           justify-content: space-between;
-          margin: 50px 0;
+          margin: 25px 0;
         }
         .brand {
           flex-grow: 0;
@@ -94,6 +92,7 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
         .nav-container {
           display: flex;
           flex-direction: row;
+          width: 100%;
         }
         .nav-main {
           flex-grow: 0;
@@ -110,18 +109,11 @@ const Layout: React.FunctionComponent<Props> = ({userSession}) => {
         }
 
         @media only screen and (max-width: 600px) {
-          nav {
-            width: 90%;
-          }
           .nav-container {
             flex-direction: column;
           }
         }
       `}</style>
-      <MobileNavOverlay
-        isOverlayHidden={isOverlayHidden}
-        onNavigate={setIsOverlayHidden}
-      />
     </React.Fragment>
   );
 };
@@ -132,7 +124,9 @@ const mapStateToProps = ({user}: any) => ({
 
 const mapDispatchToProps = (dispatch: any): any => ({});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Layout);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Layout)
+);

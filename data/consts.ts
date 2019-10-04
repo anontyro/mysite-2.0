@@ -11,8 +11,12 @@ export const ENV_LIST = {
 
 export const ROUTES = {
   ADMIN: '/admin?section=home',
+  ABOUT: '/about',
+  BLOG: '/blog',
+  PORTFOLIO: '/portfolio',
   HOME: '/',
   LOGIN: '/login',
+  RESUME: '/resume',
 };
 
 export const ADMIN_SECTIONS = {
