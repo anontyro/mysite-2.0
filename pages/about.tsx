@@ -48,6 +48,15 @@ const AboutPage: React.FunctionComponent = () => (
         width: 75%;
         margin: 25px auto;
       }
+
+      @media only screen and (max-width: 600px) {
+        h1 {
+          width: 100%;
+        }
+        h3 {
+          width: 100%;
+        }
+      }
     `}</style>
   </Layout>
 );

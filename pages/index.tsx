@@ -29,27 +29,47 @@ export class IndexPage extends React.Component<Props, State> {
   public render() {
     return (
       <Layout displayImg showFooter>
-        <h1>
-          Hi! I'm <Hl>Alex</Hl> a full stack developer with some design flair
-        </h1>
-        <h3>
-          Located in <Hl>Singapore</Hl> I have experience with everything from
-          Android development to SCSS. I started in a more backend role with
-          Java but now work full stack with Asp.Net Core & Angular. I'm
-          currently really exploring the JavaScript everywhere paradigm
-          exploring NodeJs, Electron & VueJS.
-        </h3>
+        <div className="home-body">
+          <h1>
+            Hi! I'm <Hl>Alex</Hl> a full stack developer with some design flair
+          </h1>
+          <h3>
+            Located in <Hl>Singapore</Hl> I have experience with everything from
+            Android development to SCSS. I started in a more backend role with
+            Java and C# but now work more frontend largely with{' '}
+            <Hl>React JS </Hl> working with media streaming. I still enjoy
+            playing with other technologies like <Hl>Rust</Hl> and{' '}
+            <Hl>GraphQL </Hl>
+            and learning new and better ways to write code.
+          </h3>
+        </div>
         <style jsx>{`
+          .home-body {
+            margin-top: 100px;
+          }
           h1 {
-            width: 40%;
+            width: 60%;
           }
           h3 {
-            width: 50%;
+            width: 45%;
           }
-          @media only screen and (max-width: 900px) {
+
+          @media only screen and (max-width: 1200px) {
+            h1 {
+              width: 75%;
+            }
+            h3 {
+              width: 50%;
+            }
+          }
+
+          @media only screen and (max-width: 600px) {
             h1,
             h3 {
               width: 100%;
+            }
+            .home-body {
+              margin-top: unset;
             }
           }
         `}</style>

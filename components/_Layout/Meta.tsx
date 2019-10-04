@@ -59,6 +59,7 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         font-size: 36px;
         font-weight: 500;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.1;
       }
       h3 {
         font-size: 24px;

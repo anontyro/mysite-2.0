@@ -28,7 +28,7 @@ const Layout: React.FunctionComponent<Props> = ({
     <style jsx>{`
       .pageContainer {
         flex: 1 0 auto;
-        min-height: calc(100vh - 200px);
+        min-height: calc(100vh - 130px);
         overflow-x: hidden;
       }
     `}</style>

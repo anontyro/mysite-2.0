@@ -138,6 +138,13 @@ const ResumePage = ({getResume, resume}: Props) => {
           </div>
         </div>
         <style jsx>{`
+          a {
+            color: #526d87;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #4196ea;
+          }
           .resume-page-container {
             display: flex;
             width: 80%;
@@ -187,9 +194,9 @@ const ResumePage = ({getResume, resume}: Props) => {
             .resume-page-container {
               flex-direction: row;
               flex-wrap: wrap;
+              width: 100%;
             }
             .resume-meta {
-              width: 100%;
               margin: auto;
             }
           }
