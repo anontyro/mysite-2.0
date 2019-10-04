@@ -13,4 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --build-arg JWT_SECRET=${{secrets.JWT_SECRET}} --build-arg GIT_API_KEY=${{secrets.GIT_API_KEY}}--build-arg GHOST_ADMIN_KEY=${{secrets.GHOST_ADMIN_KEY}} --build-arg GHOST_CONTENT_KEY=${{secrets.GHOST_CONTENT_KEY}} -build-arg GHOST_API_URL=https://blog.alexwilkinson.co --tag my-site-nightly:$(date +%s)
+      run: |
+        echo "nightly build started"
+        docker login docker.pkg.github.com --username anontyro
+        IMAGE_TAG=docker.pkg.github.com/anontyro/mysite-2.0/app:1.0
+        docker build . --file Dockerfile --build-arg JWT_SECRET=${{secrets.JWT_SECRET}} --build-arg GIT_API_KEY=${{secrets.GIT_API_KEY}} --build-arg GHOST_ADMIN_KEY=${{secrets.GHOST_ADMIN_KEY}} --build-arg GHOST_CONTENT_KEY=${{secrets.GHOST_CONTENT_KEY}} -build-arg GHOST_API_URL=https://blog.alexwilkinson.co --tag $IMAGE_TAG
+        push docker $IMAGE_TAG
+        echo "nightly build: $IMAGE_TAG successfully created"
