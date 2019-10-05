@@ -20,7 +20,7 @@ jobs:
         echo "nightly build started"
         COMMIT_ID=`echo $(git rev-parse HEAD)`
         COMMIT_ID_SHORT=`echo $(git rev-parse HEAD) | cut -c1-7`
-        docker login docker.pkg.github.com --username ${{secrets.DOCKER_USERNAME}} --password ${{secrets.DOCKER_PASSWORD}}
+        docker login docker.pkg.github.com --u anontyro --p ${{secrets.ACTIONS_PASSWORD}}
         IMAGE_TAG=docker.pkg.github.com/anontyro/mysite-2.0/my-site:$COMMIT_ID_SHORT
         echo "new image tag created $IMAGE_TAG"
         docker build . --file Dockerfile --build-arg JWT_SECRET=${{secrets.JWT_SECRET}} --build-arg GIT_API_KEY=${{secrets.GIT_API_KEY}} --build-arg GHOST_ADMIN_KEY=${{secrets.GHOST_ADMIN_KEY}} --build-arg GHOST_CONTENT_KEY=${{secrets.GHOST_CONTENT_KEY}} -build-arg GHOST_API_URL=https://blog.alexwilkinson.co --tag $IMAGE_TAG
