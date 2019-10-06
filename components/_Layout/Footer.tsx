@@ -50,7 +50,7 @@ const Footer = ({}) => {
           </div>
         </div>
         <p>{`All rights reserved Alex Wilkinson ${currentYear()} ©`}</p>
-        <p>{`Version 3.0`}</p>
+        <p>{`Version 3.0.1`}</p>
       </footer>
       <style jsx>{`
         footer {
