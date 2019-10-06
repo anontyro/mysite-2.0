@@ -19,9 +19,9 @@ jobs:
           COMMIT_ID=`echo $(git rev-parse HEAD)`
           COMMIT_ID_SHORT=`echo $(git rev-parse HEAD) | cut -c1-7`
           docker login docker.pkg.github.com -u anontyro -p ${{secrets.ACTIONS_PASSWORD}}
-          IMAGE_TAG=docker.pkg.github.com/anontyro/mysite-2.0/my-site:$COMMIT_ID_SHORT
+          # IMAGE_TAG=docker.pkg.github.com/anontyro/mysite-2.0/my-site:$COMMIT_ID_SHORT
+          IMAGE_TAG=alexjohnwilkinson/my-site:$COMMIT_ID_SHORT
           echo "new image tag created $IMAGE_TAG"
           docker build --file Dockerfile --build-arg JWT_SECRET=${{secrets.JWT_SECRET}} --build-arg GIT_API_KEY=${{secrets.GIT_API_KEY}} --build-arg GHOST_ADMIN_KEY=${{secrets.GHOST_ADMIN_KEY}} --build-arg GHOST_CONTENT_KEY=${{secrets.GHOST_CONTENT_KEY}} --build-arg DB_HOST=${{secrets.DB_HOST}} --build-arg DB_USERNAME=${{secrets.DB_USERNAME}} --build-arg DB_PASSWORD=${{secrets.DB_PASSWORD}} --build-arg DB_NAME=${{secrets.DB_NAME}} --build-arg GHOST_API_URL=https://blog.alexwilkinson.co --tag $IMAGE_TAG .
           docker push $IMAGE_TAG
-          docker push alexjohnwilkinson/my-site:$COMMIT_ID_SHORT
           echo "production build: $IMAGE_TAG successfully created"
