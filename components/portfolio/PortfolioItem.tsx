@@ -46,8 +46,11 @@ const PortfolioItem = ({repo}: Props) => (
       }
       @media only screen and (max-width: 800px) {
         .repoContainer {
-          width: 90%;
+          width: 100%;
           height: 140px;
+          margin: 10px 0;
+          padding: unset;
+          box-shadow: unset;
         }
         .header,
         .mainLanguage,

@@ -4,13 +4,29 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
-- [login-page] working on designing the login page
-- [admin] building out the admin section of the site
-  - create subdomains
+- Added changeLog page to import changeLog data
+- Footer now has link to changeLog
 
-## Version 1.0.0
+## Version 3.1.0
 
-## Version 1.0.0-rc
+- Fixed Nav styling the mobile so it now looks better
+- Updated mobile styling for portfolio page
+- Removed old TypeScript ref
+- Added new route /changelog
+- Footer version is now generated from package file
+
+## Version 3.0.1
+
+Test release for the CD pipeline that proved to be fine
+
+## Version 3.0.0
+
+Inital release of the new site which has the ghostJS blog linking instead of inline blog, however the data is pretty much
+the same as the old site. Everything is generally good to go.
+
+- Finished Resume page
+- About page is also completed
+- Statics imported correctly
 
 ## Nightly 0.1.0
 

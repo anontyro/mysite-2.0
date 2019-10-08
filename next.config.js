@@ -1,4 +1,7 @@
-const withTypescript = require ('@zeit/next-typescript');
-module.exports = withTypescript ({
+const withMDX = require ('@next/mdx') ({
+  extension: /\.(md|mdx)$/,
+});
+
+module.exports = withMDX ({
   distDir: 'dist',
 });

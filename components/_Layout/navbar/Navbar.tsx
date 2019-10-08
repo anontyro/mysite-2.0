@@ -109,6 +109,9 @@ const Layout: React.FunctionComponent<Props> = ({router}) => {
         }
 
         @media only screen and (max-width: 600px) {
+          nav {
+            justify-content: unset;
+          }
           .nav-container {
             flex-direction: column;
           }

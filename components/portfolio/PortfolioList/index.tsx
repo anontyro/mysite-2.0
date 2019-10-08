@@ -23,6 +23,8 @@ const PortfolioListMap = ({portfolioList}: MapProps) => (
         @media only screen and (max-width: 800px) {
           .portfolioList {
             justify-content: center;
+            max-height: 51vh;
+            overflow-y: auto;
           }
         }
         @media only screen and (max-width: 500px) {

@@ -1,4 +1,6 @@
 import * as React from 'react';
+import css from 'styled-jsx/css';
+import packageJson from '../../package.json';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faFacebookSquare,
@@ -6,6 +8,27 @@ import {
   faGithubSquare,
   faTwitterSquare,
 } from '@fortawesome/free-brands-svg-icons';
+import {NavLink} from './navbar/Navbar';
+import {ROUTES} from '../../data/consts';
+
+const linkStyle = css`
+  a {
+    cursor: pointer;
+    color: #526d87;
+    font-size: 14px;
+    text-decoration: none;
+    flex-grow: 0;
+    padding-right: 15px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  a:hover {
+    color: #4196ea;
+  }
+  .selected {
+    cursor: default;
+    color: #4196ea;
+  }
+`;
 
 const currentYear = () => {
   return new Date().getFullYear();
@@ -50,7 +73,15 @@ const Footer = ({}) => {
           </div>
         </div>
         <p>{`All rights reserved Alex Wilkinson ${currentYear()} ©`}</p>
-        <p>{`Version 3.0.1`}</p>
+        <p>
+          {`Version ${packageJson.version}`
+          /* <NavLink
+            link={ROUTES.CHANGELOG}
+            label={`Version ${packageJson.version}`}
+            style={linkStyle}
+          /> */
+          }
+        </p>
       </footer>
       <style jsx>{`
         footer {
