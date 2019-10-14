@@ -17,7 +17,8 @@ export const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
   RESUME: '/resume',
-  CHANGELOG: '/changelog',
+  CHANGELOG: '/change-log',
+  HEALTH_CHECK: '/health-check',
 };
 
 export const ADMIN_SECTIONS = {

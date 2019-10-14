@@ -4,6 +4,8 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.2.0
+
 - Added changeLog page to import changeLog data
 - Footer now has link to changeLog
 

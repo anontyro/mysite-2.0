@@ -74,13 +74,11 @@ const Footer = ({}) => {
         </div>
         <p>{`All rights reserved Alex Wilkinson ${currentYear()} ©`}</p>
         <p>
-          {`Version ${packageJson.version}`
-          /* <NavLink
+          <NavLink
             link={ROUTES.CHANGELOG}
             label={`Version ${packageJson.version}`}
             style={linkStyle}
-          /> */
-          }
+          />
         </p>
       </footer>
       <style jsx>{`
