@@ -7,6 +7,10 @@ Changes will be documented here generally around release items using symantic ve
 - Added changeLog page to import changeLog data
 - Footer now has link to changeLog
 
+## Version 3.1.1
+
+- [bug] fix-app-ext: NextJS doesn't need container in app and ext should check jsx files as well
+
 ## Version 3.1.0
 
 - Fixed Nav styling the mobile so it now looks better
