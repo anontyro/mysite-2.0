@@ -6,6 +6,11 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Version 3.2.0
 
+- Added in aimations to verious page elements
+- Fixed inconsistent styling with portfolio header
+
+## Version 3.2.0
+
 - Added changeLog page to import changeLog data
 - Footer now has link to changeLog
 

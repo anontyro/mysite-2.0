@@ -101,7 +101,7 @@ const ResumePage = ({getResume, resume}: Props) => {
             </div>
           </div>
           <div className="resume-main">
-            <h3>
+            <h3 className="animated bounceInDown">
               Hi I'm <Hl>Alex</Hl> I've been working as a developer since{' '}
               <Hl>2016</Hl> and I have covered many interesting technologies
               such as <Hl>React</Hl>, Angular, VueJS, Python, <Hl>C#</Hl>, Rust
@@ -109,7 +109,7 @@ const ResumePage = ({getResume, resume}: Props) => {
               up on new exciting technologies and making even more awesome
               applications.
             </h3>
-            <h3>
+            <h3 className="animated bounceInUp">
               <span className="project-header">
                 <Hl>Some Projects:</Hl>
               </span>

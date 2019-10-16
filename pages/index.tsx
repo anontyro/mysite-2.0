@@ -29,7 +29,7 @@ export class IndexPage extends React.Component<Props, State> {
   public render() {
     return (
       <Layout displayImg showFooter>
-        <div className="home-body">
+        <div className="home-body animated bounceInDown">
           <h1>
             Hi! I'm <Hl>Alex</Hl> a full stack developer with some design flair
           </h1>

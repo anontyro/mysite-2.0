@@ -34,6 +34,10 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
         rel="stylesheet"
       />
       <link rel="icon" href="/static/images/site/icon.png"></link>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+      ></link>
       <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css" />
     </Head>
 

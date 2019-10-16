@@ -31,8 +31,10 @@ const PortfolioPage = ({
   return (
     <React.Fragment>
       <Layout title={TITLE}>
-        <h1 className="header">Portfolio page</h1>
-        <h3 className="portfolio-body">
+        <h1 className="header">
+          <Hl>Portfolio</Hl>
+        </h1>
+        <h3 className="portfolio-body animated slideInRight">
           This page is currently being used to showcase my top <Hl>GitHub</Hl>{' '}
           projects. This should provide a good <Hl>cross section</Hl> of
           different projets I am currently working on.

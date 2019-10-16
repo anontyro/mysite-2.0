@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link';
 import Layout from '../components/_Layout/Layout';
 import Hl from '../components/util/Hl';
 
@@ -8,7 +7,7 @@ const AboutPage: React.FunctionComponent = () => (
     <h1>
       <Hl>About</Hl>
     </h1>
-    <h3>
+    <h3 className="animated slideInLeft">
       <Hl>Me</Hl> I seriously got into the idea of programming in 2015 self
       teaching myself <Hl>Java</Hl> initally. I decided to later formalise my
       learning by completing a post-grad course from Manchester University (UK)
@@ -20,7 +19,7 @@ const AboutPage: React.FunctionComponent = () => (
       experimenting with awesome technologies such as GraphQL, Lambdas, and{' '}
       <Hl>Rust</Hl>.
     </h3>
-    <h3>
+    <h3 className="animated slideInRight">
       <Hl>Work</Hl> I am currently working in <Hl>Singapore</Hl> as a front end
       developer, working with a lot of exciting technologies within{' '}
       <Hl>media streaming</Hl> which is a new challenge for me! Working with{' '}
@@ -29,7 +28,7 @@ const AboutPage: React.FunctionComponent = () => (
       range of service APIs. As we have been working in media streaming I have
       worked with <Hl>VideoJS</Hl> streaming via Brightcove.
     </h3>
-    <h3>
+    <h3 className="animated slideInLeft">
       <Hl>The Site</Hl> I have moved from my previous Django site which worked
       although basic and quite messy to a new design. Now I am using{' '}
       <Hl>NextJS</Hl> for the frontend to provide a modern reactive style. All
