@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc && ts-node dist/server.js",
-    "test": "tsc && ava",
+    "test": "tsc -m commonjs && ava",
     "test:watch": "chokidar \"./**/*.test.*\" -c \"npm run test\" --initial"
   },
   "dependencies": {
@@ -69,6 +69,7 @@
     "@types/styled-jsx": "^2.2.8",
     "@types/zeit__next-typescript": "^0.1.2",
     "ava": "^2.4.0",
+    "chokidar": "^3.3.0",
     "nodemon": "^1.19.3",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
@@ -80,7 +81,7 @@
       "ts"
     ],
     "require": [
-      "ts-node/register"
+      "ts-node/register/transpile-only"
     ]
   }
 }
