@@ -4,7 +4,14 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
-## Version 3.2.0
+## Verdion 3.4.0
+
+- Update tests and config
+- Updated singular blog post page to better allow for getting the data from endpoint
+- Updated singular blog post item page
+- Allowed cross linking to specific blog posts
+
+## Version 3.3.0
 
 - Added in aimations to verious page elements
 - Fixed inconsistent styling with portfolio header
