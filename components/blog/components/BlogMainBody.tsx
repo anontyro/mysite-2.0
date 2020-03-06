@@ -7,12 +7,17 @@ import {IGhostBlog, IGhostPost} from '../../../server/entity/GhostBlog';
 interface BlogProps {
   blogList: IGhostPost[];
   slug: string | string[];
+  currentPost: IGhostPost;
 }
 
-const BlogMainBody = ({blogList = null, slug = null}: BlogProps) => {
-  const post = blogList.find((item: IGhostPost) => item.slug === slug);
-  if (slug && post) {
-    return <BlogDetail blogItem={post} />;
+const BlogMainBody = ({
+  blogList = null,
+  slug = null,
+  currentPost = null,
+}: BlogProps) => {
+  // const post = blogList.find((item: IGhostPost) => item.slug === slug);
+  if (slug && currentPost) {
+    return <BlogDetail blogItem={currentPost} />;
   }
   return <BlogList blogList={blogList} />;
 };

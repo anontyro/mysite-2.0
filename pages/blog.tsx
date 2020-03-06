@@ -9,6 +9,7 @@ import BlogMainBody from '../components/blog/components/BlogMainBody';
 import {getBlogList, doesBlogHaveNextPage} from '../store/blog/reducers';
 import {IGhostPost} from '../server/entity/GhostBlog';
 import {GHOST_BLOG_URL, ENV_LIST} from '../data/consts';
+import {AppState} from '../store';
 
 const NextBlogButton = ({getBlogList, hasNextPage}) => {
   if (!hasNextPage) {
@@ -55,6 +56,7 @@ interface Props {
   userSession: UserState;
   router: SingletonRouter;
   hasNextPage?: boolean;
+  currentPost: IGhostPost;
 }
 
 const BLOG_TITLE = 'My blog';
@@ -66,6 +68,7 @@ const BlogPage = ({
   blogList,
   fetching,
   hasNextPage,
+  currentPost,
 }: Props) => {
   const env = process.env.NODE_ENV;
   if (env === ENV_LIST.PROD) {
@@ -84,16 +87,23 @@ const BlogPage = ({
   return (
     <Layout title={BLOG_TITLE}>
       <IsLoading isLoading={fetching}>
-        <BlogMainBody blogList={blogList} slug={post} />
+        <BlogMainBody
+          blogList={blogList}
+          slug={post}
+          currentPost={currentPost}
+        />
       </IsLoading>
-      <NextBlogButton hasNextPage={hasNextPage} getBlogList={getBlogList} />
+      {!post && (
+        <NextBlogButton hasNextPage={hasNextPage} getBlogList={getBlogList} />
+      )}
     </Layout>
   );
 };
 
-const mapStateToProps = ({user, blog}: any) => ({
+const mapStateToProps = ({user, blog}: AppState) => ({
   blogList: getBlogList(blog),
   hasNextPage: doesBlogHaveNextPage(blog),
+  currentPost: blog.currentPost,
   fetching: blog.fetching,
 });
 
@@ -103,8 +113,5 @@ const mapDispatchToProps = (dispatch: any): any => ({
 });
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(BlogPage)
+  connect(mapStateToProps, mapDispatchToProps)(BlogPage)
 );
