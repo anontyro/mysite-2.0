@@ -37,7 +37,13 @@ const BlogItem = ({post}: ItemProps) => (
         background-size: cover;
         background-repeat: no-repeat;
       }
-
+      .postBody {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       @media only screen and (max-width: 1000px) {
         .postImage {
           height: 20vw;

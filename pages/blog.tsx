@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {withRouter, SingletonRouter} from 'next/router';
 import {connect} from 'react-redux';
 import * as actions from '../store/blog/actions';
@@ -71,11 +71,12 @@ const BlogPage = ({
   currentPost,
 }: Props) => {
   const env = process.env.NODE_ENV;
-  if (env === ENV_LIST.PROD) {
-    window.location.href = GHOST_BLOG_URL;
-    return null;
-  }
   const {post} = router.query;
+  const blogRedirect = () => {
+    window.location.href = GHOST_BLOG_URL;
+  };
+  const [shouldRedirectBlog] = useState(env === ENV_LIST.PROD && !post);
+
   console.log(blogList);
   useEffect(() => {
     if (post) {
@@ -83,6 +84,11 @@ const BlogPage = ({
     }
     getBlogList();
   }, []);
+
+  if (shouldRedirectBlog) {
+    blogRedirect();
+    return null;
+  }
 
   return (
     <Layout title={BLOG_TITLE}>

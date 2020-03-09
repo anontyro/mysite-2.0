@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Layout from '../components/_Layout/Layout';
 import Hl from '../components/util/Hl';
+import {NavLink} from '../components/_Layout/navbar/Navbar';
+import {ROUTES} from '../data/consts';
 
 const AboutPage: React.FunctionComponent = () => (
   <Layout title="About">
@@ -29,14 +31,18 @@ const AboutPage: React.FunctionComponent = () => (
       worked with <Hl>VideoJS</Hl> streaming via Brightcove.
     </h3>
     <h3 className="animated slideInLeft">
-      <Hl>The Site</Hl> I have moved from my previous Django site which worked
-      although basic and quite messy to a new design. Now I am using{' '}
-      <Hl>NextJS</Hl> for the frontend to provide a modern reactive style. All
-      my API calls are done via Apollo <Hl>GraphQL</Hl> which has helped me
-      streamline everything. My site is containerised using <Hl>Docker</Hl> to
-      provide more control over the deployment and I am working on continuous
-      delivery to provide rapid site updates. I am hosting everything on{' '}
-      <Hl>Digital Ocean</Hl> on a Ubuntu server.
+      <NavLink
+        link={`${ROUTES.BLOG}?post=my-new-site-stack`}
+        label={'The Site Stack'}
+      />
+      I have moved from my previous Django site which worked although basic and
+      quite messy to a new design. Now I am using <Hl>NextJS</Hl> for the
+      frontend to provide a modern reactive style. All my API calls are done via
+      Apollo <Hl>GraphQL</Hl> which has helped me streamline everything. My site
+      is containerised using <Hl>Docker</Hl> to provide more control over the
+      deployment and I am working on continuous delivery to provide rapid site
+      updates. I am hosting everything on <Hl>Digital Ocean</Hl> on a Ubuntu
+      server.
     </h3>
     <style jsx>{`
       h1 {
