@@ -78,7 +78,7 @@ export const fetchBlogPost = slug => {
       variables: {slug},
     }).subscribe({
       next: data => {
-        const post: GhostPost = get(data, 'data.ghostPosts.posts[0]', {});
+        const post: GhostPost = get(data, 'data.ghostPost.posts[0]', {});
         const blog: BlogState = {
           currentPost: post,
         };

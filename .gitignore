@@ -12,3 +12,4 @@ dist
 ormconfig.json
 fontawesome.css
 dockerbuild.sh
+notes.md

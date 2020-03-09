@@ -17,11 +17,17 @@
     "looking": []
   },
   "about": [{
-    "name": "about me",
+    "name": "",
     "type": "about blurb",
     "body": "In 2016 I decided to make a formal change to pursue a career in software development, taking a post-grad course on Java. I have been working in software development for close to two years and have advanced as a full stack developer picking up new technologies and delivering solid software solutions."
   }],
-  "experience": [],
+  "experience": [{
+    "company": "",
+    "title": "",
+    "scope": "",
+    "about": "",
+    "technologies": []
+  }],
   "projects": [],
   "education": [],
   "technologies": [{
