@@ -2,13 +2,10 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
     "baseUrl": ".",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -25,9 +22,7 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "paths": {
-      "*": [
-        "node_modules/"
-      ]
+      "*": ["node_modules/"]
     },
     "strict": false,
     "forceConsistentCasingInFileNames": true,
@@ -36,11 +31,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": [
-    "*.tsx",
-    "./server/*"
-  ],
-  "exclude": [
-    "./apollo/*"
-  ]
+  "include": ["*.tsx", "./server/*"],
+  "exclude": ["./apollo/*"]
 }
