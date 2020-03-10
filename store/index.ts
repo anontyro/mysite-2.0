@@ -53,14 +53,10 @@ const rootReducer = combineReducers({
   portfolio,
 });
 
-const composeEnhancers = composeWithDevTools({
-  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
-});
-
 const myStore = createStore(
   rootReducer,
   initalState,
-  composeEnhancers(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 // method of saving persistant data to the store, can be expanded upon
@@ -77,7 +73,7 @@ export const makeStore = () => {
   return createStore(
     rootReducer,
     initalState,
-    composeEnhancers(applyMiddleware(thunk))
+    composeWithDevTools(applyMiddleware(thunk))
   );
 };
 
