@@ -4,6 +4,11 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.4.1
+
+- fixed small redux store issues in develop
+- fixed typos
+
 ## Version 3.4.0
 
 - Update tests and config
