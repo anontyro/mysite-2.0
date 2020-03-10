@@ -3,8 +3,12 @@ import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import {Provider} from 'react-redux';
 import myStore, {makeStore} from '../store';
+import {Store} from 'redux';
 
-class MyApp extends App {
+interface Props {
+  store: Store;
+}
+class MyApp extends App<Props> {
   static async getInitialProps({Component, ctx}) {
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
@@ -14,9 +18,10 @@ class MyApp extends App {
   }
 
   render() {
-    const {Component, pageProps} = this.props;
+    const {Component, pageProps, store} = this.props;
+
     return (
-      <Provider store={myStore}>
+      <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
     );

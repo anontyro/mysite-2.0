@@ -4,7 +4,12 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
-## Verdion 3.4.0
+## Version 3.4.1
+
+- fixed small redux store issues in develop
+- fixed typos
+
+## Version 3.4.0
 
 - Update tests and config
 - Updated singular blog post page to better allow for getting the data from endpoint
