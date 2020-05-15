@@ -1,14 +1,14 @@
-import {Resolver, Query, Arg} from 'type-graphql';
-import * as bcrypt from 'bcryptjs';
-import User from '../../entity/User';
-import {validateToken, createNewToken} from '../../utils/authUtil';
+import { Resolver, Query, Arg } from "type-graphql";
+import * as bcrypt from "bcryptjs";
+import User from "../../entity/User";
+import { validateToken, createNewToken } from "../../utils/authUtil";
 
 @Resolver()
 export class LoginResolver {
   @Query(() => String)
   async Login(
-    @Arg('email') email: string,
-    @Arg('password') password: string
+    @Arg("email") email: string,
+    @Arg("password") password: string
   ): Promise<any> {
     const user = await User.findOne({
       where: {
@@ -16,10 +16,10 @@ export class LoginResolver {
       },
     });
     if (!user) {
-      return 'no user found with that username and password';
+      return "no user found with that username and password";
     }
-    if (!user.isActive) {
-      return 'user is not active';
+    if (!user.isActive || user.accessLevel < 1) {
+      return "user is not active";
     }
     const isValidPassword = await bcrypt.compare(password, user.password);
 
@@ -28,15 +28,15 @@ export class LoginResolver {
       return token;
     }
 
-    return 'no user found with that username and password';
+    return "no user found with that username and password";
   }
 
   @Query(() => String)
-  async CheckToken(@Arg('jwtToken') token: string) {
+  async CheckToken(@Arg("jwtToken") token: string) {
     const validatedToken = validateToken(token);
     if (validatedToken) {
       return `Token is valid for user: ${validatedToken.email}`;
     }
-    return 'token is not valid';
+    return "token is not valid";
   }
 }
