@@ -1,5 +1,5 @@
 # SETUP
-FROM node:12-alpine AS builder
+FROM node:14-alpine AS builder
 
 WORKDIR /home/node/app
 COPY . .
@@ -7,7 +7,7 @@ COPY . .
 RUN npm install && npm run docker:build
 
 # RUN IMAGE
-FROM node:10-alpine
+FROM node:14-alpine
 ENV NODE_ENV=production
 
 # SET JWT_TOKEN SECRET

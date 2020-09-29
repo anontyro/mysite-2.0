@@ -1,8 +1,7 @@
 import React from 'react';
 import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
-import {Provider} from 'react-redux';
-import myStore, {makeStore} from '../store';
+import wrapper, {makeStore} from '../store';
 import {Store} from 'redux';
 
 interface Props {
@@ -18,14 +17,10 @@ class MyApp extends App<Props> {
   }
 
   render() {
-    const {Component, pageProps, store} = this.props;
+    const {Component, pageProps} = this.props;
 
-    return (
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    );
+    return <Component {...pageProps} />;
   }
 }
-const enhancedApp = withRedux(makeStore)(MyApp);
+const enhancedApp = wrapper.withRedux(MyApp);
 export default enhancedApp;

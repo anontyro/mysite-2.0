@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import throttle from 'lodash.throttle';
 import {saveState, loadState} from '../utils/localStorage';
 import {ResumeState, resume, resumeInitialState} from './resume/reducers';
+import {MakeStore, createWrapper, Context, HYDRATE} from 'next-redux-wrapper';
 import {
   PortfolioState,
   portfolio,
@@ -77,4 +78,6 @@ export const makeStore = () => {
   );
 };
 
-export default myStore;
+const wrapper = createWrapper(makeStore, {debug: false});
+
+export default wrapper;

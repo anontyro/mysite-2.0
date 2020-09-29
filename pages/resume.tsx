@@ -46,7 +46,7 @@ const AwesomeIconInfo = ({icon, text}: AwesomeProps) => (
   </React.Fragment>
 );
 
-const calculateDiffDates = startDate => {
+const calculateDiffDates = (startDate) => {
   var ageDifMs = Date.now() - startDate;
   var timeDate = new Date(ageDifMs); // miliseconds from epoch
   return Math.abs(timeDate.getUTCFullYear() - 1970);
@@ -88,7 +88,7 @@ const ResumePage = ({getResume, resume}: Props) => {
               <AwesomeIconInfo icon={faMapPin} text={resume.location.current} />
               <AwesomeIconInfo
                 icon={faBuilding}
-                text={`${yearsExp} Years Experience`}
+                text={`${yearsExp}+ Years Experience`}
               />
               <AwesomeIconInfo
                 icon={faFileCode}
@@ -114,9 +114,20 @@ const ResumePage = ({getResume, resume}: Props) => {
                 <Hl>Some Projects:</Hl>
               </span>
               <br />
+              <Hl>Intelligent Contract Platform</Hl> Working in a more full
+              stack capacity at{' '}
+              <a href="https://chinsay.com" target="_blank">
+                Chinsay
+              </a>{' '}
+              Working largely with <Hl>.Net Core 3.1</Hl> and working to upgrade
+              the frontend from KnockoutJS to something a bit more modern.
+              <br />
+              <br />
               <Hl>Video Streaming</Hl> Working on the frontend site at{' '}
-              <a href="https://hooq.tv">HOOQ</a> using
-              <Hl>ReactJS</Hl> and Redux along with working with{' '}
+              <a href="https://hooq.tv" target="_blank">
+                HOOQ
+              </a>{' '}
+              using <Hl>ReactJS</Hl> and Redux along with working with{' '}
               <Hl>VideoJS</Hl> and using <Hl>Koa</Hl> for the backend.
               Authentication is handled with JWT 2.0 along with Cookies.
               <span className="project-break" />
@@ -127,13 +138,6 @@ const ResumePage = ({getResume, resume}: Props) => {
               Angular and VueJS frontend with full CRUD functionality along with
               intergration into other platform APIs to deliver extra
               functaionality such as emails, sms authentication and QRCodes.
-              <br />
-              <br />
-              <Hl>Dynamic graphic</Hl> web apps written in the{' '}
-              <Hl>Angular 4 </Hl>
-              framework working with <Hl>Google Charts</Hl> API to deliver fully
-              dynamic and interactive charts that allow for much more indepth
-              data analysis.
             </h3>
           </div>
         </div>
@@ -214,7 +218,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   getResume: (): any => dispatch(actions.fetchResume()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ResumePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ResumePage);

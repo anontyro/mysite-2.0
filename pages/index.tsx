@@ -36,10 +36,10 @@ export class IndexPage extends React.Component<Props, State> {
           <h3>
             Located in <Hl>Singapore</Hl> I have experience with everything from
             Android development to SCSS. I started in a more backend role with
-            Java and C# but now work more frontend largely with{' '}
-            <Hl>React JS </Hl> working with media streaming. I still enjoy
-            playing with other technologies like <Hl>Rust</Hl> and{' '}
-            <Hl>GraphQL </Hl>
+            Java and C# and spent two years working with <Hl>React JS </Hl> in
+            media streaming. Now I am working in a more full stack capacity on a{' '}
+            <Hl>Microsoft Stack</Hl>. In my freetime I enjoy playing with other
+            technologies like <Hl>Rust</Hl> and <Hl>GraphQL </Hl>
             and learning new and better ways to write code.
           </h3>
         </div>
@@ -90,7 +90,4 @@ const mapDispatchToProps = (dispatch: any): any => ({
     dispatch(portfolioActions.fetchPortfolioList(refresh)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(IndexPage);
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
