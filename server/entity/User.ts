@@ -1,5 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from 'typeorm';
-import {ObjectType, Field, ID} from 'type-graphql';
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import { ObjectType, Field, ID } from "type-graphql";
 
 export interface IUser {
   id: number;
@@ -8,6 +8,7 @@ export interface IUser {
   isActive: boolean;
   email: string;
   password: string;
+  accessLevel: number;
 }
 @ObjectType()
 @Entity()
@@ -29,9 +30,13 @@ export default class User extends BaseEntity {
   isActive: boolean;
 
   @Field()
-  @Column({unique: true})
+  @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
+
+  @Field({ nullable: true })
+  @Column("int", { nullable: true })
+  accessLevel: number;
 }
