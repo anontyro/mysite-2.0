@@ -4,6 +4,13 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.5.0
+
+- updated dependancies
+- node to version 14.4.0
+- updated text in resume and landing page
+- updated docker build
+
 ## Version 3.4.1
 
 - fixed small redux store issues in develop
