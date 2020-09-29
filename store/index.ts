@@ -14,9 +14,6 @@ import {
   portfolioInitialState,
 } from './portfolio/reducers';
 
-require('dotenv').config();
-const isDev = process.env.NODE_ENV !== 'production';
-
 export interface AppState {
   user: UserState;
   blog: BlogState;
@@ -81,6 +78,6 @@ export const makeStore = () => {
   );
 };
 
-const wrapper = createWrapper(makeStore, {debug: isDev});
+const wrapper = createWrapper(makeStore, {debug: false});
 
 export default wrapper;
