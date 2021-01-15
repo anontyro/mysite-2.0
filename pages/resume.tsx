@@ -119,8 +119,10 @@ const ResumePage = ({getResume, resume}: Props) => {
               <a href="https://chinsay.com" target="_blank">
                 Chinsay
               </a>{' '}
-              Working largely with <Hl>.Net Core 3.1</Hl> and working to upgrade
-              the frontend from KnockoutJS to something a bit more modern.
+              Working largely with <Hl>.Net Core 3.1</Hl> in a more full stack
+              capacity creating RESTful APIs and more <Hl>SQL</Hl> work. One of
+              the bigger areas I am working on is to upgrade the frontend from
+              KnockoutJS to something a bit more modern.
               <br />
               <br />
               <Hl>Video Streaming</Hl> Working on the frontend site at{' '}
@@ -138,6 +140,12 @@ const ResumePage = ({getResume, resume}: Props) => {
               Angular and VueJS frontend with full CRUD functionality along with
               intergration into other platform APIs to deliver extra
               functaionality such as emails, sms authentication and QRCodes.
+              <br />
+              <br />
+              <Hl>Electron App</Hl> with React and Redux to create a new app to
+              help educators have an easier job. This a project I am doing in my
+              free time and covers a lot of interesting technologies and keeps
+              providing me with great learning experiences
             </h3>
           </div>
         </div>

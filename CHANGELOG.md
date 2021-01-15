@@ -4,6 +4,12 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.6.0
+
+- updating static text
+- updated resume
+- small updates for 2021
+
 ## Version 3.5.0
 
 - updated dependancies
@@ -58,7 +64,7 @@ the same as the old site. Everything is generally good to go.
 - About page is also completed
 - Statics imported correctly
 
-## Nightly 0.1.0
+## PreRelease 0.1.0
 
 Big package update updating everything, now using next 9 and require extra clean up to remove old settings for next 7. Working on getting the first release ready to be launched at the end of the week
 
@@ -69,7 +75,7 @@ Big package update updating everything, now using next 9 and require extra clean
   - Blog now redirects to blog.alexwilkinson.co
   - other fixes
 
-## Nightly 0.0.3
+## PreRelease 0.0.3
 
 Updated frontend more, but will need restructuring as using GhostJS for blog and will bring in GitHub API for porfolio.
 
@@ -77,7 +83,7 @@ Updated frontend more, but will need restructuring as using GhostJS for blog and
 - XKCD API endpoints for random comic
 - GhostJS endpoints added for content
 
-## Nightly 0.0.2
+## PreRelease 0.0.2
 
 Updated inital build to have the basic frontend in place and building
 out a more robust backend with graphql
@@ -86,7 +92,7 @@ out a more robust backend with graphql
 - General frontend shell is in place
 - First external API added to the backend XKCD
 
-## Nightly 0.0.1
+## PreRelease 0.0.1
 
 Initial Build created and dockerised to allow for access to the graphql backend due to limitations in working in local host.
 
