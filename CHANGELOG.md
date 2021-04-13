@@ -4,6 +4,11 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.6.1
+
+- small updates increasing version
+- fixed small issues in the site
+
 ## Version 3.6.0
 
 - updating static text
