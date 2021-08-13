@@ -42,7 +42,7 @@
     "lodash.throttle": "^4.1.1",
     "moment": "^2.29.0",
     "mysql": "^2.18.1",
-    "next": "9.5.3",
+    "next": "11.1.0",
     "next-apollo": "^5.0.0",
     "next-redux-wrapper": "^6.0.2",
     "punkapi-lib": "^2.5.0",
