@@ -1,27 +1,27 @@
-import React, {useEffect} from 'react';
-import get from 'lodash.get';
-import {connect} from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, { useEffect } from "react";
+import get from "lodash.get";
+import { connect } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapPin,
   faBuilding,
   faFileCode,
   faCode,
   IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 
-import Layout from '../components/_Layout/Layout';
-import * as actions from '../store/resume/actions';
-import {ResumeState} from '../store/resume/reducers';
-import Hl from '../components/util/Hl';
-import IsLoading from '../components/util/IsLoading';
+import Layout from "../components/_Layout/Layout";
+import * as actions from "../store/resume/actions";
+import { ResumeState } from "../store/resume/reducers";
+import Hl from "../components/util/Hl";
+import IsLoading from "../components/util/IsLoading";
 
 interface AwesomeProps {
   icon: IconDefinition;
   text: string;
 }
 
-const AwesomeIconInfo = ({icon, text}: AwesomeProps) => (
+const AwesomeIconInfo = ({ icon, text }: AwesomeProps) => (
   <React.Fragment>
     <div className="main-container">
       <div className="awesome-icon">
@@ -57,8 +57,8 @@ interface Props {
   resume: ResumeState;
 }
 
-const ResumePage = ({getResume, resume}: Props) => {
-  const startDate = get(resume, 'personal.expStartDate', Date.now());
+const ResumePage = ({ getResume, resume }: Props) => {
+  const startDate = get(resume, "personal.expStartDate", Date.now());
   const START_WORK = new Date(startDate);
   const yearsExp = calculateDiffDates(START_WORK);
   useEffect(() => {
@@ -78,7 +78,7 @@ const ResumePage = ({getResume, resume}: Props) => {
               />
               <a
                 className="resume-btn"
-                href="/static/docs/resume.pdf"
+                href="https://www.canva.com/design/DAEqUrSoKCQ/NxWHW6VzzWHPDDl_vcwKAw/view?utm_content=DAEqUrSoKCQ&utm_campaign=designshare&utm_medium=link2&utm_source=homepage_design_menu"
                 target="blank"
               >
                 Resume
@@ -102,7 +102,7 @@ const ResumePage = ({getResume, resume}: Props) => {
           </div>
           <div className="resume-main">
             <h3 className="animated bounceInDown">
-              Hi I'm <Hl>Alex</Hl> I've been working as a developer since{' '}
+              Hi I'm <Hl>Alex</Hl> I've been working as a developer since{" "}
               <Hl>2016</Hl> and I have covered many interesting technologies
               such as <Hl>React</Hl>, Angular, VueJS, Python, <Hl>C#</Hl>, Rust
               both in work and during my free time. I enjoy learning and reading
@@ -115,27 +115,27 @@ const ResumePage = ({getResume, resume}: Props) => {
               </span>
               <br />
               <Hl>Intelligent Contract Platform</Hl> Working in a more full
-              stack capacity at{' '}
+              stack capacity at{" "}
               <a href="https://chinsay.com" target="_blank">
                 Chinsay
-              </a>{' '}
+              </a>{" "}
               Working largely with <Hl>.Net Core 3.1</Hl> in a more full stack
               capacity creating RESTful APIs and more <Hl>SQL</Hl> work. One of
               the bigger areas I am working on is to upgrade the frontend from
               KnockoutJS to something a bit more modern.
               <br />
               <br />
-              <Hl>Video Streaming</Hl> Working on the frontend site at{' '}
+              <Hl>Video Streaming</Hl> Working on the frontend site at{" "}
               <a href="https://hooq.tv" target="_blank">
                 HOOQ
-              </a>{' '}
-              using <Hl>ReactJS</Hl> and Redux along with working with{' '}
+              </a>{" "}
+              using <Hl>ReactJS</Hl> and Redux along with working with{" "}
               <Hl>VideoJS</Hl> and using <Hl>Koa</Hl> for the backend.
               Authentication is handled with JWT 2.0 along with Cookies.
               <span className="project-break" />
               <br />
               <br />
-              <Hl>RESTful API</Hl> on a Microsoft stack written in{' '}
+              <Hl>RESTful API</Hl> on a Microsoft stack written in{" "}
               <Hl>ASP.NET Core 2</Hl> using JWTs for security talking to a
               Angular and VueJS frontend with full CRUD functionality along with
               intergration into other platform APIs to deliver extra
@@ -218,7 +218,7 @@ const ResumePage = ({getResume, resume}: Props) => {
   );
 };
 
-const mapStateToProps = ({resume}: any) => ({
+const mapStateToProps = ({ resume }: any) => ({
   resume: resume,
 });
 

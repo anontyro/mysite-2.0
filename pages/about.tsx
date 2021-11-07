@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Layout from '../components/_Layout/Layout';
-import Hl from '../components/util/Hl';
-import {NavLink} from '../components/_Layout/navbar/Navbar';
-import {ROUTES} from '../data/consts';
+import * as React from "react";
+import Layout from "../components/_Layout/Layout";
+import Hl from "../components/util/Hl";
+import { NavLink } from "../components/_Layout/navbar/Navbar";
+import { ROUTES } from "../data/consts";
 
 const AboutPage: React.FunctionComponent = () => (
   <Layout title="About">
@@ -14,13 +14,18 @@ const AboutPage: React.FunctionComponent = () => (
       teaching myself <Hl>Java</Hl> initally. I decided to later formalise my
       learning by completing a post-grad course from Manchester University (UK)
       Introduction to software Development in <Hl>Java</Hl>. Next I worked with
-      Android, Python and C# before moving more into the realm of{' '}
+      Android, Python and C# before moving more into the realm of{" "}
       <Hl>JavaScript</Hl> Working with Angular JS before moving into Angular 2
       and TypeScript. Now I spend most of my time with full stack on a Microsoft
       stack using
       <Hl>.Net Core</Hl> and helping migrate the frontend to something more
-      modern. In my free time I am spending most of my time with{' '}
+      modern. In my free time I am spending most of my time with{" "}
       <Hl>Electron</Hl> and <Hl>Rust</Hl>.
+      <br />
+      <br />I have a strong understanding across the stack and technologies
+      used, although I would say I am at heart a{" "}
+      <Hl>Frontend focused JavaScript Developer</Hl> who enjoys pushing myself
+      to improve and learn new areas.
     </h3>
     <h3 className="animated slideInRight">
       <Hl>Work</Hl> I am currently working in <Hl>Singapore</Hl> I am front end
@@ -29,11 +34,18 @@ const AboutPage: React.FunctionComponent = () => (
       wider exposure to <Hl>C#</Hl> work with APIs along with much more hands on
       with <Hl>SQL</Hl> allowing me to better understand the impact of front end
       changes to the system.
+      <br />
+      <br />I am currently working as a <Hl>Tech lead</Hl> which has provided me
+      with a lot of new and interesting challenges that have required me to
+      improve much more in my skillset outside of just coding. I have been
+      helped by a great team that have created a great environment for us to
+      develop and build awesome products. Along with an awesome manager who
+      continues to push me and help me grow.
     </h3>
     <h3 className="animated slideInLeft">
       <NavLink
         link={`${ROUTES.BLOG}?post=my-new-site-stack`}
-        label={'The Site Stack'}
+        label={"The Site Stack"}
       />
       I have moved from my previous Django site which worked although basic and
       quite messy to a new design. Now I am using <Hl>NextJS</Hl> for the

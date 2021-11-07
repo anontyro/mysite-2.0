@@ -4,6 +4,17 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.7.0
+
+- updated resume to use Canva link instead
+- updated version in package.json
+- updated about
+- minor tweaks to index
+
+## Version 3.6.2
+
+- added nestJS certification to the backend
+
 ## Version 3.6.1
 
 - small updates increasing version
