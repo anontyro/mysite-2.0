@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Head from 'next/head';
+import * as React from "react";
+import Head from "next/head";
 
 type Props = {
   title?: string;
   displayImg?: boolean;
 };
 
-const bgColor = 'rgb(41, 41, 41)';
+const bgColor = "rgb(41, 41, 41)";
 
 const bgImage = `
 background-image: url(/static/images/background/my-main-bg.jpg);
@@ -16,19 +16,38 @@ background-attachment: fixed;
 `;
 
 const setTitle = (pageTitle: String | null): String => {
-  const siteTitle = 'Alex Wilkinson';
+  const siteTitle = "Alex Wilkinson";
   if (pageTitle) {
     return `${siteTitle} | ${pageTitle}`;
   }
   return siteTitle;
 };
 
-const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
+const setUrl = (name: string | null): string => {
+  const url = `https://alexwilkinson.co/`;
+  if (name) {
+    return `${url}${name.toLocaleLowerCase().replace(" ", "-")}`;
+  }
+  return url;
+};
+
+const Meta: React.FunctionComponent<Props> = ({
+  title,
+  displayImg = false,
+}) => (
   <React.Fragment>
     <Head>
       <title>{setTitle(title)}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta
+        property="og:description"
+        content="A Frontent focused developer working to put users first"
+      />
+      <meta property="og:image" content="/static/images/myPicture.jpg" />
+      <meta property="og:title" content={`${setTitle(title)}`} />
+      <meta property="og:locale" content="en_GB" />
+      <meta property="og:url" content={`${setUrl(title)}`} />
       <link
         href="https://fonts.googleapis.com/css?family=Pacifico"
         rel="stylesheet"
@@ -63,13 +82,13 @@ const Meta: React.FunctionComponent<Props> = ({title, displayImg = false}) => (
       h1 {
         font-size: 36px;
         font-weight: 500;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height: 1.1;
       }
       h3 {
         font-size: 24px;
         font-weight: 500;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         line-height: 1.1;
       }
     `}</style>

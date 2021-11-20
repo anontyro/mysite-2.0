@@ -4,6 +4,10 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.8.0
+
+- updating sites meta data to better link the site
+
 ## Version 3.7.0
 
 - updated resume to use Canva link instead
