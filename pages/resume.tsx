@@ -8,6 +8,7 @@ import {
   faFileCode,
   faCode,
   IconDefinition,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Layout from "../components/_Layout/Layout";
@@ -76,13 +77,22 @@ const ResumePage = ({ getResume, resume }: Props) => {
                 className="resume-img"
                 alt="my photo"
               />
-              <a
-                className="resume-btn"
-                href="https://www.canva.com/design/DAEqUrSoKCQ/NxWHW6VzzWHPDDl_vcwKAw/view?utm_content=DAEqUrSoKCQ&utm_campaign=designshare&utm_medium=link2&utm_source=homepage_design_menu"
-                target="blank"
-              >
-                Resume
-              </a>
+              <div className="resume-btn-container">
+                <a
+                  className="resume-btn"
+                  href="https://www.canva.com/design/DAEqUrSoKCQ/NxWHW6VzzWHPDDl_vcwKAw/view?utm_content=DAEqUrSoKCQ&utm_campaign=designshare&utm_medium=link2&utm_source=homepage_design_menu"
+                  target="blank"
+                >
+                  Resume
+                </a>
+                <a
+                  className="resume-download-btn"
+                  href="/static/docs/alex-wilkinson-resume.pdf"
+                  target="blank"
+                >
+                  <FontAwesomeIcon icon={faDownload} />
+                </a>
+              </div>
             </div>
             <div className="resume-quick-info">
               <AwesomeIconInfo icon={faMapPin} text={resume.location.current} />
@@ -176,12 +186,33 @@ const ResumePage = ({ getResume, resume }: Props) => {
             height: 200px;
             width: 100%;
           }
-          .resume-img-container .resume-btn {
+          .resume-img-container .resume-btn-container {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+          }
+
+          .resume-img-container .resume-btn-container .resume-download-btn {
+            display: flex;
+            width: 22%;
+            padding: 0 5px;
+            flex-grow: 0;
+            border: 1px solid #4e6096;
+            border-left: 0;
+            background-color: #d8d8d8;
+          }
+
+          .resume-img-container .resume-btn-container .resume-btn {
             width: 100%;
             box-sizing: border-box;
             background-color: #4196ea;
             border: 1px solid #4e6096;
-            display: inline-block;
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
             cursor: pointer;
             color: #ffffff;
             font-family: Arial;
@@ -190,11 +221,9 @@ const ResumePage = ({ getResume, resume }: Props) => {
             text-decoration: none;
             text-align: center;
             text-shadow: -1px 1px 2px #283966;
-            position: absolute;
-            bottom: 0;
-            left: 0;
           }
-          .resume-img-container .resume-btn:hover {
+          .resume-img-container .resume-btn-container .resume-btn:hover {
+            width: 100%;
             background-color: #3e454f;
             color: #ffffff;
           }

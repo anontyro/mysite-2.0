@@ -4,6 +4,11 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.9.0
+
+- adding in new resume to download as well
+- adding in ability to give anonymous feedback
+
 ## Version 3.8.0
 
 - updating sites meta data to better link the site
