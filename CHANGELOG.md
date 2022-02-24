@@ -4,6 +4,10 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.9.1
+
+- fixed bug in Safari with resume buttons
+
 ## Version 3.9.0
 
 - adding in new resume to download as well

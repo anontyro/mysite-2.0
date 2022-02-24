@@ -90,7 +90,9 @@ const ResumePage = ({ getResume, resume }: Props) => {
                   href="/static/docs/alex-wilkinson-resume.pdf"
                   target="blank"
                 >
-                  <FontAwesomeIcon icon={faDownload} />
+                  <div className="awesome-icon resume-download-icon">
+                    <FontAwesomeIcon icon={faDownload} />
+                  </div>
                 </a>
               </div>
             </div>
@@ -193,6 +195,7 @@ const ResumePage = ({ getResume, resume }: Props) => {
             bottom: 0;
             left: 0;
             width: 100%;
+            max-height: 50px;
           }
 
           .resume-img-container .resume-btn-container .resume-download-btn {
@@ -203,6 +206,12 @@ const ResumePage = ({ getResume, resume }: Props) => {
             border: 1px solid #4e6096;
             border-left: 0;
             background-color: #d8d8d8;
+          }
+
+          .awesome-icon.resume-download-icon {
+            width: 100%;
+            display: block;
+            margin: auto;
           }
 
           .resume-img-container .resume-btn-container .resume-btn {
