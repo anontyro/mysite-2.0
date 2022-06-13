@@ -4,6 +4,11 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.10.0
+
+- added in card page
+- refactored social media links
+
 ## Version 3.9.1
 
 - fixed bug in Safari with resume buttons

@@ -1,15 +1,16 @@
-import * as React from 'react';
-import css from 'styled-jsx/css';
-import packageJson from '../../package.json';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import * as React from "react";
+import css from "styled-jsx/css";
+import packageJson from "../../package.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookSquare,
   faLinkedin,
   faGithubSquare,
   faTwitterSquare,
-} from '@fortawesome/free-brands-svg-icons';
-import {NavLink} from './navbar/Navbar';
-import {ROUTES} from '../../data/consts';
+} from "@fortawesome/free-brands-svg-icons";
+import { NavLink } from "./navbar/Navbar";
+import { ROUTES } from "../../data/consts";
+import SocialLinks from "./navbar/SocialLinks";
 
 const linkStyle = css`
   a {
@@ -19,7 +20,7 @@ const linkStyle = css`
     text-decoration: none;
     flex-grow: 0;
     padding-right: 15px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   a:hover {
     color: #4196ea;
@@ -35,43 +36,14 @@ const currentYear = () => {
 };
 
 const externalLink = (url: string) => {
-  window.open(url, '_blank');
+  window.open(url, "_blank");
 };
 
 const Footer = ({}) => {
   return (
     <React.Fragment>
       <footer>
-        <div className="socials">
-          <div
-            onClick={() =>
-              externalLink('https://www.facebook.com/AWILKINSON.SG')
-            }
-            className="socialIcon"
-          >
-            <FontAwesomeIcon icon={faFacebookSquare} />
-          </div>
-          <div
-            onClick={() =>
-              externalLink('https://www.linkedin.com/in/wilkinsonalexander')
-            }
-            className="socialIcon"
-          >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </div>
-          <div
-            onClick={() => externalLink('https://github.com/anontyro')}
-            className="socialIcon"
-          >
-            <FontAwesomeIcon icon={faGithubSquare} />
-          </div>
-          <div
-            onClick={() => externalLink('https://twitter.com/alexwilkinson')}
-            className="socialIcon"
-          >
-            <FontAwesomeIcon icon={faTwitterSquare} />
-          </div>
-        </div>
+        <SocialLinks />
         <p>{`All rights reserved Alex Wilkinson ${currentYear()} ©`}</p>
         <p>
           <NavLink
