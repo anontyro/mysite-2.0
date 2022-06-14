@@ -5,7 +5,17 @@ import { brandDesign } from "../data/typo";
 import SocialLinks from "../components/_Layout/navbar/SocialLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt } from "@fortawesome/free-solid-svg-icons";
+
 const CardPage: React.FunctionComponent = () => {
+  const [isCardFront, setIsCardFront] = React.useState<boolean>(true);
+
+  const handleRotate = () => {
+    const innerEle =
+      document.querySelector<HTMLElement>(".b-card-inner") ?? new HTMLElement();
+    innerEle.style.transform = `rotateY(${isCardFront ? "180" : "360"}deg)`;
+    setIsCardFront(!isCardFront);
+  };
+
   return (
     <Layout title="Business Card" showFooter={false} showNavBar={false}>
       <h1>
@@ -54,9 +64,15 @@ const CardPage: React.FunctionComponent = () => {
             </div>
           </div>
         </div>
+        <div className="flip-container-container" onClick={handleRotate}>
+          <span className="flip-text">Flip</span>
+        </div>
       </div>
       <style jsx>
         {`
+          .flip-container-container {
+            display: none;
+          }
           .awesome-icon {
             font-size: 30px;
             width: 20px;
@@ -68,6 +84,7 @@ const CardPage: React.FunctionComponent = () => {
             margin: 10px 0;
           }
           .card-content-container {
+            position: relative;
             justify-content: center;
             display: flex;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -151,6 +168,38 @@ const CardPage: React.FunctionComponent = () => {
           }
           .my-email > span {
             margin-left: 5px;
+          }
+          @media only screen and (max-width: 600px) {
+            .b-card {
+              width: 90%;
+              height: auto;
+            }
+            .b-card-front {
+              flex-direction: column;
+            }
+            .b-card-front > img {
+              height: 250px;
+            }
+            .card-content-container {
+              height: 435px;
+            }
+            .flip-container-container {
+              display: initial;
+              position: absolute;
+              top: 0;
+              right: 15px;
+              color: white;
+              border-top: 60px solid #0e96f0;
+              border-left: 60px solid transparent;
+              cursor: pointer;
+            }
+            .flip-text {
+              position: absolute;
+              top: -55px;
+              left: -25px;
+              transform: rotate(45deg);
+              font-size: 1rem;
+            }
           }
         `}
       </style>
