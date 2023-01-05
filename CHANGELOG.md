@@ -4,6 +4,12 @@ Changes will be documented here generally around release items using symantic ve
 
 ## Unreleased
 
+## Version 3.11.0
+
+- updated resume
+- updated location information to UK
+- updated text to be more accurate
+
 ## Version 3.10.0
 
 - added in card page

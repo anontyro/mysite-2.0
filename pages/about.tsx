@@ -19,8 +19,7 @@ const AboutPage: React.FunctionComponent = () => (
       and TypeScript. Now I spend most of my time with full stack on a Microsoft
       stack using
       <Hl>.Net Core</Hl> and helping migrate the frontend to something more
-      modern. In my free time I am spending most of my time with{" "}
-      <Hl>Electron</Hl> and <Hl>Rust</Hl>.
+      modern.
       <br />
       <br />I have a strong understanding across the stack and technologies
       used, although I would say I am at heart a{" "}
@@ -28,18 +27,15 @@ const AboutPage: React.FunctionComponent = () => (
       to improve and learn new areas.
     </h3>
     <h3 className="animated slideInRight">
-      <Hl>Work</Hl> I am currently working in <Hl>Singapore</Hl> I am front end
-      focused with and emphasise on useability, although I am working more
-      across the stack in a more end to end ability this time around giving me
-      wider exposure to <Hl>C#</Hl> work with APIs along with much more hands on
-      with <Hl>SQL</Hl> allowing me to better understand the impact of front end
-      changes to the system.
+      <Hl>Work</Hl> I am currently working in <Hl>The United Kingdom</Hl> I am
+      front end focused with and emphasise on useability, I am once again
+      working much more on the frontend working back with <Hl>React</Hl> again,
+      but also with additional work on the backend side aswell contributing to{" "}
+      <Hl>NestJs</Hl> services.
       <br />
-      <br />I am currently working as a <Hl>Tech lead</Hl> which has provided me
-      with a lot of new and interesting challenges that have required me to
-      improve much more in my skillset outside of just coding. I have been
-      helped by a great team that have created a great environment for us to
-      develop and build awesome products. Along with an awesome manager who
+      <br />I am currently working as a <Hl>Senior Engineer</Hl> which has
+      provided me with a lot of new and interesting challenges in an industry,
+      travel, that is close to my hearrt. Along with an awesome manager who
       continues to push me and help me grow.
     </h3>
     <h3 className="animated slideInLeft">
